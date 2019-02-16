@@ -106,7 +106,7 @@
     </header>
     <p class="post-meta text-center">
         Kali-Team 发表于
-        <time datetime="2019-02-16T04:13:41.937Z">2019-02-16</time>
+        <time datetime="2019-02-16T04:23:23.273Z">2019-02-16</time>
     </p>
     <div class="post-content">
         <h2 id="安装Anaconda后Vim插件YouCompleteMe报错"><a href="#安装Anaconda后Vim插件YouCompleteMe报错" class="headerlink" title="安装Anaconda后Vim插件YouCompleteMe报错"></a>安装Anaconda后Vim插件YouCompleteMe报错</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YouCompleteMe unavailable: /opt/anaconda/lib/python3<span class="number">.7</span>/lib-dynload/_posixsubprocess.cpython<span class="number">-37</span>m-x86_64-linux-gnu.so: undefined symbol: _Py_write_noraise</span><br></pre></td></tr></table></figure>
@@ -116,6 +116,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排除anaconda环境再打开VIM</span></span><br><span class="line"><span class="comment"># alias vim='PATH=`echo $PATH | sed "s/\/opt\/anaconda\/bin://"` vim'</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="Wireshark免Root"><a href="#Wireshark免Root" class="headerlink" title="Wireshark免Root"></a>Wireshark免Root</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd wireshark</span><br><span class="line">sudo usermod -a -G wireshark kali-team</span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap</span><br><span class="line">sudo chmod 750 /usr/bin/dumpcap</span><br><span class="line">sudo <span class="built_in">setcap</span> cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap</span><br></pre></td></tr></table></figure>
+<h2 id="ssh密钥权限问题"><a href="#ssh密钥权限问题" class="headerlink" title="ssh密钥权限问题"></a>ssh密钥权限问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Bad owner or permissions on /home/kali-team/.ssh/config</span><br><span class="line"></span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0664 <span class="keyword">for</span> <span class="string">'/home/kali-team/.ssh/id_rsa'</span> are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key <span class="string">"/home/kali-team/.ssh/id_rsa"</span>: bad permissions</span><br><span class="line">root@localhost: Permission denied (publickey).</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 ~/.ssh/config</span><br><span class="line">chown <span class="variable">$USER</span> ~/.ssh/config</span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 
     </div>
     <p class="post-meta">
@@ -141,20 +146,16 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="/2019/02/16/XSS收集/">
-            
-                XSS收集
-            
-        </a>
+        <a href="javascript: void(0);">没有上一篇了</a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br>
-        <a href="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/">
+        <a href="/2019/02/16/XSS收集/">
             
-                Genymotion设置代理至BurpSuite和Charles
+                XSS收集
             
         </a>
     </span>
@@ -251,12 +252,12 @@
 <ul class="widget-bd">
     
     <li>
-        <a href="/categories/Arch/">Arch</a>
+        <a href="/categories/工具/">工具</a>
         <span class="badge">(1)</span>
     </li>
     
     <li>
-        <a href="/categories/工具/">工具</a>
+        <a href="/categories/Arch/">Arch</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -279,9 +280,9 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
-  
     <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
   
     <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
   
