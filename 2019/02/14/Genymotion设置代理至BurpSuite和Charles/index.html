@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Genymotion设置代理至BurpSuite和Charles | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Genymotion设置代理至BurpSuite和Charles</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2019-02-13T16:24:03.000Z">2019-02-14</time>
+    </p>
+    <div class="post-content">
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
+<li><p>Genymotion</p>
+</li>
+<li><p>VirtualBox</p>
+</li>
+<li>BurpSuite</li>
+<li>Charles</li>
+</ol>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><a id="more"></a>
+<ol>
+<li>怎么下载安装就不用说了，因为genymotion要依赖VirtualBox，所以要先把VirtualBox装好。注册好genymotion的账号，SDK选默认的，网络设置先不要动，安装Android的镜像，开机！</li>
+</ol>
+<h2 id="设置Android代理"><a href="#设置Android代理" class="headerlink" title="设置Android代理"></a>设置Android代理</h2><ol>
+<li>进入Android系统里面，打开设置-WiFi-鼠标按住WiredSSID两秒-点Modify network</li>
+<li>把高级选项勾上，Proxy选Manual，Proxy hostname填你使用VirtualBox的那张网卡的IP，端口就是你代理工具监听的端口，默认8080。</li>
+</ol>
+<h2 id="设置BurpSuite代理"><a href="#设置BurpSuite代理" class="headerlink" title="设置BurpSuite代理"></a>设置BurpSuite代理</h2><ol>
+<li>在Proxy-Option的Proxy Listeners下面点Add添加一个监听服务，IP填VirtualBox的那张网卡的IP，端口填你上面设置的端口。</li>
+<li>在Android打开任意网站测试流量是否通过了代理工具。</li>
+</ol>
+<h2 id="添加SSL证书支持"><a href="#添加SSL证书支持" class="headerlink" title="添加SSL证书支持"></a>添加SSL证书支持</h2><ol>
+<li>如果在Android上访问https协议的网页会一直弹出提示证书不安全。so</li>
+<li>先在BurpSuite导出CA证书，在BurpSuite刚刚添加代理服务的下面点击Import/export CA certificate，在导出DER格式的证书，下一步，保存到后缀名为cer的文件，拖到Android里，或者直接在Android的浏览器上输入<a href="http://burp/下载CA证书到Android本地，不过下载完要改后缀名为cer。" target="_blank" rel="noopener">http://burp/下载CA证书到Android本地，不过下载完要改后缀名为cer。</a></li>
+<li>在Android里打开设置，点击（Security）安全，（Install from SD card）从SD卡里安装证书，打开刚才拖进的文件随便起一个名字就可以了，再设置一个密码，要不要在任务通知栏显示看自己喜欢。</li>
+<li>现在在去抓https协议就不会弹框警告了，当然也可以抓到APP的，QQ和微信加密过的就别想了。</li>
+</ol>
+<h2 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h2><ol>
+<li>设置在菜单里找</li>
+<li>证书在菜单帮助</li>
+</ol>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/工具/">工具</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/Genymotion/" title="Genymotion">Genymotion</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2019/02/16/Arch各种问题解决方法/">
+            
+                Arch各种问题解决方法
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/10/30/Write-up-Toppo/">
+            
+                Write-up-Toppo
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Genymotion设置代理至BurpSuite和Charles' || '2019/02/14/Genymotion设置代理至BurpSuite和Charles/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

