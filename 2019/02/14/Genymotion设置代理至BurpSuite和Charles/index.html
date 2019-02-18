@@ -132,13 +132,13 @@
 </ol>
 <h2 id="添加SSL证书支持"><a href="#添加SSL证书支持" class="headerlink" title="添加SSL证书支持"></a>添加SSL证书支持</h2><ol>
 <li>如果在Android上访问https协议的网页会一直弹出提示证书不安全。so</li>
-<li>先在BurpSuite导出CA证书，在BurpSuite刚刚添加代理服务的下面点击Import/export CA certificate，在导出DER格式的证书，下一步，保存到后缀名为cer的文件，拖到Android里，或者直接在Android的浏览器上输入<a href="http://burp/" target="_blank" rel="noopener">http://burp/</a> 下载CA证书到Android本地，不过下载完要改后缀名为<strong>CER</strong>或者<strong>CRT</strong>。</li>
+<li>先在BurpSuite导出CA证书，在BurpSuite刚刚添加代理服务的下面点击Import/export CA certificate，在导出DER格式的证书，下一步，保存到后缀名为cer的文件，拖到Android里，或者直接在Android的浏览器上输入<code>http://burp/</code>下载CA证书到Android本地，不过下载完要改后缀名为<strong>CER</strong>或者<strong>CRT</strong>。</li>
 <li>在Android里打开设置，点击（Security）安全，（Install from SD card）从SD卡里安装证书，打开刚才拖进的文件随便起一个名字就可以了，再设置一个密码，要不要在任务通知栏显示看自己喜欢。</li>
 <li>现在在去抓https协议就不会弹框警告了，当然也可以抓到APP的。</li>
 </ol>
 <h2 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h2><ol>
-<li>设置在菜单里找</li>
-<li>证书在菜单帮助</li>
+<li>设置在菜单Help里找到SSL Proxying –&gt;Save Charles Root Certificate,文件格式选<strong>CER</strong>。安装到Android，在Charles里选中HOST右键单击Enable SSl Proxying，就可以抓这个网站了。</li>
+<li>或者点菜单上面的那个使用远程安装证书，浏览器打开<code>http://chls.pro/ssl</code></li>
 </ol>
 
     </div>
@@ -307,15 +307,15 @@
   
     <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
   
-    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
-  
     <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
   
-    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
   
     <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
   
     <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
   
     <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
   
