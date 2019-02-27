@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>我的Linux软件目录 | Kali-Team</title>
+    <title>Arch各种问题解决方法 | Kali-Team</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
     <meta name="description" content="Kali-Team">
@@ -46,19 +46,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2018/09/13/我的Linux软件目录/index.html" class="item ">
+            <li rel="/2019/02/26/Arch各种问题解决方法/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/2018/09/13/我的Linux软件目录/index.html" class="item ">
+            <li rel="/2019/02/26/Arch各种问题解决方法/index.html" class="item ">
                 <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/2018/09/13/我的Linux软件目录/index.html" class="item ">
+            <li rel="/2019/02/26/Arch各种问题解决方法/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/2018/09/13/我的Linux软件目录/index.html" class="item ">
+            <li rel="/2019/02/26/Arch各种问题解决方法/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -102,98 +102,40 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>我的Linux软件目录</span></h3>
+        <h3 class="post-title"><span>Arch各种问题解决方法</span></h3>
     </header>
     <p class="post-meta text-center">
         Kali-Team 发表于
-        <time datetime="2018-09-13T12:11:18.000Z">2018-09-13</time>
+        <time datetime="2019-02-26T11:03:24.930Z">2019-02-26</time>
     </p>
     <div class="post-content">
-        <h3 id="远程桌面类的"><a href="#远程桌面类的" class="headerlink" title="远程桌面类的"></a>远程桌面类的</h3><ul>
-<li>远程桌面查看器，vinagre：支持多种协议</li>
-<li>Remmina：这个也不错</li>
-<li>TeamView：有时会用到</li>
+        <h2 id="安装Anaconda后Vim插件YouCompleteMe报错"><a href="#安装Anaconda后Vim插件YouCompleteMe报错" class="headerlink" title="安装Anaconda后Vim插件YouCompleteMe报错"></a>安装Anaconda后Vim插件YouCompleteMe报错</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YouCompleteMe unavailable: /opt/anaconda/lib/python3<span class="number">.7</span>/lib-dynload/_posixsubprocess.cpython<span class="number">-37</span>m-x86_64-linux-gnu.so: undefined symbol: _Py_write_noraise</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法，在.zshrc添加</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排除anaconda环境再打开VIM</span></span><br><span class="line"><span class="comment"># alias vim='PATH=`echo $PATH | sed "s/\/opt\/anaconda\/bin://"` vim'</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><ul>
-<li>Tilix：不知道为什么选这个终端，因为可以设置背景图片。</li>
-<li>zsh：加上Oh-My-Zsh</li>
+<h2 id="Wireshark免Root"><a href="#Wireshark免Root" class="headerlink" title="Wireshark免Root"></a>Wireshark免Root</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd wireshark</span><br><span class="line">sudo usermod -a -G wireshark kali-team</span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap</span><br><span class="line">sudo chmod 750 /usr/bin/dumpcap</span><br><span class="line">sudo <span class="built_in">setcap</span> cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap</span><br></pre></td></tr></table></figure>
+<h2 id="ssh密钥权限问题"><a href="#ssh密钥权限问题" class="headerlink" title="ssh密钥权限问题"></a>ssh密钥权限问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Bad owner or permissions on /home/kali-team/.ssh/config</span><br><span class="line"></span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0664 <span class="keyword">for</span> <span class="string">'/home/kali-team/.ssh/id_rsa'</span> are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key <span class="string">"/home/kali-team/.ssh/id_rsa"</span>: bad permissions</span><br><span class="line">root@localhost: Permission denied (publickey).</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法：</li>
 </ul>
-<h3 id="效率工具"><a href="#效率工具" class="headerlink" title="效率工具"></a>效率工具</h3><ul>
-<li>主菜单，alacarte：一个可以创建快捷方式的工具</li>
-<li>Evolution：收发邮件，日程表。</li>
-<li>Vim：神级编辑器</li>
-<li>Zeal：开发文档，可以快速搜索，支持订阅</li>
-<li>albert：快捷搜索打开软件</li>
-<li>stardict：可以离线翻译，可以导入字典。</li>
-<li>Typora：Markdown编辑器</li>
-<li>Maltego：信息收集神器</li>
-<li>Xmind：脑图</li>
-</ul>
-<h3 id="系统工具"><a href="#系统工具" class="headerlink" title="系统工具"></a>系统工具</h3><ul>
-<li>清理工具，BleachBit：功能强大</li>
-<li>杀毒软件，ClamAV：开源免费还可以查杀Windows系统的威胁；ClamTK：ClamAV的GUI版本，可以安装插件添加右键扫描文件夹。</li>
-<li>输入法，搜狗输入法：符合国人输入习惯，支持云联想。</li>
-<li>Wireshark-QT版：流量数据分析</li>
-<li>WPS：办公软件</li>
-<li>deepin-screenshot：很像QQ的截图功能，可以选定窗口截图，同时还可以编辑。</li>
-<li>Nmap：神器</li>
-<li>Timeshift：系统备份还原工具</li>
-<li>Shadowsocks-Qt5：代理</li>
-</ul>
-<h3 id="视频影音"><a href="#视频影音" class="headerlink" title="视频影音"></a>视频影音</h3><ul>
-<li>录屏推流软件，OBS：免费开源插件多</li>
-<li>音乐播放器，网易云音乐：比较好看，但本地的我一般使用Cmus</li>
-<li>VLC：免费开源插件多，可以拉流。</li>
-</ul>
-<h3 id="娱乐"><a href="#娱乐" class="headerlink" title="娱乐"></a>娱乐</h3><ul>
-<li><p>PlayOnLinux：可以安装很多Windows上的游戏</p>
-</li>
-<li><p>Steam：一个游戏平台</p>
-</li>
-</ul>
-<h3 id="聊天软件"><a href="#聊天软件" class="headerlink" title="聊天软件"></a>聊天软件</h3><ul>
-<li>qTox：P2P加密聊天软件，功能强大</li>
-<li>TIM：腾讯的</li>
-<li>WeChat：腾讯的</li>
-<li>electronic-wechat：网页版微信</li>
-</ul>
-<h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><ul>
-<li>Transmission：解析种子的</li>
-<li>uGet：还行</li>
-<li>百度云盘：有时候会用到</li>
-<li>rslsycn：P2P大文件同步工具</li>
-</ul>
-<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><ul>
-<li>Idea全套</li>
-<li>anaconda：管理Python库和环境的</li>
-<li>sublime-Text3：轻量级编辑器</li>
-<li>vscode：这个编辑器牛逼，开源的力量。</li>
-<li>OpenCV：开源计算机视觉库</li>
-<li>Tensorflow：神经网络模型和深度学习框架</li>
-<li>dbeaver：强大的数据库管理套件</li>
-</ul>
-<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><ul>
-<li>docker：搭建环境很方便</li>
-<li>VMware Workstations：商业虚拟机，没Vbox这么多BUG</li>
-<li>Vbox：有时候用到</li>
-</ul>
-<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3><ul>
-<li>Chrome</li>
-<li>Firefox</li>
-<li>Tor-Browser</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 ~/.ssh/config</span><br><span class="line">chown <span class="variable">$USER</span> ~/.ssh/config</span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h2 id="HashCat"><a href="#HashCat" class="headerlink" title="HashCat"></a>HashCat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clGetPlatformIDs(): CL_PLATFORM_NOT_FOUND_KHR</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenCL的库</li>
 </ul>
 
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            
+            <a class="cat-link" href="/categories/Arch/">Arch</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Linux/" title="Linux">Linux</a>
+        <a href="/tags/Arch/" title="Arch">Arch</a>
     
 
         </span>
@@ -208,9 +150,9 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="/2018/10/10/Write-up-Bob-v1-0-1/">
+        <a href="/2019/02/27/WinRAR代码执行复现与利用/">
             
-                Write-up-Bob_v1.0.1
+                WinRAR代码执行复现与利用
             
         </a>
     </span>
@@ -219,9 +161,9 @@
     
     <span class="next fr">
         下一篇<br>
-        <a href="/2018/08/06/Write-up-Violator/">
+        <a href="/2019/02/16/XSS收集/">
             
-                Write-up-Violator
+                XSS收集
             
         </a>
     </span>
@@ -298,7 +240,7 @@
   <script>
   JELON.Comment({
     container: 'comments',
-    label: '我的Linux软件目录' || '2018/09/13/我的Linux软件目录/',
+    label: 'Arch各种问题解决方法' || '2019/02/26/Arch各种问题解决方法/',
     owner: 'cn-kali-team',
     repo: 'cn-kali-team.github.io',
     clientId: '0683bca9d762208912a9',
