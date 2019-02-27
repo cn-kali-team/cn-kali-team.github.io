@@ -114,35 +114,29 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-        <a class="cat-link" href="/categories/漏洞复现/">漏洞复现</a>
+            <a href="javascript: void(0);" class="cat">未分类</a>
         
         <!-- 文章标题 -->
         
-    <h3 class="post-title">
-    	<a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/">
-    		WinRAR代码执行复现与利用
-    	</a>
-    </h3>
-
     </header>
     <p class="post-meta">
         Kali-Team 发表于
-        <time datetime="2019-02-27T23:42:44.853Z">2019-02-28</time>
+        <time datetime="2019-02-27T23:51:54.297Z">2019-02-28</time>
         &nbsp;&nbsp;
         <span class="post-tags">
             标签：
             
-    
-        <a href="/tags/漏洞复现/" title="漏洞复现">漏洞复现</a>
-    
-
         </span>
     </p>
 
     <div class="post-content">
         <div class="post-excerpt">
             
-                <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><table>
+                <p>title: WinRAR代码执行复现与利用<br>categories:</p>
+<ul>
+<li>漏洞复现<br>author:<br>tags: 漏洞复现<br>thumbnail:<br>blogexcerpt:</li>
+</ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -196,7 +190,7 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ sudo responder -I vboxnet0 -wrfv --lm</span><br></pre></td></tr></table></figure>
-<p><img src="/home/kali-team/.config/Typora/typora-user-images/1551196844959.png" alt="1551196844959"></p>
+<p><img src="/home/kali-team/DESKTOP/WinRAR代码执行复现与利用.assets/1551196844959.png" alt="1551196844959"></p>
 <ul>
 <li>在这可看到IP地址为192.168.56.106的主机通过SMB共享访问了我的Arch，并获取到了用户名和Net NTLM Hash。</li>
 <li>获取到Net NTLM Hash之后可以使用HashCat来暴力破解，在现在计算机性能这么强大的时代，就我的Intel 的破CPU都能跑1277.4 kH/s，不过之前要安装OpenCL的库，如果是用显卡跑就更快了。</li>
@@ -207,7 +201,7 @@
 <li>查看加密算法模块对应的编号，上面看到的是<code>NTLMv2</code>，所以我们使用5600</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ hashcat --<span class="built_in">help</span>|grep NTLM</span><br><span class="line">   5500 | NetNTLMv1                                        | Network Protocols</span><br><span class="line">   5500 | NetNTLMv1+ESS                                    | Network Protocols</span><br><span class="line">   5600 | NetNTLMv2                                        | Network Protocols</span><br><span class="line">   1000 | NTLM                                             | Operating Systems</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
-<p><img src="/home/kali-team/.config/Typora/typora-user-images/1551197797107.png" alt="1551197797107"></p>
+<p><img src="/home/kali-team/DESKTOP/WinRAR代码执行复现与利用.assets/1551197797107.png" alt="1551197797107"></p>
 <ul>
 <li>截图上面我标记出来的就是密码了，只要你的字典够强大，我的字典只有一万行，一秒都不用就跑完了。</li>
 <li>拿到密码就可以登录上去或者执行各种命令都是可以的。</li>
@@ -224,18 +218,15 @@
 <li>再打开一个终端，执行<code>➜  ~ sudo responder -I vboxnet0 -wrfv --lm</code></li>
 <li>现在只要域控访问了Arch监听的SMB服务，就可以获取域控的Net NTLM Hash，这样就可以登录域内的主机了，基本是指哪打哪。</li>
 </ul>
-<p><img src="/home/kali-team/.config/Typora/typora-user-images/1551199087627.png" alt="1551199087627"></p>
+<p><img src="/home/kali-team/DESKTOP/WinRAR代码执行复现与利用.assets/1551199087627.png" alt="1551199087627"></p>
 <ul>
 <li>截图上市已经拿到了主机：192.168.56.106的权限了，可以继续使用神器读取明文密码。但是这里上传到主机的被火绒拦截了，这也说明真的是可以控制的。</li>
 </ul>
-<p><img src="/home/kali-team/.config/Typora/typora-user-images/1551199449387.png" alt="1551199449387"></p>
+<p><img src="/home/kali-team/DESKTOP/WinRAR代码执行复现与利用.assets/1551199449387.png" alt="1551199449387"></p>
 <ul>
 <li>关掉火绒试试，上传成功并获取到了明文密码。</li>
 </ul>
-<p><img src="/home/kali-team/.config/Typora/typora-user-images/1551199656772.png" alt="1551199656772"></p>
-<ul>
-<li>更多好玩的东西，自己挖掘。。。</li>
-</ul>
+<p><img src="/home/kali-team/DESKTOP/WinRAR代码执行复现与利用.assets/1551199656772.png" alt="1551199656772">更多好玩的东西，自己挖掘。。。</p>
 <h3 id="释放SCF文件"><a href="#释放SCF文件" class="headerlink" title="释放SCF文件"></a>释放SCF文件</h3><ul>
 <li><p>工具：<a href="https://github.com/CoreSecurity/impacket" target="_blank" rel="noopener">impacket</a></p>
 </li>
@@ -281,10 +272,7 @@
 <ul>
 <li>关键是没几个人会点了，一般弄一个常见的快捷键什么都会被杀毒软件拦截。这个方法就算凑个数吧。</li>
 </ul>
-<ul>
-<li><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2></li>
-</ul>
-<p><a href="https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder" target="_blank" rel="noopener">https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder" target="_blank" rel="noopener">https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder</a></p>
 <p><a href="https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/" target="_blank" rel="noopener">https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/</a></p>
 
             
@@ -293,7 +281,7 @@
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/" title="WinRAR代码执行复现与利用">
+            <a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/" title>
                 
                     <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图">
                 
@@ -845,11 +833,6 @@
     </li>
     
     <li>
-        <a href="/categories/漏洞复现/">漏洞复现</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/CTF/">CTF</a>
         <span class="badge">(11)</span>
     </li>
@@ -871,8 +854,6 @@
     <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
   
     <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
-  
-    <a class="tag-item" href="/tags/漏洞复现/" title="漏洞复现">漏洞复现 (1)</a>
   
     <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
   
