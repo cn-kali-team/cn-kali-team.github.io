@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    
+    <!--Simple SEO-->
+
+<meta name="description" content="人不折腾枉少年/">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>Arch各种问题解决方法 | Kali-Team</title>
+
+<link rel="alternate" href="/atom.xml" title="Kali-Team" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/post.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/.css">
+
+    
+    
+    
+</head>
+</html>
+<body id="normal">
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<div id="wrap">
+    <header style="position: absolute;">
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Kali-Team</h1>
+        </a>
+        
+        <h2 class="subtitle">三米前有蕉皮</h2>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+        
+            <li><a href="/archives"><i class="fa fa-archive widget-title"></i>归档</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+<li class="widget notification">
+    <i class="fa fa-bell-o"></i>
+    <div>
+        <br>
+- 人不折腾枉少年<br>
+- ID：三米前有蕉皮<br>
+- Team : Cora Laboratory / Kali-Team<br>
+- Tox：<img src="/img/Kali-Team.png" alt="Smiley face" width="42" height="42"><br>
+    </div>
+</li>
+
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">分类</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Arch/"><i class="fa" aria-hidden="true">Arch</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/"><i class="fa" aria-hidden="true">CTF</i></a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/"><i class="fa" aria-hidden="true">Web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/漏洞复现/"><i class="fa" aria-hidden="true">漏洞复现</i></a><span class="category-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">归档</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/"><i class="fa" aria-hidden="true">二月 2019</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/"><i class="fa" aria-hidden="true">十月 2018</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/"><i class="fa" aria-hidden="true">八月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/"><i class="fa" aria-hidden="true">七月 2018</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/"><i class="fa" aria-hidden="true">六月 2018</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/"><i class="fa" aria-hidden="true">五月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">2</span></li></ul>
+</li>
+
+
+    
+    
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">标签云</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/Arch/" style="font-size: 0.14rem; color: #69c">Arch</a> <a href="/tags/Genymotion/" style="font-size: 0.14rem; color: #69c">Genymotion</a> <a href="/tags/CTF/" style="font-size: 0.2rem; color: #0a407c">CTF</a> <a href="/tags/漏洞复现/" style="font-size: 0.14rem; color: #69c">漏洞复现</a> <a href="/tags/XSS/" style="font-size: 0.14rem; color: #69c">XSS</a> <a href="/tags/web/" style="font-size: 0.14rem; color: #69c">web</a> <a href="/tags/Linux/" style="font-size: 0.14rem; color: #69c">Linux</a> <a href="/tags/nmap/" style="font-size: 0.14rem; color: #69c">nmap</a> <a href="/tags/metasploit/" style="font-size: 0.14rem; color: #69c">metasploit</a>
+  </div>
+</li>
+
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">友链</h3><br>
+
+    
+        <a href="http://gh0st.cn/" class="fa" target="_blank">VulKey</a>
+
+    
+        <a href="https://10miaomiao.cn/" class="fa" target="_blank">飞跃</a>
+
+    
+        <a href="http://www.zmnihao.cn" class="fa" target="_blank">梓铭</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="Arch各种问题解决方法">
+                
+                Arch各种问题解决方法
+                
+            </h1>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>Arch</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            Arch
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2019/02/16</span>
+    </span>
+    
+    
+    
+</div>
+
+            
+            
+        </div>
+        
+        <div id="post-body">
+            <h2 id="安装Anaconda后Vim插件YouCompleteMe报错"><a href="#安装Anaconda后Vim插件YouCompleteMe报错" class="headerlink" title="安装Anaconda后Vim插件YouCompleteMe报错"></a>安装Anaconda后Vim插件YouCompleteMe报错</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YouCompleteMe unavailable: /opt/anaconda/lib/python3<span class="number">.7</span>/lib-dynload/_posixsubprocess.cpython<span class="number">-37</span>m-x86_64-linux-gnu.so: undefined symbol: _Py_write_noraise</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法，在.zshrc添加</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排除anaconda环境再打开VIM</span></span><br><span class="line"><span class="comment"># alias vim='PATH=`echo $PATH | sed "s/\/opt\/anaconda\/bin://"` vim'</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="Wireshark免Root"><a href="#Wireshark免Root" class="headerlink" title="Wireshark免Root"></a>Wireshark免Root</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd wireshark</span><br><span class="line">sudo usermod -a -G wireshark kali-team</span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap</span><br><span class="line">sudo chmod 750 /usr/bin/dumpcap</span><br><span class="line">sudo <span class="built_in">setcap</span> cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap</span><br></pre></td></tr></table></figure>
+<h2 id="ssh密钥权限问题"><a href="#ssh密钥权限问题" class="headerlink" title="ssh密钥权限问题"></a>ssh密钥权限问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Bad owner or permissions on /home/kali-team/.ssh/config</span><br><span class="line"></span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0664 <span class="keyword">for</span> <span class="string">'/home/kali-team/.ssh/id_rsa'</span> are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key <span class="string">"/home/kali-team/.ssh/id_rsa"</span>: bad permissions</span><br><span class="line">root@localhost: Permission denied (publickey).</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 ~/.ssh/config</span><br><span class="line">chown <span class="variable">$USER</span> ~/.ssh/config</span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h2 id="HashCat"><a href="#HashCat" class="headerlink" title="HashCat"></a>HashCat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clGetPlatformIDs(): CL_PLATFORM_NOT_FOUND_KHR</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenCL的库</li>
+</ul>
+<h2 id="ClamTK"><a href="#ClamTK" class="headerlink" title="ClamTK"></a>ClamTK</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ clamtk </span><br><span class="line">*** unhandled exception <span class="keyword">in</span> callback:</span><br><span class="line">***   Wide character at /usr/lib/perl5/5.28/core_perl/Encode.pm line 228.</span><br><span class="line">***  ignoring at /usr/share/perl5/vendor_perl/ClamTk/GUI.pm line 145.</span><br><span class="line">*** unhandled exception <span class="keyword">in</span> callback:</span><br><span class="line">***   Wide character at /usr/lib/perl5/5.28/core_perl/Encode.pm line 228.</span><br><span class="line">***  ignoring at /usr/share/perl5/vendor_perl/ClamTk/GUI.pm line 145.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>改desktop文件，和gnome的插件</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Comment[zh_CN]</span>=扫描威胁...</span><br><span class="line"><span class="attr">Comment[zh_TW]</span>=掃描威脅...</span><br><span class="line"><span class="attr">TryExec</span>=clamtk</span><br><span class="line"><span class="attr">Exec</span>=env LC_ALL=en_US clamtk %F</span><br><span class="line"><span class="attr">Icon</span>=clamtk</span><br><span class="line"><span class="attr">Type</span>=Application</span><br><span class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></span><br><span class="line"><span class="attr">Categories</span>=GTK;GNOME;Utility;</span><br><span class="line"><span class="attr">StartupNotify</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">Keywords</span>=antivirus;virus;malware;scan;scanner;</span><br><span class="line"></span><br><span class="line"><span class="attr">TryExec</span>=clamtk</span><br><span class="line"><span class="attr">Exec</span>=env LANG=en_US clamtk %F</span><br><span class="line">os.system('env LC_TIME=C clamtk %s &amp;' % filename)</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar">
+                <img src="https://avatars3.githubusercontent.com/oa/914415?s=140&u=76e1c6077ea8736045d77e2a059a37e7648f4130&v=4" alt="avatar">
+                
+                
+                <a href="javascript:void(0)" class="donate fa">赠我一杯咖啡</a>
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>
+                  
+                  作者:
+                  
+                    
+                    <a href="/about">Kali-Team</a>
+                </li>
+                
+                <li>发表日期: <span>2019-02-16  12:13:41</span></li>
+                
+                <li>最后编辑日期: <span>2019-03-16  10:12:44</span></li>
+                
+                <li class="post-category">
+                    文章分类:
+                    
+                    <a href="/categories/Arch/">Arch</a>
+                    
+                </li>
+                <li class="post-tags">
+                    文章标签:
+                    
+                    <a href="/tags/Arch/">Arch</a>
+                    
+                </li>
+                
+                <li> 版权声明: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+知识共享署名-非商业性使用-禁止演绎 4.0 未本地化版本许可协议（CC BY-NC-ND 4.0）
+</a></li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="https://kali-team.cn/img/wechat.jpg" alt="微信付款" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        <a href="/2019/02/16/XSS收集/" class="pre-post fa fa-caret-left">XSS收集</a>
+        
+        
+        <a href="/2019/02/14/Genymotion设置代理至BurpSuite和Charles/" class="next-post fa">Genymotion设置代理至BurpSuite和Charles</a>
+        
+    </div>
+    
+    <div id="comments">
+        
+
+
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+    <footer id="footer">
+    
+    <div class="social">
+        
+        <a href="https://github.com/cn-kali-team" class="fa fa-github" target="_blank" title="GitHub"></a>
+        
+        <a href="mailto:root@kali-team.cn" class="fa fa-envelope-square" target="_blank" title="Email"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">Kali-Team</a>&copy;2017 - 2019.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
+    
+</footer>
+
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    <li class="exchange-btn fa fa-exchange"></li>
+  
+    <li class="toc-btn fa fa-list-ul"></li>
+    
+    
+
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text" placeholder="search this website...">
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Anaconda后Vim插件YouCompleteMe报错"><span class="toc-number">1.</span> <span class="toc-text">安装Anaconda后Vim插件YouCompleteMe报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wireshark免Root"><span class="toc-number">2.</span> <span class="toc-text">Wireshark免Root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh密钥权限问题"><span class="toc-number">3.</span> <span class="toc-text">ssh密钥权限问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashCat"><span class="toc-number">4.</span> <span class="toc-text">HashCat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ClamTK"><span class="toc-number">5.</span> <span class="toc-text">ClamTK</span></a></li></ol>
+
+
+
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = '商业转载请联系作者获得授权,非商业转载请注明出处 © example';
+    var leancloudObj = {};
+    leancloudObj.enable = 'false';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>
