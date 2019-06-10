@@ -458,22 +458,22 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -502,9 +502,9 @@
     
     
     <entry>
-      <title>Search</title>
-      <link href="/search/index.html"/>
-      <url>/search/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -513,9 +513,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>Search</title>
+      <link href="/search/index.html"/>
+      <url>/search/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
