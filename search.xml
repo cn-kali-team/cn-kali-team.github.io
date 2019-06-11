@@ -462,18 +462,7 @@
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>留言</title>
-      <link href="/comment/index.html"/>
-      <url>/comment/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul><hr><h2 id="为什么会出现广告"><a href="#为什么会出现广告" class="headerlink" title="为什么会出现广告"></a>为什么会出现广告</h2><ul><li>说出来你们可能不信，因为我快没钱续费域名了[捂脸]</li><li>所以在博客加入了Google的AdSense</li></ul>]]></content>
       
     </entry>
     
@@ -491,9 +480,9 @@
     
     
     <entry>
-      <title>Search</title>
-      <link href="/search/index.html"/>
-      <url>/search/index.html</url>
+      <title>留言</title>
+      <link href="/comment/index.html"/>
+      <url>/comment/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -505,6 +494,17 @@
       <title>实验室</title>
       <link href="/lab/index.html"/>
       <url>/lab/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Search</title>
+      <link href="/search/index.html"/>
+      <url>/search/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
