@@ -469,9 +469,9 @@
     
     
     <entry>
-      <title>实验室</title>
-      <link href="/lab/index.html"/>
-      <url>/lab/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -480,9 +480,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>实验室</title>
+      <link href="/lab/index.html"/>
+      <url>/lab/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
