@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Kali-Team">
 <meta property="og:description" content="关于 下载地址 目标：找到3个Key 全文无图！因为正在录像。  信息收集 用的是Host-only，所以网卡是vmnet1，IP一直是192.168.7.1/24 nmap -T4 192.168.7.1/24 -A">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-14T00:39:50.000Z">
+<meta property="og:updated_time" content="2019-06-19T14:57:12.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Write-up]Mr-Robot">
 <meta name="twitter:description" content="关于 下载地址 目标：找到3个Key 全文无图！因为正在录像。  信息收集 用的是Host-only，所以网卡是vmnet1，IP一直是192.168.7.1/24 nmap -T4 192.168.7.1/24 -A">
@@ -219,7 +219,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ls</span><br><span class="line">Listing: /home/robot</span><br><span class="line">====================</span><br><span class="line"></span><br><span class="line">Mode              Size  Type  Last modified              Name</span><br><span class="line">----              ----  ----  -------------              ----</span><br><span class="line">100400/r--------  33    fil   2015-11-13 15:28:21 +0800  key-2-of-3.txt</span><br><span class="line">100644/rw-r--r--  39    fil   2015-11-13 15:28:21 +0800  password.raw-md5</span><br><span class="line"></span><br><span class="line">meterpreter &gt; cat password.raw-md5</span><br><span class="line">robot:c3fcd3d76192e4007dfb496cca67e13b</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>把MD5破解出来，应该就是robot的密码了。</li>
+<li>把MD5碰撞出来，应该就是robot的密码了。</li>
 <li>但是su在反弹回来的shell中执行不了。<code>su: must be run from a terminal</code></li>
 <li>转py可以进入交互模式<code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code></li>
 </ol>
