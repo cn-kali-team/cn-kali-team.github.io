@@ -485,17 +485,6 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://app.netlify.com/sites/kali-team/deploys" target="_blank" rel="noopener"><img src="https://api.netlify.com/api/v1/badges/23862cd4-dbf7-4795-bf48-7e26cf3eb2bf/deploy-status" alt="Netlify Status"></a></p><h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul><hr><ul><li>说出来你们可能不信，因为我快没钱续费域名了[捂脸]</li><li>以后会多更新一些文章。</li></ul>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -507,22 +496,11 @@
     
     
     <entry>
-      <title>实验室</title>
-      <link href="/lab/index.html"/>
-      <url>/lab/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><a href="https://app.netlify.com/sites/kali-team/deploys" target="_blank" rel="noopener"><img src="https://api.netlify.com/api/v1/badges/23862cd4-dbf7-4795-bf48-7e26cf3eb2bf/deploy-status" alt="Netlify Status"></a></p><h2 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h2><ul><li>ID：三米前有蕉皮</li><li>Email：<a href="mailto:root@kali-team.cn">root@kali-team.cn</a></li><li>WeChat：Kali-Team</li></ul><hr><ul><li>说出来你们可能不信，因为我快没钱续费域名了[捂脸]</li><li>以后会多更新一些文章。</li></ul>]]></content>
       
     </entry>
     
@@ -543,6 +521,28 @@
       <title>留言</title>
       <link href="/comment/index.html"/>
       <url>/comment/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>实验室</title>
+      <link href="/lab/index.html"/>
+      <url>/lab/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
