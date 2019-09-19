@@ -18,7 +18,7 @@
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Write-up]BSides-Vancouver">
-<meta property="og:url" content="https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/index.html">
+<meta property="og:url" content="https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/index.html">
 <meta property="og:site_name" content="Kali-Team">
 <meta property="og:description" content="关于 下载链接 目标：拿到root用户目录下的flag.txt 全程无图！  信息收集 因为虚拟机网络是设置Host-only，所以是vmnet1这张网卡，IP段为192.168.7.1/24 nmap -T4 192.168.7.1/24 -A">
 <meta property="og:locale" content="zh-CN">
@@ -99,16 +99,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&text=[Write-up]BSides-Vancouver"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&is_video=false&description=[Write-up]BSides-Vancouver"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[Write-up]BSides-Vancouver&body=Check out this article: https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&name=[Write-up]BSides-Vancouver&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ol&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&text=[Write-up]BSides-Vancouver"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&is_video=false&description=[Write-up]BSides-Vancouver"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]BSides-Vancouver&body=Check out this article: https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&name=[Write-up]BSides-Vancouver&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://download.vulnhub.com/bsidesvancouver2018/BSides-Vancouver-2018-Workshop.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载链接&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;目标：拿到root用户目录下的flag.txt&lt;/li&gt;
 &lt;li&gt;全程无图！&lt;/li&gt;
@@ -253,16 +253,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&text=[Write-up]BSides-Vancouver"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&is_video=false&description=[Write-up]BSides-Vancouver"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[Write-up]BSides-Vancouver&body=Check out this article: https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&name=[Write-up]BSides-Vancouver&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ol&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&text=[Write-up]BSides-Vancouver"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&is_video=false&description=[Write-up]BSides-Vancouver"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]BSides-Vancouver&body=Check out this article: https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&title=[Write-up]BSides-Vancouver"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.kali-team.cn/2018/06/10/Write-up-BSides-Vancouver/&name=[Write-up]BSides-Vancouver&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://download.vulnhub.com/bsidesvancouver2018/BSides-Vancouver-2018-Workshop.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载链接&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;目标：拿到root用户目录下的flag.txt&lt;/li&gt;
 &lt;li&gt;全程无图！&lt;/li&gt;

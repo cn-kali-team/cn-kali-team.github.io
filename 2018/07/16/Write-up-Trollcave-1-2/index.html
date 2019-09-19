@@ -18,7 +18,7 @@
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Write-up]-Trollcave: 1.2">
-<meta property="og:url" content="https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/index.html">
+<meta property="og:url" content="https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/index.html">
 <meta property="og:site_name" content="Kali-Team">
 <meta property="og:description" content="关于 下载地址：点我 Flag：root/flag.txt 哔哩哔哩：视频  信息收集 不知道VM虚拟机怎么啦，导入镜像后，用Nmap扫了，发现不了主机。所以这次用了VBox。 vboxnet0的IP为192.168.56.130，Nmap扫192.168.56.1/24，发现虚拟机IP为192.168.56.102">
 <meta property="og:locale" content="zh-CN">
@@ -99,16 +99,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&text=[Write-up]-Trollcave: 1.2"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&is_video=false&description=[Write-up]-Trollcave: 1.2"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[Write-up]-Trollcave: 1.2&body=Check out this article: https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&name=[Write-up]-Trollcave: 1.2&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&text=[Write-up]-Trollcave: 1.2"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&is_video=false&description=[Write-up]-Trollcave: 1.2"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]-Trollcave: 1.2&body=Check out this article: https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&name=[Write-up]-Trollcave: 1.2&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;下载地址：&lt;a href=&#34;https://download.vulnhub.com/trollcave/trollcave-v1-2.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;点我&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Flag：root/flag.txt&lt;/li&gt;
 &lt;li&gt;哔哩哔哩：&lt;a href=&#34;https://www.bilibili.com/video/av27178199/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;视频&lt;/a&gt;&lt;/li&gt;
@@ -236,16 +236,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&text=[Write-up]-Trollcave: 1.2"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&is_video=false&description=[Write-up]-Trollcave: 1.2"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[Write-up]-Trollcave: 1.2&body=Check out this article: https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&name=[Write-up]-Trollcave: 1.2&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&text=[Write-up]-Trollcave: 1.2"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&is_video=false&description=[Write-up]-Trollcave: 1.2"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[Write-up]-Trollcave: 1.2&body=Check out this article: https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&title=[Write-up]-Trollcave: 1.2"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.kali-team.cn/2018/07/16/Write-up-Trollcave-1-2/&name=[Write-up]-Trollcave: 1.2&description=&lt;h3 id=&#34;关于&#34;&gt;&lt;a href=&#34;#关于&#34; class=&#34;headerlink&#34; title=&#34;关于&#34;&gt;&lt;/a&gt;关于&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;下载地址：&lt;a href=&#34;https://download.vulnhub.com/trollcave/trollcave-v1-2.ova&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;点我&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Flag：root/flag.txt&lt;/li&gt;
 &lt;li&gt;哔哩哔哩：&lt;a href=&#34;https://www.bilibili.com/video/av27178199/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;视频&lt;/a&gt;&lt;/li&gt;
