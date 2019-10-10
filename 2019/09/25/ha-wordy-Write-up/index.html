@@ -14,18 +14,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="信息收集 下载地址：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up (0.0025s la">
+    <meta name="description" content="信息收集 下载地址：点我 bilibili：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ha-wordy-Write-up">
 <meta property="og:url" content="https://blog.kali-team.cn/2019/09/25/ha-wordy-Write-up/index.html">
 <meta property="og:site_name" content="Kali-Team">
-<meta property="og:description" content="信息收集 下载地址：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up (0.0025s la">
+<meta property="og:description" content="信息收集 下载地址：点我 bilibili：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T11:47:09.444Z">
+<meta property="og:updated_time" content="2019-10-10T10:23:23.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ha-wordy-Write-up">
-<meta name="twitter:description" content="信息收集 下载地址：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up (0.0025s la">
+<meta name="twitter:description" content="信息收集 下载地址：点我 bilibili：点我  1234567891011121314151617181920➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CSTNmap scan report for 192.168.116.1Host is up">
     
     
         
@@ -164,6 +164,7 @@
   <div class="content" itemprop="articleBody">
     <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><ul>
 <li>下载地址：<a href="https://www.vulnhub.com/entry/ha-wordy,363/" target="_blank" rel="noopener">点我</a></li>
+<li>bilibili：<a href="https://www.bilibili.com/video/av69070562" target="_blank" rel="noopener">点我</a></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nmap -sn 192.168.116.1/24      </span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:08 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.116.1</span><br><span class="line">Host is up (0.0025s latency).</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.116.138</span><br><span class="line">Host is up (0.00072s latency).</span><br><span class="line">Nmap <span class="keyword">done</span>: 256 IP addresses (2 hosts up) scanned <span class="keyword">in</span> 4.94 seconds</span><br><span class="line">➜  ~ nmap -A -T4 192.168.116.138 -p-</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2019-09-25 22:09 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> 192.168.116.138</span><br><span class="line">Host is up (0.0039s latency).</span><br><span class="line">Not shown: 65534 closed ports</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))</span><br><span class="line">|_http-server-header: Apache/2.4.29 (Ubuntu)</span><br><span class="line">|_http-title: Apache2 Ubuntu Default Page: It works</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap <span class="keyword">done</span>: 1 IP address (1 host up) scanned <span class="keyword">in</span> 8.22 seconds</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
 <ul>

